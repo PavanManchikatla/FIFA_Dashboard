@@ -101,13 +101,15 @@ export function HoloMap() {
 
   return (
     <div className="flex h-screen flex-col">
-      <header className="z-10 flex flex-wrap items-center gap-[18px] border-b border-line px-6 py-[14px]">
-        <h1 className="font-display text-[clamp(15px,2.2vw,21px)] font-bold uppercase tracking-[0.14em] text-cyan [text-shadow:0_0_12px_rgba(64,229,209,0.55)]">
+      <header className="relative z-10 flex flex-wrap items-center gap-[18px] px-6 py-[14px] after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-holo-accent after:opacity-50 after:content-['']">
+        <h1 className="holo-text-gradient font-display text-[clamp(15px,2.2vw,21px)] font-bold uppercase tracking-[0.14em] [filter:drop-shadow(0_0_14px_rgba(84,169,255,0.45))]">
           Holo-pitch hybrid{' '}
-          <span className="text-amber [text-shadow:0_0_12px_rgba(255,177,59,0.55)]">{'// WC26'}</span>
+          <span className="text-gold [-webkit-text-fill-color:#FFC94D] [text-shadow:0_0_12px_rgba(255,201,77,0.55)]">
+            {'// WC26'}
+          </span>
         </h1>
         <div className="ml-auto flex items-center gap-[14px] font-mono text-[14px] text-cyan">
-          <span className="rounded-[3px] border border-line px-[10px] py-1 text-[11px] uppercase tracking-[0.18em] text-ink-dim">
+          <span className="holo-panel px-[12px] py-[5px] text-[11px] uppercase tracking-[0.18em] text-ink-dim">
             {stale ? 'stale cache' : snapshot ? 'live feed' : 'connecting…'}
           </span>
         </div>
@@ -182,7 +184,7 @@ export function HoloMap() {
               const i = Number(e.target.value);
               if (i >= 0) flyTo(STADIUMS[i]);
             }}
-            className="cursor-pointer rounded-[3px] border border-line bg-panel px-[14px] py-2 text-[14px] font-semibold uppercase tracking-[0.08em] text-cyan"
+            className="holo-btn cursor-pointer px-[14px] py-2 text-[14px] font-semibold uppercase tracking-[0.08em]"
           >
             <option value={-1}>Target venue…</option>
             {STADIUMS.map((s, i) => (
@@ -194,21 +196,21 @@ export function HoloMap() {
           <button
             type="button"
             onClick={overview}
-            className="cursor-pointer rounded-[3px] border border-line bg-panel px-[14px] py-2 text-[14px] font-semibold uppercase tracking-[0.08em] text-cyan hover:border-cyan"
+            className="holo-btn cursor-pointer px-[14px] py-2 text-[14px] font-semibold uppercase tracking-[0.08em]"
           >
             Overview
           </button>
           <button
             type="button"
             onClick={simulateFeedLoss}
-            className="cursor-pointer rounded-[3px] border border-line bg-panel px-[14px] py-2 text-[14px] font-semibold uppercase tracking-[0.08em] text-cyan hover:border-cyan"
+            className="holo-btn cursor-pointer px-[14px] py-2 text-[14px] font-semibold uppercase tracking-[0.08em]"
           >
             ⚡ Simulate feed loss
           </button>
         </div>
 
         {/* Tile feed HUD */}
-        <div className="absolute right-[14px] top-[14px] z-[5] rounded-[3px] border border-line bg-panel px-[14px] py-2 font-mono text-[12px] tracking-[0.08em] text-ink-dim">
+        <div className="holo-panel absolute right-[14px] top-[14px] z-[5] px-[14px] py-2 font-mono text-[12px] tracking-[0.08em] text-ink-dim">
           TILE FEED: <b className="font-normal text-cyan">{active.name}</b> ({active.quota}){' '}
           <span className={feedDown ? 'text-[#FF6B5C]' : 'text-mint'}>●</span>
           <br />

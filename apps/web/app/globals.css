@@ -9,9 +9,15 @@
   --panel: rgba(6, 20, 27, 0.9);
   --line: rgba(64, 229, 209, 0.25);
   --cyan: #40e5d1;
+  --azure: #54a9ff;
+  --violet: #8b6cff;
+  --magenta: #ff5ca8;
   --amber: #ffb13b;
+  --gold: #ffc94d;
   --ink: #d8fff8;
   --ink-dim: #5e8b86;
+  /* FIFA26-inspired holographic accent sweep, reused for borders/titles/glows. */
+  --holo-accent: linear-gradient(135deg, #40e5d1 0%, #54a9ff 45%, #8b6cff 78%, #ff5ca8 100%);
 }
 
 html,
@@ -20,10 +26,75 @@ body {
 }
 
 body {
-  background: var(--bg);
+  /* Layered aurora glow over the deep base — gives panels something to float on. */
+  background:
+    radial-gradient(1200px 820px at 78% -12%, rgba(84, 169, 255, 0.12), transparent 60%),
+    radial-gradient(1000px 720px at -8% 112%, rgba(139, 108, 255, 0.13), transparent 55%),
+    radial-gradient(900px 700px at 110% 80%, rgba(255, 92, 168, 0.08), transparent 55%),
+    var(--bg);
   color: var(--ink);
   font-family: 'Rajdhani', system-ui, sans-serif;
   overflow: hidden;
+}
+
+/* ----- Glass panels with a gradient hairline border (premium holo look) ----- */
+/* In @layer components so Tailwind positioning/padding utilities still override
+   (e.g. `absolute` on the feed HUD must beat this default `position: relative`). */
+@layer components {
+.holo-panel {
+  position: relative;
+  background: linear-gradient(160deg, rgba(10, 30, 40, 0.78), rgba(5, 14, 22, 0.66));
+  backdrop-filter: blur(12px) saturate(125%);
+  -webkit-backdrop-filter: blur(12px) saturate(125%);
+  border-radius: 10px;
+  box-shadow:
+    0 10px 34px rgba(2, 8, 12, 0.55),
+    inset 0 1px 0 rgba(190, 255, 250, 0.07);
+}
+.holo-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--holo-accent);
+  opacity: 0.7;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Glassy HUD control (buttons + select). */
+.holo-btn {
+  background: linear-gradient(160deg, rgba(10, 30, 40, 0.7), rgba(5, 14, 22, 0.58));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--cyan);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.12s ease;
+}
+.holo-btn:hover {
+  border-color: rgba(84, 169, 255, 0.6);
+  box-shadow: 0 0 18px rgba(84, 169, 255, 0.22);
+  transform: translateY(-1px);
+}
+.holo-btn:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+}
+
+/* Gradient text for titles. */
+.holo-text-gradient {
+  background: var(--holo-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 }
 
 /* CRT scanline + vignette overlay, ported from the prototype #fx layer. */
@@ -41,21 +112,31 @@ body {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: var(--cyan);
+  /* Bright core fading into azure — reads as a holographic light pillar. */
+  background: radial-gradient(circle at 35% 30%, #eafffb 0%, var(--cyan) 45%, var(--azure) 100%);
   cursor: pointer;
   position: relative;
-  box-shadow: 0 0 10px rgba(64, 229, 209, 0.9), 0 0 22px rgba(64, 229, 209, 0.5);
+  box-shadow:
+    0 0 10px rgba(64, 229, 209, 0.9),
+    0 0 24px rgba(84, 169, 255, 0.5);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.beacon:hover {
+  transform: scale(1.25);
+  box-shadow: 0 0 14px rgba(64, 229, 209, 1), 0 0 30px rgba(84, 169, 255, 0.7);
 }
 .beacon.live {
-  background: var(--amber);
-  box-shadow: 0 0 10px rgba(255, 177, 59, 0.95), 0 0 26px rgba(255, 177, 59, 0.55);
+  background: radial-gradient(circle at 35% 30%, #fff3d6 0%, var(--gold) 45%, var(--amber) 100%);
+  box-shadow:
+    0 0 12px rgba(255, 201, 77, 0.95),
+    0 0 28px rgba(255, 177, 59, 0.6);
 }
 .beacon.live::after {
   content: '';
   position: absolute;
   inset: -9px;
   border-radius: 50%;
-  border: 2px solid var(--amber);
+  border: 2px solid var(--gold);
   animation: pulse 1.7s ease-out infinite;
 }
 @keyframes pulse {
@@ -92,18 +173,21 @@ body {
   }
 }
 
-/* MapLibre popup theming to match the holo panel. */
+/* MapLibre popup theming to match the holo glass panels. */
 .maplibregl-popup-content {
-  background: var(--panel) !important;
+  background: linear-gradient(160deg, rgba(10, 30, 40, 0.92), rgba(5, 14, 22, 0.86)) !important;
+  backdrop-filter: blur(12px) saturate(125%);
+  -webkit-backdrop-filter: blur(12px) saturate(125%);
   color: var(--ink);
-  border: 1px solid var(--cyan);
-  border-radius: 3px;
+  border: 1px solid rgba(84, 169, 255, 0.45);
+  border-radius: 8px;
+  box-shadow: 0 8px 26px rgba(2, 8, 12, 0.55);
   font-family: 'Rajdhani', sans-serif;
   font-size: 14px;
   line-height: 1.5;
   padding: 10px 13px;
 }
 .maplibregl-popup-tip {
-  border-top-color: var(--panel) !important;
-  border-bottom-color: var(--panel) !important;
+  border-top-color: rgba(10, 30, 40, 0.92) !important;
+  border-bottom-color: rgba(10, 30, 40, 0.92) !important;
 }

@@ -10,10 +10,13 @@ export default function Home() {
         <p className="font-mono text-[12px] uppercase tracking-[0.3em] text-ink-dim">
           June 11 – July 19, 2026 · $0 infrastructure
         </p>
-        <h1 className="mt-4 font-display text-[clamp(28px,6vw,56px)] font-bold uppercase leading-tight tracking-[0.12em] text-cyan [text-shadow:0_0_24px_rgba(64,229,209,0.5)]">
+        <h1 className="holo-text-gradient mt-4 font-display text-[clamp(28px,6vw,56px)] font-bold uppercase leading-tight tracking-[0.12em] [filter:drop-shadow(0_0_24px_rgba(84,169,255,0.45))]">
           Continental
           <br />
-          Chaos Board <span className="text-amber [text-shadow:0_0_24px_rgba(255,177,59,0.5)]">{'// WC26'}</span>
+          Chaos Board{' '}
+          <span className="text-gold [-webkit-text-fill-color:#FFC94D] [text-shadow:0_0_24px_rgba(255,201,77,0.5)]">
+            {'// WC26'}
+          </span>
         </h1>
         <p className="mx-auto mt-5 max-w-lg text-[16px] leading-relaxed text-ink-dim">
           A live, funny, interactive dashboard for the 2026 FIFA World Cup with a real ML
@@ -22,7 +25,7 @@ export default function Home() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/map"
-            className="rounded-[3px] border border-cyan bg-panel px-6 py-3 font-display text-sm font-medium uppercase tracking-[0.12em] text-cyan transition-colors hover:bg-cyan/10"
+            className="holo-btn px-6 py-3 font-display text-sm font-medium uppercase tracking-[0.12em]"
           >
             Enter the holo map →
           </Link>

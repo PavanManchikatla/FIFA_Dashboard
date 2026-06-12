@@ -12,7 +12,7 @@ export function Ticker({ matches }: { matches: Match[] }) {
   }, [matches]);
 
   return (
-    <div className="overflow-hidden whitespace-nowrap border-t border-line bg-bg py-[9px] font-mono text-[13px] text-ink-dim">
+    <div className="relative overflow-hidden whitespace-nowrap bg-bg/70 py-[9px] font-mono text-[13px] text-ink-dim backdrop-blur before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-holo-accent before:opacity-50 before:content-['']">
       <span className="ticker-roll">{text}</span>
     </div>
   );

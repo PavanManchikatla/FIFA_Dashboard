@@ -33,7 +33,7 @@ export function VenueCard({
   return (
     <aside
       aria-live="polite"
-      className="absolute bottom-4 left-4 z-[6] w-80 max-w-[calc(100%-2rem)] rounded-[3px] border border-cyan bg-panel px-[18px] py-4 shadow-[0_0_24px_rgba(64,229,209,0.2)]"
+      className="holo-panel absolute bottom-4 left-4 z-[6] w-80 max-w-[calc(100%-2rem)] px-[18px] py-4"
     >
       <button
         type="button"
@@ -44,7 +44,7 @@ export function VenueCard({
         ✕
       </button>
       <div className="font-mono text-[11px] tracking-[0.2em] text-ink-dim">{'// VENUE FEED'}</div>
-      <div className="pr-6 pt-2 font-display text-[16px] font-medium uppercase tracking-[0.08em] text-cyan">
+      <div className="holo-text-gradient pr-6 pt-2 font-display text-[16px] font-medium uppercase tracking-[0.08em]">
         {stadium.name}
       </div>
       <div className="mt-[3px] text-[13px] text-ink-dim">

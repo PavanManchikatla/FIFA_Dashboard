@@ -26,6 +26,10 @@ Work phase by phase; do not start a later phase before the current one's "Done w
 - Visual spec: `prototypes/*.html` — match their look when porting (colors, fonts,
   scanlines, beacon behavior). Fonts: Orbitron / Rajdhani / Share Tech Mono.
   Palette: bg #030B10, cyan #40E5D1, azure #54A9FF, mint #5CFFB1, amber #FFB13B (live).
+  Extended with FIFA-WC26-inspired accents for glass panels/gradients: violet #8B6CFF,
+  magenta #FF5CA8, gold #FFC94D (live beacons). Theme tokens live in `apps/web/tailwind.config.ts`
+  + the `--holo-accent` sweep and `.holo-panel`/`.holo-btn`/`.holo-text-gradient` classes in
+  `apps/web/app/globals.css` (single source of truth).
 
 ## Commands
 
