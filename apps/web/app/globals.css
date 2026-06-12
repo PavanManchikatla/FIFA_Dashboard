@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;500;600&family=Share+Tech+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #030b10;
+  --panel: rgba(6, 20, 27, 0.9);
+  --line: rgba(64, 229, 209, 0.25);
+  --cyan: #40e5d1;
+  --amber: #ffb13b;
+  --ink: #d8fff8;
+  --ink-dim: #5e8b86;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Rajdhani', system-ui, sans-serif;
+  overflow: hidden;
+}
+
+/* CRT scanline + vignette overlay, ported from the prototype #fx layer. */
+.holo-fx {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: repeating-linear-gradient(0deg, rgba(190, 255, 250, 0.022) 0 1px, transparent 1px 3px);
+  box-shadow: inset 0 0 140px 40px rgba(2, 8, 12, 0.8);
+}
+
+/* Stadium beacons (MapLibre markers). */
+.beacon {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--cyan);
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 0 10px rgba(64, 229, 209, 0.9), 0 0 22px rgba(64, 229, 209, 0.5);
+}
+.beacon.live {
+  background: var(--amber);
+  box-shadow: 0 0 10px rgba(255, 177, 59, 0.95), 0 0 26px rgba(255, 177, 59, 0.55);
+}
+.beacon.live::after {
+  content: '';
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+  border: 2px solid var(--amber);
+  animation: pulse 1.7s ease-out infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Ticker marquee. */
+.ticker-roll {
+  display: inline-block;
+  padding-left: 100%;
+  animation: roll 55s linear infinite;
+}
+@keyframes roll {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beacon.live::after {
+    animation: none;
+    opacity: 0.4;
+  }
+  .ticker-roll {
+    animation: none;
+    padding-left: 24px;
+  }
+}
+
+/* MapLibre popup theming to match the holo panel. */
+.maplibregl-popup-content {
+  background: var(--panel) !important;
+  color: var(--ink);
+  border: 1px solid var(--cyan);
+  border-radius: 3px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 10px 13px;
+}
+.maplibregl-popup-tip {
+  border-top-color: var(--panel) !important;
+  border-bottom-color: var(--panel) !important;
+}

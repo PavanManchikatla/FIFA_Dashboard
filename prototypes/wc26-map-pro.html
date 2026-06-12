@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WC26 — Continental Chaos Board (Pro)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A1612; --panel:rgba(13,24,19,.92); --line:rgba(235,245,240,.14);
+    --ink:#EAF4EF; --ink-dim:#8FA89E; --amber:#F2A623;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'Archivo',system-ui,sans-serif;
+    display:flex; flex-direction:column; overflow:hidden;
+  }
+  header{
+    display:flex; align-items:baseline; gap:18px; flex-wrap:wrap;
+    padding:16px 24px 12px; border-bottom:1px solid var(--line); z-index:10;
+  }
+  h1{
+    font-family:'Anton',sans-serif; font-weight:400; letter-spacing:.02em;
+    font-size:clamp(20px,3vw,30px); text-transform:uppercase; line-height:1;
+  }
+  h1 .yr{color:var(--amber)}
+  .sub{font-size:13px; color:var(--ink-dim)}
+  .clock{
+    margin-left:auto; font-family:'IBM Plex Mono',monospace; font-size:14px;
+    color:var(--ink-dim); display:flex; gap:14px; align-items:center;
+  }
+  .badge{
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    border:1px solid var(--line); border-radius:999px; padding:4px 10px;
+  }
+  #stage{position:relative; flex:1; min-height:0}
+  #map{position:absolute; inset:0}
+  .hud{
+    position:absolute; top:14px; left:14px; z-index:5; display:flex; gap:10px; flex-wrap:wrap;
+  }
+  .hud button, .hud select{
+    background:var(--panel); color:var(--ink); border:1px solid var(--line);
+    border-radius:10px; padding:9px 14px; font:inherit; font-size:13px; cursor:pointer;
+    backdrop-filter:blur(6px);
+  }
+  .hud button:hover{border-color:rgba(242,166,35,.6)}
+  .hud button:focus-visible, .hud select:focus-visible{outline:2px solid var(--amber); outline-offset:2px}
+  .hud button.on{border-color:var(--amber); color:var(--amber)}
+  .legend{
+    position:absolute; top:14px; right:14px; z-index:5; display:flex; gap:14px; align-items:center;
+    background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:8px 14px; font-size:12px; color:var(--ink-dim); backdrop-filter:blur(6px);
+  }
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:6px;vertical-align:-1px}
+  #card{
+    position:absolute; left:14px; bottom:14px; z-index:6; width:320px; display:none;
+    background:var(--panel); border:1px solid var(--line); border-radius:14px;
+    padding:16px 18px; backdrop-filter:blur(8px);
+  }
+  #card .n{font-family:'Anton',sans-serif;font-weight:400;font-size:19px;text-transform:uppercase;letter-spacing:.02em;padding-right:24px}
+  #card .c{color:var(--ink-dim);font-size:13px;margin-top:2px}
+  #card .m{margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:14px;border-top:1px solid var(--line);padding-top:10px}
+  #card .joke{margin-top:10px;font-size:13px;color:var(--ink-dim);line-height:1.55}
+  #card .x{position:absolute;top:10px;right:12px;background:none;border:none;color:var(--ink-dim);font-size:16px;cursor:pointer}
+  .live{color:var(--amber)}
+  .beacon{
+    width:16px;height:16px;border-radius:50%;background:#EAF4EF;
+    border:2px solid rgba(10,22,18,.9); cursor:pointer; position:relative;
+    box-shadow:0 0 0 2px rgba(234,244,239,.25), 0 2px 8px rgba(0,0,0,.5);
+  }
+  .beacon.live{background:var(--amber); box-shadow:0 0 0 2px rgba(242,166,35,.35), 0 2px 10px rgba(0,0,0,.5)}
+  .beacon.live::after{
+    content:''; position:absolute; inset:-9px; border-radius:50%;
+    border:2px solid var(--amber); animation:pulse 1.7s ease-out infinite;
+  }
+  @keyframes pulse{0%{transform:scale(.5);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+  @media (prefers-reduced-motion: reduce){.beacon.live::after{animation:none;opacity:.4}}
+  .maplibregl-popup{z-index:7}
+  .maplibregl-popup-content{
+    background:var(--panel) !important; color:var(--ink); border:1px solid var(--line);
+    border-radius:10px; font-family:'Archivo',sans-serif; font-size:13px; line-height:1.5;
+    padding:10px 13px; backdrop-filter:blur(6px);
+  }
+  .maplibregl-popup-tip{border-top-color:var(--panel) !important; border-bottom-color:var(--panel) !important}
+  .pp-n{font-weight:600}
+  .pp-c{color:var(--ink-dim)}
+  #ticker{
+    border-top:1px solid var(--line); overflow:hidden; white-space:nowrap;
+    padding:9px 0; font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-dim);
+    background:var(--bg); z-index:10;
+  }
+  #ticker .tk{display:inline-block; padding-left:100%; animation:roll 55s linear infinite}
+  #ticker b{color:var(--amber); font-weight:500}
+  @keyframes roll{to{transform:translateX(-100%)}}
+  @media (prefers-reduced-motion: reduce){#ticker .tk{animation:none;padding-left:24px}}
+  @media (max-width:640px){
+    #card{left:10px; right:10px; width:auto; bottom:10px}
+    .legend{display:none}
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Continental chaos board <span class="yr">WC26</span></h1>
+  <span class="sub">MapLibre · OpenFreeMap · open terrain — zero API keys</span>
+  <div class="clock"><span id="clk">--:--:--</span><span class="badge">demo data</span></div>
+</header>
+
+<div id="stage">
+  <div id="map"></div>
+  <div class="hud">
+    <button id="tour" type="button">▶ Stadium tour</button>
+    <select id="goto" aria-label="Fly to a stadium"><option value="-1">Fly to stadium…</option></select>
+    <button id="reset" type="button">Continental view</button>
+  </div>
+  <div class="legend">
+    <span><span class="dot" style="background:var(--amber)"></span>Live now</span>
+    <span><span class="dot" style="background:#EAF4EF"></span>Upcoming</span>
+    <span>drag · right-drag to tilt · scroll to zoom</span>
+  </div>
+  <aside id="card" aria-live="polite">
+    <button class="x" id="cardx" aria-label="Close panel">✕</button>
+    <div class="n" id="cn"></div>
+    <div class="c" id="cc"></div>
+    <div class="m" id="cm"></div>
+    <div class="joke" id="cj"></div>
+  </aside>
+</div>
+
+<div id="ticker"><span class="tk" id="tk"></span></div>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script>
+const STADIUMS = [
+  { n:'Estadio Azteca', c:'Mexico City, Mexico', lat:19.3029, lon:-99.1505, s:'live',
+    m:'LIVE · Mexico 1–0 · 64\u2032', j:'The Azteca crowd is so loud the seismograph in Puebla just filed a complaint.' },
+  { n:'Estadio Akron', c:'Guadalajara, Mexico', lat:20.6817, lon:-103.4626, s:'up',
+    m:'Today 19:00 · Group A', j:'Forecast: 100% chance of mariachi, scattered nutmegs after the 60th minute.' },
+  { n:'Estadio BBVA', c:'Monterrey, Mexico', lat:25.6692, lon:-100.2447, s:'up',
+    m:'June 14 · Group F', j:'The mountain backdrop is undefeated. The visiting defense will not be.' },
+  { n:'BMO Field', c:'Toronto, Canada', lat:43.6332, lon:-79.4186, s:'up',
+    m:'Tomorrow · Group B', j:'Canada apologizes in advance for any goals scored against your team.' },
+  { n:'BC Place', c:'Vancouver, Canada', lat:49.2768, lon:-123.1119, s:'up',
+    m:'June 13 · Group B', j:'Roof closed, expectations open.' },
+  { n:'MetLife Stadium', c:'New York / New Jersey, USA', lat:40.8128, lon:-74.0742, s:'up',
+    m:'June 13 · Group C · Final venue July 19', j:'Hosting the final. The traffic on Route 3 is already warming up.' },
+  { n:'AT&T Stadium', c:'Dallas (Arlington), USA', lat:32.7473, lon:-97.0945, s:'up',
+    m:'June 14 · Group D', j:'The jumbotron is larger than some opponents\u2019 entire game plan.' },
+  { n:'SoFi Stadium', c:'Los Angeles (Inglewood), USA', lat:33.9535, lon:-118.3392, s:'up',
+    m:'June 12 · Group D', j:'Players asked for shade. The stadium offered a 70,000-seat skylight.' },
+  { n:'Mercedes-Benz Stadium', c:'Atlanta, USA', lat:33.7554, lon:-84.4008, s:'up',
+    m:'June 15 · Group E', j:'The roof opens like a camera shutter, fitting for a tournament of dives.' },
+  { n:'Gillette Stadium', c:'Boston (Foxborough), USA', lat:42.0909, lon:-71.2643, s:'up',
+    m:'June 13 · Group I', j:'New England weather: all four seasons scheduled before halftime.' },
+  { n:'NRG Stadium', c:'Houston, USA', lat:29.6847, lon:-95.4107, s:'up',
+    m:'June 14 · Group H', j:'Air conditioning rated man of the match, pre-emptively.' },
+  { n:'Arrowhead Stadium', c:'Kansas City, USA', lat:39.0489, lon:-94.4839, s:'up',
+    m:'June 16 · Group J', j:'Loudest stadium on Earth meets a sport where you can hear the manager scream.' },
+  { n:'Hard Rock Stadium', c:'Miami, USA', lat:25.9580, lon:-80.2389, s:'up',
+    m:'June 15 · Group G', j:'Humidity at 94%. European midfielders are evaporating as we speak.' },
+  { n:'Lincoln Financial Field', c:'Philadelphia, USA', lat:39.9008, lon:-75.1675, s:'up',
+    m:'June 14 · Group K', j:'Philly fans will boo the coin toss if it lands wrong.' },
+  { n:"Levi's Stadium", c:'San Francisco Bay Area, USA', lat:37.4032, lon:-121.9698, s:'up',
+    m:'June 13 · Group L', j:'Tech bros in the suites are already A/B testing their chants.' },
+  { n:'Lumen Field', c:'Seattle, USA', lat:47.5952, lon:-122.3316, s:'up',
+    m:'June 15 · Group L', j:'It will not rain. (Brought to you by the Seattle tourism board.)' }
+];
+
+const TICKER = [
+  "64\u2032 GOAL — Mexico strike first at the Azteca and three countries simultaneously lose their minds",
+  "Heatstroke watch: 36°C in Houston, the air conditioning is now the home team",
+  "Panic Index™ — neutral fans: 0.0 · anyone whose team plays tomorrow: 8.7",
+  "Bracket of Doom says your team goes out on penalties. The bracket was invented yesterday",
+  "Stadium tour mode: like a FIFA broadcast intro, except free and slightly unhinged",
+  "Reminder: this ticker is template-powered madlibs, costs $0, and will outlive us all"
+];
+document.getElementById('tk').textContent = TICKER.join('   ///   ') + '   ///   ';
+setInterval(() => { document.getElementById('clk').textContent = new Date().toLocaleTimeString(); }, 1000);
+
+const HOME = { center:[-96.5, 36.5], zoom:3.35, pitch:42, bearing:-8 };
+const map = new maplibregl.Map({
+  container:'map',
+  style:'https://tiles.openfreemap.org/styles/liberty',
+  center:HOME.center, zoom:HOME.zoom, pitch:HOME.pitch, bearing:HOME.bearing,
+  antialias:true, maxPitch:72
+});
+map.addControl(new maplibregl.NavigationControl({ visualizePitch:true }), 'bottom-right');
+
+map.on('load', () => {
+  try {
+    map.addSource('terrain', {
+      type:'raster-dem',
+      tiles:['https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'],
+      encoding:'terrarium', tileSize:256, maxzoom:13,
+      attribution:'Terrain: Mapzen/AWS Open Data'
+    });
+    map.setTerrain({ source:'terrain', exaggeration:1.25 });
+  } catch(e){ console.warn('terrain unavailable', e); }
+
+  try {
+    map.setSky({
+      'sky-color':'#0e2233', 'horizon-color':'#1d3b46', 'fog-color':'#0A1612',
+      'sky-horizon-blend':0.6, 'horizon-fog-blend':0.6, 'fog-ground-blend':0.65,
+      'atmosphere-blend':['interpolate',['linear'],['zoom'],0,1,11,0.4,14,0]
+    });
+  } catch(e){ console.warn('sky unavailable', e); }
+
+  const hasExtrusion = map.getStyle().layers.some(l => l.type === 'fill-extrusion');
+  if (!hasExtrusion){
+    const src = Object.entries(map.getStyle().sources).find(([,s]) => s.type === 'vector');
+    if (src){
+      try {
+        map.addLayer({
+          id:'wc-3d-buildings', source:src[0], 'source-layer':'building',
+          type:'fill-extrusion', minzoom:13,
+          paint:{
+            'fill-extrusion-color':'#c9c2b4',
+            'fill-extrusion-height':['coalesce',['get','render_height'],['get','height'],8],
+            'fill-extrusion-base':['coalesce',['get','render_min_height'],['get','min_height'],0],
+            'fill-extrusion-opacity':0.88
+          }
+        });
+      } catch(e){ console.warn('3d buildings unavailable', e); }
+    }
+  }
+});
+
+const markers = [];
+const sel = document.getElementById('goto');
+STADIUMS.forEach((st, i) => {
+  const el = document.createElement('div');
+  el.className = 'beacon' + (st.s === 'live' ? ' live' : '');
+  el.setAttribute('role','button');
+  el.setAttribute('tabindex','0');
+  el.setAttribute('aria-label', st.n + ', ' + st.c);
+  const mk = new maplibregl.Marker({ element:el }).setLngLat([st.lon, st.lat]).addTo(map);
+  markers.push(mk);
+
+  const popup = new maplibregl.Popup({ closeButton:false, closeOnClick:false, offset:18 })
+    .setHTML('<div class="pp-n">' + st.n + '</div><div class="pp-c">' + st.c + '</div><div style="margin-top:3px" class="' + (st.s === 'live' ? 'live' : 'pp-c') + '">' + st.m + '</div>');
+  el.addEventListener('mouseenter', () => popup.setLngLat([st.lon, st.lat]).addTo(map));
+  el.addEventListener('mouseleave', () => popup.remove());
+  const go = () => { stopTour(); flyToStadium(i); };
+  el.addEventListener('click', go);
+  el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); go(); } });
+
+  const opt = document.createElement('option');
+  opt.value = i;
+  opt.textContent = st.n + ' — ' + st.c;
+  sel.appendChild(opt);
+});
+
+const card = document.getElementById('card');
+function showCard(i){
+  const st = STADIUMS[i];
+  document.getElementById('cn').textContent = st.n;
+  document.getElementById('cc').textContent = st.c;
+  document.getElementById('cm').innerHTML = st.s === 'live' ? '<span class="live">' + st.m + '</span>' : st.m;
+  document.getElementById('cj').textContent = st.j;
+  card.style.display = 'block';
+}
+document.getElementById('cardx').addEventListener('click', () => { card.style.display = 'none'; });
+
+function flyToStadium(i, opts){
+  const st = STADIUMS[i];
+  showCard(i);
+  map.flyTo(Object.assign({
+    center:[st.lon, st.lat], zoom:15.3, pitch:64,
+    bearing:(i * 47) % 360 - 180, speed:0.9, curve:1.5, essential:true
+  }, opts || {}));
+}
+
+sel.addEventListener('change', e => {
+  const i = +e.target.value;
+  if (i >= 0){ stopTour(); flyToStadium(i); }
+});
+document.getElementById('reset').addEventListener('click', () => {
+  stopTour();
+  card.style.display = 'none';
+  sel.value = '-1';
+  map.flyTo(Object.assign({ speed:0.8, curve:1.4, essential:true }, HOME));
+});
+
+let touring = false;
+const tourBtn = document.getElementById('tour');
+function stopTour(){
+  if (!touring) return;
+  touring = false;
+  tourBtn.classList.remove('on');
+  tourBtn.textContent = '▶ Stadium tour';
+  map.stop();
+}
+async function runTour(){
+  touring = true;
+  tourBtn.classList.add('on');
+  tourBtn.textContent = '◼ Stop tour';
+  const order = STADIUMS.map((_, i) => i);
+  for (const i of order){
+    if (!touring) return;
+    flyToStadium(i);
+    await new Promise(r => map.once('moveend', r));
+    if (!touring) return;
+    map.rotateTo(map.getBearing() + 70, { duration:5200, easing:t => t });
+    await new Promise(r => setTimeout(r, 5400));
+  }
+  if (touring){
+    stopTour();
+    map.flyTo(Object.assign({ speed:0.8, curve:1.4 }, HOME));
+  }
+}
+tourBtn.addEventListener('click', () => { touring ? stopTour() : runTour(); });
+['dragstart','wheel'].forEach(ev => map.on(ev, stopTour));
+</script>
+</body>
+</html>

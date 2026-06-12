@@ -1,0 +1,44 @@
+name: oracle-daily
+
+# Retrain ratings + simulate + commit JSON to public/oracle/ → Vercel auto-deploys.
+# Runtime budget < 10 min on the free runner (PLAN.md §6). The pipeline is implemented
+# in Phase 2+; until then the run is a no-op you can trigger manually to validate wiring.
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # 06:00 UTC daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  oracle:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ml
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+
+      - name: Run pipeline (Phase 2+)
+        run: |
+          echo "Pipeline steps (enable as phases land):"
+          echo "  uv run python -m wc26ml.ingest"
+          echo "  uv run python -m wc26ml.backtest   # gates model changes (PLAN.md §4.5)"
+          echo "  uv run python -m wc26ml.publish     # writes public/oracle/*.json"
+          echo "Skipping: ML pipeline not yet implemented (Phase 1 scaffold)."
+
+      - name: Commit refreshed artifacts
+        working-directory: .
+        run: |
+          if [ -n "$(git status --porcelain public/oracle)" ]; then
+            git config user.name  "oracle-bot"
+            git config user.email "oracle-bot@users.noreply.github.com"
+            git add public/oracle
+            git commit -m "chore(oracle): daily refresh"
+            git push
+          else
+            echo "No oracle changes to commit."
+          fi
