@@ -31,7 +31,12 @@ export function useLive() {
         if (!active) return;
         setSnapshot(data);
         setError(null);
-        schedule(hasActiveWindow(data, Date.now()) ? POLL_ACTIVE_MS : POLL_IDLE_MS);
+        // Poll fast during live windows AND while recovering from a flaky upstream
+        // (stale or empty snapshot) so we don't back off to the 5-min idle cadence
+        // right when wc26ir is failing.
+        const recovering = data.stale || data.matches.length === 0;
+        const fast = recovering || hasActiveWindow(data, Date.now());
+        schedule(fast ? POLL_ACTIVE_MS : POLL_IDLE_MS);
       } catch (err) {
         if ((err as Error).name === 'AbortError' || !active) return;
         setError((err as Error).message);
