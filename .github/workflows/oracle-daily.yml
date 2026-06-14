@@ -22,13 +22,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v3
 
-      - name: Run pipeline (Phase 2+)
-        run: |
-          echo "Pipeline steps (enable as phases land):"
-          echo "  uv run python -m wc26ml.ingest"
-          echo "  uv run python -m wc26ml.backtest   # gates model changes (PLAN.md §4.5)"
-          echo "  uv run python -m wc26ml.publish     # writes public/oracle/*.json"
-          echo "Skipping: ML pipeline not yet implemented (Phase 1 scaffold)."
+      - name: Ingest latest results
+        run: uv run python -m wc26ml.ingest
+
+      - name: Publish oracle artifacts (runs the backtest model card)
+        run: uv run python -m wc26ml.publish
 
       - name: Commit refreshed artifacts
         working-directory: .

@@ -43,6 +43,15 @@ export const InsightSchema = z.object({
 });
 export type Insight = z.infer<typeof InsightSchema>;
 
+// ratings.json (PLAN.md §4.1). Not in the §5 frozen contract but produced by publish.py.
+export const RatingSchema = z.object({
+  team: z.string(),
+  elo: z.number(),
+  rank: z.number(),
+  delta_7d: z.number(),
+});
+export type Rating = z.infer<typeof RatingSchema>;
+
 export const MetaSchema = z.object({
   runAt: z.string(),
   modelVersion: z.string(),

@@ -1,1 +1,1010 @@
-[]
+[
+  {
+    "matchId": "wc26-2026-001",
+    "home": "Mexico",
+    "away": "South Africa",
+    "kickoffUtc": "2026-06-11T00:00:00Z",
+    "pHome": 0.7119,
+    "pDraw": 0.2007,
+    "pAway": 0.0874,
+    "likelyScore": [
+      2,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-002",
+    "home": "South Korea",
+    "away": "Czech Republic",
+    "kickoffUtc": "2026-06-11T00:00:00Z",
+    "pHome": 0.4563,
+    "pDraw": 0.2768,
+    "pAway": 0.2669,
+    "likelyScore": [
+      1,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-003",
+    "home": "Canada",
+    "away": "Bosnia-Herzegovina",
+    "kickoffUtc": "2026-06-12T00:00:00Z",
+    "pHome": 0.6641,
+    "pDraw": 0.2212,
+    "pAway": 0.1146,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-004",
+    "home": "United States",
+    "away": "Paraguay",
+    "kickoffUtc": "2026-06-12T00:00:00Z",
+    "pHome": 0.3692,
+    "pDraw": 0.2883,
+    "pAway": 0.3425,
+    "likelyScore": [
+      1,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-005",
+    "home": "Qatar",
+    "away": "Switzerland",
+    "kickoffUtc": "2026-06-13T00:00:00Z",
+    "pHome": 0.0863,
+    "pDraw": 0.1566,
+    "pAway": 0.7571,
+    "likelyScore": [
+      0,
+      2
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-006",
+    "home": "Brazil",
+    "away": "Morocco",
+    "kickoffUtc": "2026-06-13T00:00:00Z",
+    "pHome": 0.5113,
+    "pDraw": 0.3043,
+    "pAway": 0.1844,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-007",
+    "home": "Haiti",
+    "away": "Scotland",
+    "kickoffUtc": "2026-06-13T00:00:00Z",
+    "pHome": 0.1902,
+    "pDraw": 0.2421,
+    "pAway": 0.5676,
+    "likelyScore": [
+      0,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-008",
+    "home": "Australia",
+    "away": "Turkey",
+    "kickoffUtc": "2026-06-13T00:00:00Z",
+    "pHome": 0.4026,
+    "pDraw": 0.2957,
+    "pAway": 0.3017,
+    "likelyScore": [
+      1,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-009",
+    "home": "Sweden",
+    "away": "Tunisia",
+    "kickoffUtc": "2026-06-14T00:00:00Z",
+    "pHome": 0.4089,
+    "pDraw": 0.2954,
+    "pAway": 0.2957,
+    "likelyScore": [
+      1,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-010",
+    "home": "Netherlands",
+    "away": "Japan",
+    "kickoffUtc": "2026-06-14T00:00:00Z",
+    "pHome": 0.3425,
+    "pDraw": 0.296,
+    "pAway": 0.3615,
+    "likelyScore": [
+      1,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-011",
+    "home": "Germany",
+    "away": "Curaçao",
+    "kickoffUtc": "2026-06-14T00:00:00Z",
+    "pHome": 0.9041,
+    "pDraw": 0.0705,
+    "pAway": 0.0254,
+    "likelyScore": [
+      3,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-012",
+    "home": "Ivory Coast",
+    "away": "Ecuador",
+    "kickoffUtc": "2026-06-14T00:00:00Z",
+    "pHome": 0.1408,
+    "pDraw": 0.3393,
+    "pAway": 0.52,
+    "likelyScore": [
+      0,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-013",
+    "home": "Belgium",
+    "away": "Egypt",
+    "kickoffUtc": "2026-06-15T00:00:00Z",
+    "pHome": 0.5327,
+    "pDraw": 0.2814,
+    "pAway": 0.1859,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-014",
+    "home": "Iran",
+    "away": "New Zealand",
+    "kickoffUtc": "2026-06-15T00:00:00Z",
+    "pHome": 0.5297,
+    "pDraw": 0.2688,
+    "pAway": 0.2015,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-015",
+    "home": "Spain",
+    "away": "Cape Verde",
+    "kickoffUtc": "2026-06-15T00:00:00Z",
+    "pHome": 0.8515,
+    "pDraw": 0.1115,
+    "pAway": 0.0371,
+    "likelyScore": [
+      2,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-016",
+    "home": "Saudi Arabia",
+    "away": "Uruguay",
+    "kickoffUtc": "2026-06-15T00:00:00Z",
+    "pHome": 0.0901,
+    "pDraw": 0.2727,
+    "pAway": 0.6373,
+    "likelyScore": [
+      0,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-017",
+    "home": "Austria",
+    "away": "Jordan",
+    "kickoffUtc": "2026-06-16T00:00:00Z",
+    "pHome": 0.5789,
+    "pDraw": 0.2442,
+    "pAway": 0.1768,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-018",
+    "home": "Argentina",
+    "away": "Algeria",
+    "kickoffUtc": "2026-06-16T00:00:00Z",
+    "pHome": 0.6943,
+    "pDraw": 0.2265,
+    "pAway": 0.0792,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-019",
+    "home": "France",
+    "away": "Senegal",
+    "kickoffUtc": "2026-06-16T00:00:00Z",
+    "pHome": 0.4929,
+    "pDraw": 0.2848,
+    "pAway": 0.2224,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-020",
+    "home": "Iraq",
+    "away": "Norway",
+    "kickoffUtc": "2026-06-16T00:00:00Z",
+    "pHome": 0.1277,
+    "pDraw": 0.245,
+    "pAway": 0.6273,
+    "likelyScore": [
+      0,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-021",
+    "home": "Portugal",
+    "away": "DR Congo",
+    "kickoffUtc": "2026-06-17T00:00:00Z",
+    "pHome": 0.6429,
+    "pDraw": 0.2477,
+    "pAway": 0.1095,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-022",
+    "home": "Uzbekistan",
+    "away": "Colombia",
+    "kickoffUtc": "2026-06-17T00:00:00Z",
+    "pHome": 0.0879,
+    "pDraw": 0.2184,
+    "pAway": 0.6937,
+    "likelyScore": [
+      0,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-023",
+    "home": "England",
+    "away": "Croatia",
+    "kickoffUtc": "2026-06-17T00:00:00Z",
+    "pHome": 0.5027,
+    "pDraw": 0.2888,
+    "pAway": 0.2086,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-024",
+    "home": "Ghana",
+    "away": "Panama",
+    "kickoffUtc": "2026-06-17T00:00:00Z",
+    "pHome": 0.2876,
+    "pDraw": 0.2956,
+    "pAway": 0.4168,
+    "likelyScore": [
+      1,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-025",
+    "home": "Czech Republic",
+    "away": "South Africa",
+    "kickoffUtc": "2026-06-18T00:00:00Z",
+    "pHome": 0.4721,
+    "pDraw": 0.2935,
+    "pAway": 0.2344,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-026",
+    "home": "Mexico",
+    "away": "South Korea",
+    "kickoffUtc": "2026-06-18T00:00:00Z",
+    "pHome": 0.5152,
+    "pDraw": 0.2678,
+    "pAway": 0.2169,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-027",
+    "home": "Switzerland",
+    "away": "Bosnia-Herzegovina",
+    "kickoffUtc": "2026-06-18T00:00:00Z",
+    "pHome": 0.658,
+    "pDraw": 0.2141,
+    "pAway": 0.1279,
+    "likelyScore": [
+      2,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-028",
+    "home": "Canada",
+    "away": "Qatar",
+    "kickoffUtc": "2026-06-18T00:00:00Z",
+    "pHome": 0.761,
+    "pDraw": 0.1613,
+    "pAway": 0.0776,
+    "likelyScore": [
+      2,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-029",
+    "home": "Turkey",
+    "away": "Paraguay",
+    "kickoffUtc": "2026-06-19T00:00:00Z",
+    "pHome": 0.2834,
+    "pDraw": 0.2923,
+    "pAway": 0.4243,
+    "likelyScore": [
+      1,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-030",
+    "home": "Scotland",
+    "away": "Morocco",
+    "kickoffUtc": "2026-06-19T00:00:00Z",
+    "pHome": 0.1761,
+    "pDraw": 0.3105,
+    "pAway": 0.5133,
+    "likelyScore": [
+      0,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-031",
+    "home": "Brazil",
+    "away": "Haiti",
+    "kickoffUtc": "2026-06-19T00:00:00Z",
+    "pHome": 0.923,
+    "pDraw": 0.0587,
+    "pAway": 0.0184,
+    "likelyScore": [
+      3,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-032",
+    "home": "United States",
+    "away": "Australia",
+    "kickoffUtc": "2026-06-19T00:00:00Z",
+    "pHome": 0.3899,
+    "pDraw": 0.288,
+    "pAway": 0.3221,
+    "likelyScore": [
+      1,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-033",
+    "home": "Netherlands",
+    "away": "Sweden",
+    "kickoffUtc": "2026-06-20T00:00:00Z",
+    "pHome": 0.6042,
+    "pDraw": 0.2155,
+    "pAway": 0.1803,
+    "likelyScore": [
+      1,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-034",
+    "home": "Tunisia",
+    "away": "Japan",
+    "kickoffUtc": "2026-06-20T00:00:00Z",
+    "pHome": 0.1436,
+    "pDraw": 0.2867,
+    "pAway": 0.5697,
+    "likelyScore": [
+      0,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-035",
+    "home": "Germany",
+    "away": "Ivory Coast",
+    "kickoffUtc": "2026-06-20T00:00:00Z",
+    "pHome": 0.5671,
+    "pDraw": 0.2503,
+    "pAway": 0.1826,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-036",
+    "home": "Ecuador",
+    "away": "Curaçao",
+    "kickoffUtc": "2026-06-20T00:00:00Z",
+    "pHome": 0.8373,
+    "pDraw": 0.1325,
+    "pAway": 0.0302,
+    "likelyScore": [
+      2,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-037",
+    "home": "Belgium",
+    "away": "Iran",
+    "kickoffUtc": "2026-06-21T00:00:00Z",
+    "pHome": 0.4605,
+    "pDraw": 0.2749,
+    "pAway": 0.2646,
+    "likelyScore": [
+      1,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-038",
+    "home": "New Zealand",
+    "away": "Egypt",
+    "kickoffUtc": "2026-06-21T00:00:00Z",
+    "pHome": 0.2714,
+    "pDraw": 0.3254,
+    "pAway": 0.4033,
+    "likelyScore": [
+      0,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-039",
+    "home": "Spain",
+    "away": "Saudi Arabia",
+    "kickoffUtc": "2026-06-21T00:00:00Z",
+    "pHome": 0.7821,
+    "pDraw": 0.1592,
+    "pAway": 0.0587,
+    "likelyScore": [
+      2,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-040",
+    "home": "Uruguay",
+    "away": "Cape Verde",
+    "kickoffUtc": "2026-06-21T00:00:00Z",
+    "pHome": 0.7163,
+    "pDraw": 0.2176,
+    "pAway": 0.0661,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-041",
+    "home": "France",
+    "away": "Iraq",
+    "kickoffUtc": "2026-06-22T00:00:00Z",
+    "pHome": 0.7056,
+    "pDraw": 0.21,
+    "pAway": 0.0844,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-042",
+    "home": "Norway",
+    "away": "Senegal",
+    "kickoffUtc": "2026-06-22T00:00:00Z",
+    "pHome": 0.3993,
+    "pDraw": 0.2928,
+    "pAway": 0.308,
+    "likelyScore": [
+      1,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-043",
+    "home": "Argentina",
+    "away": "Austria",
+    "kickoffUtc": "2026-06-22T00:00:00Z",
+    "pHome": 0.6846,
+    "pDraw": 0.2354,
+    "pAway": 0.0801,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-044",
+    "home": "Jordan",
+    "away": "Algeria",
+    "kickoffUtc": "2026-06-22T00:00:00Z",
+    "pHome": 0.176,
+    "pDraw": 0.2372,
+    "pAway": 0.5868,
+    "likelyScore": [
+      0,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-045",
+    "home": "Portugal",
+    "away": "Uzbekistan",
+    "kickoffUtc": "2026-06-23T00:00:00Z",
+    "pHome": 0.6157,
+    "pDraw": 0.2509,
+    "pAway": 0.1333,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-046",
+    "home": "Colombia",
+    "away": "DR Congo",
+    "kickoffUtc": "2026-06-23T00:00:00Z",
+    "pHome": 0.7145,
+    "pDraw": 0.2136,
+    "pAway": 0.0719,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-047",
+    "home": "England",
+    "away": "Ghana",
+    "kickoffUtc": "2026-06-23T00:00:00Z",
+    "pHome": 0.7533,
+    "pDraw": 0.1816,
+    "pAway": 0.0651,
+    "likelyScore": [
+      2,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-048",
+    "home": "Panama",
+    "away": "Croatia",
+    "kickoffUtc": "2026-06-23T00:00:00Z",
+    "pHome": 0.1715,
+    "pDraw": 0.2426,
+    "pAway": 0.5859,
+    "likelyScore": [
+      0,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-049",
+    "home": "Morocco",
+    "away": "Haiti",
+    "kickoffUtc": "2026-06-24T00:00:00Z",
+    "pHome": 0.7084,
+    "pDraw": 0.2091,
+    "pAway": 0.0826,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-050",
+    "home": "Bosnia-Herzegovina",
+    "away": "Qatar",
+    "kickoffUtc": "2026-06-24T00:00:00Z",
+    "pHome": 0.4263,
+    "pDraw": 0.2837,
+    "pAway": 0.29,
+    "likelyScore": [
+      1,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-051",
+    "home": "Scotland",
+    "away": "Brazil",
+    "kickoffUtc": "2026-06-24T00:00:00Z",
+    "pHome": 0.0693,
+    "pDraw": 0.1519,
+    "pAway": 0.7788,
+    "likelyScore": [
+      0,
+      2
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-052",
+    "home": "South Africa",
+    "away": "South Korea",
+    "kickoffUtc": "2026-06-24T00:00:00Z",
+    "pHome": 0.1675,
+    "pDraw": 0.2779,
+    "pAway": 0.5546,
+    "likelyScore": [
+      0,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-053",
+    "home": "Mexico",
+    "away": "Czech Republic",
+    "kickoffUtc": "2026-06-24T00:00:00Z",
+    "pHome": 0.6311,
+    "pDraw": 0.2208,
+    "pAway": 0.1481,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-054",
+    "home": "Canada",
+    "away": "Switzerland",
+    "kickoffUtc": "2026-06-24T00:00:00Z",
+    "pHome": 0.3918,
+    "pDraw": 0.2798,
+    "pAway": 0.3284,
+    "likelyScore": [
+      1,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-055",
+    "home": "United States",
+    "away": "Turkey",
+    "kickoffUtc": "2026-06-25T00:00:00Z",
+    "pHome": 0.4752,
+    "pDraw": 0.2441,
+    "pAway": 0.2807,
+    "likelyScore": [
+      1,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-056",
+    "home": "Paraguay",
+    "away": "Australia",
+    "kickoffUtc": "2026-06-25T00:00:00Z",
+    "pHome": 0.3473,
+    "pDraw": 0.3405,
+    "pAway": 0.3122,
+    "likelyScore": [
+      0,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-057",
+    "home": "Curaçao",
+    "away": "Ivory Coast",
+    "kickoffUtc": "2026-06-25T00:00:00Z",
+    "pHome": 0.104,
+    "pDraw": 0.2235,
+    "pAway": 0.6724,
+    "likelyScore": [
+      0,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-058",
+    "home": "Ecuador",
+    "away": "Germany",
+    "kickoffUtc": "2026-06-25T00:00:00Z",
+    "pHome": 0.4029,
+    "pDraw": 0.32,
+    "pAway": 0.2772,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-059",
+    "home": "Japan",
+    "away": "Sweden",
+    "kickoffUtc": "2026-06-25T00:00:00Z",
+    "pHome": 0.5762,
+    "pDraw": 0.247,
+    "pAway": 0.1768,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-060",
+    "home": "Tunisia",
+    "away": "Netherlands",
+    "kickoffUtc": "2026-06-25T00:00:00Z",
+    "pHome": 0.1467,
+    "pDraw": 0.2481,
+    "pAway": 0.6052,
+    "likelyScore": [
+      0,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-061",
+    "home": "Senegal",
+    "away": "Iraq",
+    "kickoffUtc": "2026-06-26T00:00:00Z",
+    "pHome": 0.5385,
+    "pDraw": 0.3069,
+    "pAway": 0.1545,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-062",
+    "home": "Norway",
+    "away": "France",
+    "kickoffUtc": "2026-06-26T00:00:00Z",
+    "pHome": 0.2659,
+    "pDraw": 0.2617,
+    "pAway": 0.4724,
+    "likelyScore": [
+      1,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-063",
+    "home": "Uruguay",
+    "away": "Spain",
+    "kickoffUtc": "2026-06-26T00:00:00Z",
+    "pHome": 0.2829,
+    "pDraw": 0.325,
+    "pAway": 0.3921,
+    "likelyScore": [
+      0,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-064",
+    "home": "New Zealand",
+    "away": "Belgium",
+    "kickoffUtc": "2026-06-26T00:00:00Z",
+    "pHome": 0.1349,
+    "pDraw": 0.2177,
+    "pAway": 0.6473,
+    "likelyScore": [
+      0,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-065",
+    "home": "Egypt",
+    "away": "Iran",
+    "kickoffUtc": "2026-06-26T00:00:00Z",
+    "pHome": 0.2546,
+    "pDraw": 0.3211,
+    "pAway": 0.4243,
+    "likelyScore": [
+      0,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-066",
+    "home": "Cape Verde",
+    "away": "Saudi Arabia",
+    "kickoffUtc": "2026-06-26T00:00:00Z",
+    "pHome": 0.2714,
+    "pDraw": 0.3456,
+    "pAway": 0.3829,
+    "likelyScore": [
+      0,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-067",
+    "home": "Panama",
+    "away": "England",
+    "kickoffUtc": "2026-06-27T00:00:00Z",
+    "pHome": 0.0858,
+    "pDraw": 0.1922,
+    "pAway": 0.722,
+    "likelyScore": [
+      0,
+      2
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-068",
+    "home": "Algeria",
+    "away": "Austria",
+    "kickoffUtc": "2026-06-27T00:00:00Z",
+    "pHome": 0.3495,
+    "pDraw": 0.3016,
+    "pAway": 0.3489,
+    "likelyScore": [
+      1,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-069",
+    "home": "Jordan",
+    "away": "Argentina",
+    "kickoffUtc": "2026-06-27T00:00:00Z",
+    "pHome": 0.025,
+    "pDraw": 0.1046,
+    "pAway": 0.8704,
+    "likelyScore": [
+      0,
+      2
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-070",
+    "home": "Colombia",
+    "away": "Portugal",
+    "kickoffUtc": "2026-06-27T00:00:00Z",
+    "pHome": 0.461,
+    "pDraw": 0.2788,
+    "pAway": 0.2601,
+    "likelyScore": [
+      1,
+      1
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-071",
+    "home": "DR Congo",
+    "away": "Uzbekistan",
+    "kickoffUtc": "2026-06-27T00:00:00Z",
+    "pHome": 0.2683,
+    "pDraw": 0.3868,
+    "pAway": 0.3449,
+    "likelyScore": [
+      0,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  },
+  {
+    "matchId": "wc26-2026-072",
+    "home": "Croatia",
+    "away": "Ghana",
+    "kickoffUtc": "2026-06-27T00:00:00Z",
+    "pHome": 0.6322,
+    "pDraw": 0.236,
+    "pAway": 0.1318,
+    "likelyScore": [
+      1,
+      0
+    ],
+    "modelVersion": "elo+dc+gbm-0.1.0"
+  }
+]

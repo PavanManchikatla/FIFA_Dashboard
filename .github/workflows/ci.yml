@@ -34,3 +34,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v3
       - run: uv run --extra dev pytest
+      # Acceptance gate (PLAN.md §4.5): the backtest must accept the model. Exits non-zero
+      # if the blended model fails to beat the Elo-only baseline on log-loss in ≥3/4 WCs.
+      - name: Backtest acceptance gate
+        run: uv run python -m wc26ml.backtest
