@@ -14,6 +14,21 @@
     "generatedAt": "2026-06-12T00:00:00Z"
   },
   {
+    "id": "title_odds_move",
+    "kind": "title_odds_move",
+    "severity": 1,
+    "teams": [
+      "Uruguay"
+    ],
+    "templateId": "title_odds_move",
+    "params": {
+      "team": "Uruguay",
+      "deltaPct": -0.3,
+      "direction": "down"
+    },
+    "generatedAt": "2026-06-12T00:00:00Z"
+  },
+  {
     "id": "group_of_death",
     "kind": "group_of_death",
     "severity": 3,
@@ -40,7 +55,7 @@
     "templateId": "dark_horse",
     "params": {
       "team": "Ecuador",
-      "pct": 4.9,
+      "pct": 4.7,
       "rank": 21
     },
     "generatedAt": "2026-06-12T00:00:00Z"
