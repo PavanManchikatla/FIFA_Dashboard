@@ -106,6 +106,38 @@ def load_wc26_fixtures() -> pd.DataFrame:
     return wc[["date", "home_team", "away_team", "neutral"]]
 
 
+def derive_groups(fixtures: pd.DataFrame) -> dict[str, list[str]]:
+    """Reconstruct the 12 WC26 groups from the fixture pairings — martj42 has no group
+    column, but each group's 4 teams all play each other, so a group is a connected component
+    of the group-stage match graph. Letters A–L are assigned by the alphabetically-first team
+    in each component (cosmetic; the source doesn't label them)."""
+    from collections import defaultdict
+
+    adj: dict[str, set[str]] = defaultdict(set)
+    for r in fixtures.itertuples(index=False):
+        adj[r.home_team].add(r.away_team)
+        adj[r.away_team].add(r.home_team)
+
+    seen: set[str] = set()
+    comps: list[list[str]] = []
+    for team in adj:
+        if team in seen:
+            continue
+        stack, comp = [team], []
+        while stack:
+            t = stack.pop()
+            if t in seen:
+                continue
+            seen.add(t)
+            comp.append(t)
+            stack.extend(adj[t] - seen)
+        comps.append(sorted(comp))
+
+    comps.sort(key=lambda c: c[0])
+    from .simulate import GROUP_LETTERS
+    return {GROUP_LETTERS[i]: comp for i, comp in enumerate(comps)}
+
+
 def main() -> pd.DataFrame:
     print("Downloading martj42 results …")
     raw = download_raw()

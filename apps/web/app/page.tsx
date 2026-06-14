@@ -29,6 +29,12 @@ export default function Home() {
           >
             Enter the holo map →
           </Link>
+          <Link
+            href="/oracle"
+            className="holo-btn px-6 py-3 font-display text-sm font-medium uppercase tracking-[0.12em]"
+          >
+            Consult the Oracle →
+          </Link>
         </div>
         <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-dim/70">
           Phase 1 · running on mock data

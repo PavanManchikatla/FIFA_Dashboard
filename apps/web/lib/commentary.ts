@@ -29,6 +29,25 @@ export function renderTemplate(templateId: string, params: TemplateParams = {}):
   return tpl ? tpl(params) : `[${templateId}]`;
 }
 
+// Oracle insight templates (PLAN.md §4.6). Python emits facts in insights.json; these turn
+// them into the comedy voice. Keyed by the insight's templateId.
+const INSIGHT_TEMPLATES: Record<string, (p: TemplateParams) => string> = {
+  title_favorite: (p) =>
+    `${p.team} lead the Oracle's title board at ${p.pct}% — favourites, and therefore legally obligated to disappoint someone.`,
+  title_odds_move: (p) =>
+    `${p.team}'s title odds just ${p.direction === 'up' ? 'jumped' : 'slid'} ${Math.abs(Number(p.deltaPct))}% overnight. Somewhere a pundit is rewriting a hot take.`,
+  group_of_death: (p) =>
+    `Group ${p.group} is the bracket's kill-box: ${p.teams}. Four teams enter, the group chat does not survive.`,
+  dark_horse: (p) =>
+    `Dark horse alert: ${p.team} (ranked #${p.rank}) carry a sneaky ${p.pct}% title shot. You'll claim you called it.`,
+};
+
+/** Render an Oracle insight (from insights.json) into the comedy voice. */
+export function renderInsight(templateId: string, params: TemplateParams = {}): string {
+  const tpl = INSIGHT_TEMPLATES[templateId];
+  return tpl ? tpl(params) : `[${templateId}]`;
+}
+
 // Per-venue one-liners, keyed by stadium id (ported from the prototype jokes).
 // Comedy lives here, not in any data file.
 const VENUE_QUIPS: Record<string, string> = {

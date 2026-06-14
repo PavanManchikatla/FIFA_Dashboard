@@ -8,12 +8,15 @@ See [PLAN.md](PLAN.md) for the architecture / data contracts / phased roadmap an
 
 ## Status
 
-- ✅ **Phase 1 — Foundation**: monorepo scaffold, tile-broker + holo MapLibre style ported
-  to `apps/web/lib`, `HoloMap` with live stadium beacons fed by `/api/live` (backed by the
-  `wc26ir` poller), template-driven ticker. **Runs entirely on mock data** — no external
-  services wired yet (see "Mocks" below).
-- ⬜ Phase 2 — Oracle core (Python ML: ingest → elo → goals_model → backtest)
-- ⬜ Phase 3 — Simulator + Oracle page
+- ✅ **Phase 1 — Foundation**: monorepo scaffold, tile-broker + holo MapLibre style, `HoloMap`
+  with live beacons fed by `/api/live` (wc26ir → cache, cache-aside + CDN-edge cached),
+  template ticker. Real wc26ir + Upstash wired; public deploy (Vercel) postponed to post-phases.
+- ✅ **Phase 2 — Oracle core**: Python ML — ingest (martj42) → Elo → Dixon-Coles + GBM blend →
+  walk-forward backtest (accepted, beats Elo-only 3/4). Publishes `ratings.json`,
+  `match_probs.json`, `meta.json`.
+- ✅ **Phase 3 — Simulator + Oracle page**: 48-team Monte Carlo (`simulate.py`, exhaustive
+  bracket tests) → `simulation.json` + `insights.json`; `/oracle` page with champion-odds bars,
+  group heat tables, Bracket-of-Doom survival heatmap, and the honest model card.
 - ⬜ Phase 4 — Live layer (in-match win prob, heartbeat chart, panic index)
 - ⬜ Phase 5 — Polish (HoloLattice, cross-fade, SSE, OG cards)
 
