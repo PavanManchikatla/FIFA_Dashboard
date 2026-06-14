@@ -5,6 +5,13 @@ with a real ML win-probability engine. Total infrastructure cost target: **$0/mo
 
 ---
 
+## 0. Status (living)
+
+Phases 1–3 shipped and verified; Phase 4 is next. See CLAUDE.md "Current status" for the short
+version and `docs/` for deploy/integration/data-shape detail. Where the build diverged from this
+plan — the real wc26ir shape, the simulator's third-place approximation, the Elo draw limitation,
+the added JSON contracts — the relevant sections below are annotated **[as-built]**.
+
 ## 1. Vision
 
 One web app, three experiences:
@@ -101,6 +108,11 @@ calls external APIs directly; all reads come from Redis cache or `public/oracle/
 - Home advantage: +80 Elo to home side; for WC26, hosts USA/MEX/CAN get it in home-country
   venues only. Neutral otherwise.
 - Output: `ratings.json` — `{ team, elo, rank, delta_7d }`.
+- **[as-built]** KNOWN LIMITATION: `ln(1)=0`, so drawn matches produce no Elo change. Correcting
+  it (eloratings goal-index, draws=1) strengthens the Elo-only baseline enough to fail §4.5
+  (3/4 → 2/4), so the frozen formula stays; tracked in `elo.py` + `meta.json.knownLimitations`.
+  Training currently applies +80 to the listed home team via the `neutral` flag (host-venue-only
+  refinement is a Phase-4+ detail).
 
 ### 4.2 Pre-match model (`goals_model.py`)
 Two models, blended:
@@ -113,6 +125,11 @@ Two models, blended:
 - Blend: `p = w*poisson + (1-w)*gbm`, w fit on validation log-loss.
 - **Knockout handling**: derive P(advance) = P(win in 90') + P(draw)*P(win ET/pens),
   with pens modeled as 50/50 ± small Elo tilt.
+- **[as-built]** GBM is `HistGradientBoosting` wrapped in `CalibratedClassifierCV` (raw proba
+  were overconfident, pinning w→1). w is tuned on **in-distribution** (past World Cup) matches,
+  not recent friendlies, giving a genuine blend (w≈0.55–0.80). Knockout advance currently uses
+  P(win90')+P(draw)·0.5 (DC); ET/pens Elo tilt is a refinement. Features built: elo_diff, rolling
+  form, rest days, neutral, importance (confederation/H2H/weather deferred to Phase 4+).
 
 ### 4.3 Tournament simulator (`simulate.py`)
 - Encode the real 2026 format: 12 groups of 4 → top 2 + 8 best third-placed → Round of 32
@@ -122,6 +139,14 @@ Two models, blended:
   result, played matches are fixed and only the remainder is simulated.
 - Output `simulation.json`: per team — P(advance from group), P(R32…final), P(champion);
   per group — standings distribution; plus deltas vs the previous run.
+- **[as-built]** Vectorized (numpy) 10k runs in seconds; exhaustive bracket-rule tests
+  (`tests/test_simulate.py`). WC26 groups are reconstructed from fixture pairings (connected
+  components — martj42 has no group column). APPROXIMATION: FIFA's 495-row third-place→R32 slot
+  table isn't publicly encodable, so winner-vs-third slotting is approximated; winner/runner
+  pairings are cross-group by construction (second-order effect on aggregate odds, documented in
+  `simulate.py` + the Oracle page). Fixing already-played group results is supported but the
+  current published run simulates all 72 group games. `simulation.json` also carries `nRuns` +
+  a `groups` map of per-team `{p1,p2,p3,p4,pAdvance}`.
 
 ### 4.4 Live in-match win probability (`api/winprob`)
 Analytic, no training data needed: remaining-time Poisson with pre-match team intensities
@@ -164,6 +189,19 @@ type Insight = { id: string; kind: string; severity: 1|2|3; teams: string[];
   templateId: string; params: Record<string, string|number>; generatedAt: string };
 ```
 
+**[as-built]** Schemas added alongside the frozen three (same dual-side change rule — update
+`lib/oracle.ts` + `publish.py` together):
+```ts
+type Rating = { team: string; elo: number; rank: number; delta_7d: number };          // ratings.json
+type GroupRow = { team: string; p1: number; p2: number; p3: number; p4: number; pAdvance: number };
+type Simulation = { runAt: string; modelVersion: string; nRuns: number;               // simulation.json
+  teams: TeamSim[]; groups: Record<string, GroupRow[]> };
+// meta.json: { runAt, modelVersion, backtest, blendWeightPoisson, matchProbCount,
+//             knownLimitations: string[], note } — validated by a passthrough MetaSchema.
+```
+`lib/oracle.ts` exposes typed accessors (`getSimulation/getInsights/getMatchProbs/getRatings/
+getMeta`) that static-import + zod-validate the committed `public/oracle/*.json` at build time.
+
 ## 6. Automation (free)
 
 - **GitHub Actions `oracle-daily.yml`**: cron 06:00 UTC + manual dispatch.
@@ -174,19 +212,27 @@ type Insight = { id: string; kind: string; severity: 1|2|3; teams: string[];
   is live or within 30 min of kickoff. API-Football calls only on score change.
 - **Redis budget** (Upstash free 10k/day): one hash per live match, 60s TTL reads,
   win-prob time series capped at 1 entry/min/match.
+- **[as-built]** Vercel Hobby cron is **daily-only** (per-minute is Pro), so live updates are
+  client-driven instead: `/api/live` is **cache-aside** (refresh upstream only when stale >45s
+  AND a match is active) and **CDN-edge cached** (`s-maxage=15, SWR=45`) so many viewers collapse
+  to ~1 backend hit per window; `/api/cron/poll` runs daily for cache warming and requires
+  `Authorization: Bearer $CRON_SECRET` when set. Upstash free is ~500k cmds/mo (not 10k/day).
+  `oracle-daily.yml` runs the real `ingest → publish` (publish runs the backtest model card).
 
 ## 7. Phased roadmap
 
-**Phase 1 — Foundation (ship in a weekend)**
+**Phase 1 — Foundation (ship in a weekend)** — ✅ DONE
 - Scaffold monorepo, port tile broker + holo style to `lib/`, render HoloMap with live
   beacons from `/api/live` backed by wc26ir poller. Ticker on template engine.
-- Done when: real scores appear on the map within 60s of a goal.
+- Done when: real scores appear on the map within 60s of a goal. ✅ (verified vs real wc26ir;
+  public Vercel deploy postponed to post-phases by choice.)
 
-**Phase 2 — The Oracle core**
+**Phase 2 — The Oracle core** — ✅ DONE
 - `ingest → elo → goals_model → backtest`. No UI yet; CLI prints calibration table.
-- Done when: backtest acceptance criterion passes and `match_probs.json` is generated.
+- Done when: backtest acceptance criterion passes and `match_probs.json` is generated. ✅
+  (accepted 3/4; mean log-loss blended 0.975 < elo-only 1.003 < uniform 1.099.)
 
-**Phase 3 — Simulator + Oracle page**
+**Phase 3 — Simulator + Oracle page** — ✅ DONE (daily run commits fresh JSON; page renders deltas)
 - 48-team simulator with bracket-rule unit tests; daily GitHub Action; `/oracle` page with
   champion-odds bars, group heat tables, Bracket of Doom visualization, model card.
 - Done when: daily run commits fresh JSON and the page renders deltas.

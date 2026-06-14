@@ -3,6 +3,26 @@
 Source of truth: rezarahiminia/worldcup2026 README, API v1.0.5. Replaces guessed mock.
 Base URL: `https://worldcup26.ir`  (Swagger: `https://worldcup26.ir/api-docs/`)
 
+> ## ⚠️ LIVE FINDINGS (observed 2026-06-14) — the running API differs from this README
+> The adapter (`apps/web/lib/sources/wc26ir.ts`) + mock (`mocks/wc26irRaw.ts`) are reconciled
+> to what the **live** API actually returns, which corrects several claims below:
+> - **Every scalar is a STRING** — including scores (`"2"`) and `finished` (`"TRUE"`/`"FALSE"`),
+>   not numbers/bools as stated below. Parse explicitly (a `"FALSE"` string is truthy!).
+> - **`time_elapsed` exists and is the live signal**: `notstarted` | `live` | `finished` |
+>   `<minute>`. Treat anything non-finished and not "notstarted" as live (covers `HT`/`45+2`).
+>   This supersedes "no reliable live status field" below.
+> - **Team names ARE embedded** on games (`home_team_name_en` / `away_team_name_en`) — contra
+>   "no embedded names" below. We still keep the teams endpoint as a fallback + for flags.
+> - **`local_date` is `"MM/DD/YYYY HH:MM"`** (it has a time; ambiguous TZ) — parsed for display
+>   only; live state comes from `time_elapsed`, not kickoff windows. `lib/fixtures.ts` is now an
+>   optional UTC override (empty by default), not the kickoff source.
+> - Responses are wrapped `{games|teams|stadiums:[...]}` (the `unwrapList` helper handles it).
+> - 15/16 stadium `name_en` match ours; only `"GEHA Field at Arrowhead Stadium"` needs the
+>   substring fallback in `normalize.stadiumIdByName`. Stadiums still have no lat/lon → coords
+>   stay in `lib/stadiums.ts`. Groups are derived from fixture pairings (no group field).
+>
+> The rest of this file (auth, endpoint list, third-place mechanics) remains accurate.
+
 ## Auth (CHANGED — was previously keyless)
 
 All endpoints except `/auth/*` and `/health` require a JWT.

@@ -1,8 +1,16 @@
 # Integrations TOC — going from mocks to real
 
-Phase 1 runs entirely on in-process mocks. This is the checklist to plug in every
-external service. Each item lists **what it powers**, **where it plugs in** (the file
-that owns the call), **config** (env var / secret), **current state**, and **work to do**.
+> **Status (as-built, phases 1–3):** ✅ **worldcup26.ir** wired to the real v1.0.5 API and
+> verified (`docs/wc26ir-REAL-SHAPES.md`). ✅ **Upstash Redis** wired + verified. ✅ **ML
+> sources** (martj42) fully used by the Phase 2/3 pipeline → `public/oracle/*.json`. ⏸️
+> **Vercel** deploy postponed until all phases done (code ready, incl. `CRON_SECRET` + CDN
+> caching). ⬜ **API-Football, Open-Meteo, TheSportsDB, terrain** are Phase 4+. The per-item
+> states below predate this and describe each integration's wiring; treat this banner as the
+> source of truth for what's live.
+
+This is the checklist to plug in every external service. Each item lists **what it powers**,
+**where it plugs in** (the file that owns the call), **config** (env var / secret), **current
+state**, and **work to do**.
 
 Rule (CLAUDE.md): the frontend never calls these directly — every external call goes
 through a `lib/sources/*` adapter on the server; the browser only reads `/api/*` or

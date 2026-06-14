@@ -3,6 +3,20 @@
 Execution order: **wc26ir (real data) → Upstash (real cache) → Vercel (public, client-driven polling)**.
 Each step has a "done when" gate. Don't move on until it's green.
 
+## Status (as-built)
+
+- ✅ **Step 1 — wc26ir**: DONE and verified on localhost. The adapter is reconciled to the real
+  v1.0.5 shape (see `wc26ir-REAL-SHAPES.md`); `/api/live` serves 104 real matches, 0 unmapped
+  stadiums. Token lives in `apps/web/.env.local` (gitignored).
+- ✅ **Step 2 — Upstash**: DONE and verified — the live snapshot writes to real Redis and
+  survives a dev-server restart. `lib/cache.ts` auto-switches and degrades gracefully on outage.
+- ⏸️ **Step 3 — Vercel public deploy**: intentionally POSTPONED until all phases are complete.
+  The code is ready (cache-aside + CDN-edge cache + daily cron + `CRON_SECRET`); only the
+  account/import/env steps remain. Two findings folded in below: protect the cron route with
+  `CRON_SECRET`, and `/api/live` is CDN-cached (`s-maxage=15, SWR=45`) so a spike can't exhaust
+  the free tiers. Before going public, rotate the wc26ir token (it was shared in chat) and set
+  the fresh one only in Vercel env.
+
 ---
 
 ## Step 1 — wc26ir: real live data
@@ -78,7 +92,13 @@ a dev-server restart (it's now persistent, not in-process).
 
 ## Step 3 — Vercel: public deploy, client-driven polling (Hobby, $0)
 
-### 3a. The polling decision (do the code change BEFORE deploying)
+### 3a. The polling decision (do the code change BEFORE deploying) — ✅ DONE in code
+> Implemented: `/api/live` is cache-aside AND CDN-edge cached (`s-maxage=15,
+> stale-while-revalidate=45`) so N viewers collapse to ~1 backend hit/window; `useLive` polls
+> on a dynamic cadence (30s active / 5min idle, fast while recovering); `vercel.json` cron is
+> daily; `/api/cron/poll` warms the cache and requires `CRON_SECRET`. Nothing to do here at
+> deploy time except set the env vars in 3b.
+
 Hobby cron is **daily-only**; every-minute cron is Pro ($20/mo). To stay $0, drop server
 cron for live updates and poll from the client during live windows:
 - `/api/live` becomes cache-aside: on request, if the cached snapshot is older than ~45s
@@ -101,8 +121,10 @@ Guardrails so client polling can't stampede wc26ir:
 - **Root Directory: `apps/web`** (monorepo).
 - Framework preset: Next.js (auto).
 - Add env vars (Production + Preview): `WC26IR_BASE_URL`, `WC26IR_TOKEN`, `WC26IR_EMAIL`,
-  `WC26IR_PASSWORD`, `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`.
-  (Tile keys `NEXT_PUBLIC_STADIA_KEY` / `_MAPTILER_KEY` optional — broker runs without them.)
+  `WC26IR_PASSWORD`, `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`, and **`CRON_SECRET`**
+  (any strong random string — Vercel Cron auto-sends it as a bearer; the poll route 401s
+  without it). Tile keys `NEXT_PUBLIC_STADIA_KEY` / `_MAPTILER_KEY` optional (broker runs
+  without them). Use a **freshly rotated** wc26ir token here, not the one shared during dev.
 - Deploy.
 
 ### 3c. Verify
