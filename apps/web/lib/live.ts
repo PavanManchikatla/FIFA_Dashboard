@@ -2,26 +2,17 @@ import 'server-only';
 import { fetchGames } from './sources/wc26ir';
 import { normalizeWc26ir } from './normalize';
 import { CACHE_KEYS, TTL, getJson, setJson } from './cache';
-import type { LiveSnapshot, Match } from './types';
+import { REFRESH_AFTER_MS, hasActiveWindow, snapshotAgeMs } from './schedule';
+import type { LiveSnapshot } from './types';
 
-// Orchestrates the live data path: wc26ir → normalize → cache. The poll route writes
-// snapshots; /api/live reads them. On a source failure we keep the last-good snapshot
-// and flag it stale rather than crashing (CLAUDE.md: never let a fetch failure crash poll).
+// Orchestrates the live data path: wc26ir → normalize → cache. /api/live is cache-aside
+// (DEPLOY.md Step 3a): it serves cache and only refreshes upstream when the snapshot is
+// stale AND a match is active — so N viewers still produce ~1 upstream call per window,
+// not N. On a source failure we keep the last-good snapshot and flag it stale rather than
+// crashing (CLAUDE.md: never let a fetch failure crash poll).
 
-const KICKOFF_WINDOW_MS = 30 * 60 * 1000;
-
-/** A match is "active" if live or within 30 min of kickoff — the only time we poll hard. */
-export function isActive(m: Match, now: number): boolean {
-  if (m.status === 'live') return true;
-  if (m.status !== 'scheduled') return false;
-  const delta = new Date(m.kickoffUtc).getTime() - now;
-  return delta >= 0 && delta <= KICKOFF_WINDOW_MS;
-}
-
-/** True if the snapshot has any active match worth polling for. */
-export function hasActiveWindow(snapshot: LiveSnapshot | null, now: number): boolean {
-  return !!snapshot?.matches.some((m) => isActive(m, now));
-}
+// Re-export the shared scheduling helpers so existing importers (routes) keep working.
+export { isActive, hasActiveWindow } from './schedule';
 
 export async function readSnapshot(): Promise<LiveSnapshot | null> {
   return getJson<LiveSnapshot>(CACHE_KEYS.liveSnapshot);
@@ -53,9 +44,18 @@ export async function refreshSnapshot(now: number = Date.now()): Promise<LiveSna
   return snapshot;
 }
 
-/** Cache-first read for /api/live: serve cache, else refresh once so first load has data. */
+/**
+ * Cache-aside read for /api/live (DEPLOY.md Step 3a). Serves the cached snapshot and only
+ * hits wc26ir when the snapshot is missing, or is older than REFRESH_AFTER_MS *and* a match
+ * is active/near-kickoff. When idle, the cache is served until its TTL lapses — no upstream
+ * churn. The shared cache key means many clients collapse to one upstream call per window.
+ */
 export async function getLive(now: number = Date.now()): Promise<LiveSnapshot> {
   const cached = await readSnapshot();
-  if (cached) return cached;
-  return refreshSnapshot(now);
+  if (!cached) return refreshSnapshot(now);
+
+  const stale = snapshotAgeMs(cached, now) >= REFRESH_AFTER_MS;
+  if (stale && hasActiveWindow(cached, now)) return refreshSnapshot(now);
+
+  return cached;
 }

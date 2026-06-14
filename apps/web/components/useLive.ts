@@ -1,48 +1,52 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { LiveSnapshot } from '@/lib/types';
+import { POLL_ACTIVE_MS, POLL_IDLE_MS, hasActiveWindow } from '@/lib/schedule';
 
-// Polls /api/live on an interval. The frontend only ever reads this endpoint —
-// never an external API (PLAN.md §2). 30s in production; faster when demoing mock
-// goals so the beacon flip is visible within a poll cycle (Phase 1 done-when).
-const DEFAULT_INTERVAL_MS = 30_000;
-
-export function useLive(intervalMs: number = DEFAULT_INTERVAL_MS) {
+// Polls /api/live with a DYNAMIC cadence (DEPLOY.md Step 3a): fast (~30s) when a match is
+// live or near kickoff, slow (~5min) when idle — so we don't hammer the server/upstream
+// outside live windows. The frontend only ever reads this endpoint, never an external API.
+export function useLive() {
   const [snapshot, setSnapshot] = useState<LiveSnapshot | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const aborter = useRef<AbortController | null>(null);
 
   useEffect(() => {
     let active = true;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    let aborter: AbortController | null = null;
 
-    const poll = async () => {
-      aborter.current?.abort();
+    const schedule = (delay: number) => {
+      if (active) timer = setTimeout(tick, delay);
+    };
+
+    const tick = async () => {
+      aborter?.abort();
       const ctrl = new AbortController();
-      aborter.current = ctrl;
+      aborter = ctrl;
       try {
         const res = await fetch('/api/live', { signal: ctrl.signal, cache: 'no-store' });
         if (!res.ok) throw new Error(`live ${res.status}`);
         const data = (await res.json()) as LiveSnapshot;
-        if (active) {
-          setSnapshot(data);
-          setError(null);
-        }
+        if (!active) return;
+        setSnapshot(data);
+        setError(null);
+        schedule(hasActiveWindow(data, Date.now()) ? POLL_ACTIVE_MS : POLL_IDLE_MS);
       } catch (err) {
-        if (active && (err as Error).name !== 'AbortError') {
-          setError((err as Error).message);
-        }
+        if ((err as Error).name === 'AbortError' || !active) return;
+        setError((err as Error).message);
+        // Recover quickly on transient errors rather than waiting out the idle cadence.
+        schedule(POLL_ACTIVE_MS);
       }
     };
 
-    poll();
-    const timer = setInterval(poll, intervalMs);
+    tick();
     return () => {
       active = false;
-      clearInterval(timer);
-      aborter.current?.abort();
+      clearTimeout(timer);
+      aborter?.abort();
     };
-  }, [intervalMs]);
+  }, []);
 
   return { snapshot, error };
 }
