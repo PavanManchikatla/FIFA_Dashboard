@@ -102,17 +102,17 @@ export async function fetchData(): Promise<Wc26irResult> {
 }
 
 // ---- mock live ticking ------------------------------------------------------
-// With MOCK_LIVE_GOALS=1, the opening match gains the optional live fields the real API
-// is expected to add during the tournament (status:'live' + minute) and ticks goals, so
-// the live beacon flip is demoable without a real fixture in the kickoff window.
+// The mock already has one live game (id '6'); MOCK_LIVE_GOALS=1 makes its clock + score
+// advance over wall-time so the live beacon flip + score update are demoable. Stays faithful
+// to the real shape: string scores, `time_elapsed` carries the minute.
 function mockData(): Wc26irData {
   if (process.env.MOCK_LIVE_GOALS !== '1') return WC26IR_FIXTURE;
 
   const elapsed = Math.floor((Date.now() / 1000) % 90) + 1; // 1→90, off wall-clock
   const goalsSince = Math.floor(elapsed / 23);
   const games = WC26IR_FIXTURE.games.map((g) =>
-    g.id === '1'
-      ? { ...g, finished: false, status: 'live', minute: elapsed, home_score: goalsSince }
+    g.id === '6'
+      ? { ...g, finished: 'FALSE', time_elapsed: String(elapsed), home_score: String(goalsSince) }
       : g,
   );
   return { ...WC26IR_FIXTURE, games };

@@ -33,7 +33,7 @@ export async function refreshSnapshot(now: number = Date.now()): Promise<LiveSna
     return stale;
   }
 
-  const matches = normalizeWc26ir(result.data, { now });
+  const matches = normalizeWc26ir(result.data);
   const snapshot: LiveSnapshot = {
     generatedAt: new Date(now).toISOString(),
     stale: false,
