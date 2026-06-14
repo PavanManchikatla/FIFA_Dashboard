@@ -58,3 +58,23 @@ def test_blend_normalizes_rows():
     b = np.array([[0.4, 0.4, 0.2], [0.3, 0.3, 0.4]])
     out = blend(a, b, 0.5)
     assert np.allclose(out.sum(axis=1), 1.0)
+
+
+def test_dixoncoles_unseen_team_is_league_average_not_crash():
+    dc = DixonColes.fit(_synthetic(), ref_date=pd.Timestamp("2015-12-31"))
+    ph, pd_, pa = dc.predict_proba("Nobody", "AlsoNobody", neutral=True)
+    assert abs(ph + pd_ + pa - 1.0) < 1e-6
+    # Two equal (league-average) sides on neutral ground → roughly balanced.
+    assert abs(ph - pa) < 0.05
+
+
+def test_score_matrix_never_nan_under_extreme_strength():
+    # Hand-built model with an absurd attack gap would overflow without the MAX_LAMBDA cap.
+    dc = DixonColes(teams=["A", "B"], attack=np.array([5.0, -3.0]),
+                    defence=np.array([3.0, -3.0]), home_adv=1.0, rho=-0.1)
+    mat = dc.score_matrix("A", "B", neutral=False)
+    assert np.isfinite(mat).all()
+    assert abs(mat.sum() - 1.0) < 1e-9
+    ph, pd_, pa = dc.predict_proba("A", "B", neutral=False)
+    assert np.isfinite([ph, pd_, pa]).all()
+    assert abs(ph + pd_ + pa - 1.0) < 1e-6

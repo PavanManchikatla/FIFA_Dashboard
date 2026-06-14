@@ -7,7 +7,14 @@ import { refreshSnapshot } from '@/lib/live';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-export async function GET() {
+export async function GET(req: Request) {
+  // Protect against public abuse: when CRON_SECRET is set (Vercel), require the matching
+  // bearer Vercel Cron sends. Unset (local dev) → open.
+  const secret = process.env.CRON_SECRET;
+  if (secret && req.headers.get('authorization') !== `Bearer ${secret}`) {
+    return NextResponse.json({ error: 'unauthorized' }, { status: 401 });
+  }
+
   const snapshot = await refreshSnapshot();
   return NextResponse.json({
     warmed: true,

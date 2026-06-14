@@ -32,12 +32,16 @@ const parseScore = (s: string): number => {
   return Number.isNaN(n) ? 0 : n;
 };
 
-/** Map wc26ir state → our status, trusting `time_elapsed` then the `finished` string. */
+// time_elapsed values that mean "not yet kicked off". Anything else non-finished is in-play
+// (covers "live", "HT", "ET", "PEN", "45+2", "90", … — we don't want to silently drop those).
+const NOT_STARTED = new Set(['', 'notstarted', 'not started', 'scheduled', 'tbd', 'upcoming']);
+
+/** Map wc26ir state → our status, trusting `finished` then `time_elapsed`. */
 function deriveStatus(g: Wc26irGame): MatchStatus {
-  const te = g.time_elapsed?.toLowerCase().trim();
-  if (te === 'finished' || g.finished === 'TRUE') return 'finished';
-  if (te === 'live' || (te && /^\d+/.test(te))) return 'live';
-  return 'scheduled';
+  const te = (g.time_elapsed ?? '').toLowerCase().trim();
+  if (g.finished === 'TRUE' || te === 'finished' || te === 'ft') return 'finished';
+  if (NOT_STARTED.has(te)) return 'scheduled';
+  return 'live';
 }
 
 /** A live `time_elapsed` may be a minute string ("67") once the API populates it. */

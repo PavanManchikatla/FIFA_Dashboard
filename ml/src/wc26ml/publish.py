@@ -62,7 +62,12 @@ def build_match_probs(matches: pd.DataFrame) -> list[dict]:
     dc = DixonColes.fit(feats, ref_date=feats["date"].max())
     gbm = fit_gbm(feats)
 
-    val = feats[feats["date"] >= feats["date"].max() - pd.Timedelta(days=730)]
+    # Tune the blend weight on in-distribution (World Cup) validation — matches the
+    # backtest methodology so published probs use the same blend.
+    val = feats[(feats["tournament"] == "FIFA World Cup") &
+                (feats["date"] >= feats["date"].max() - pd.Timedelta(days=365 * 16))]
+    if len(val) < 64:
+        val = feats[feats["date"] >= feats["date"].max() - pd.Timedelta(days=730)]
     w = _tune_weight(dc_proba_frame(dc, val), gbm_proba(gbm, val),
                      val["outcome"].map(OUT_IDX).to_numpy())
 
@@ -108,8 +113,13 @@ def main(run_backtest_for_card: bool = True) -> None:
         "blendWeightPoisson": round(w, 2),
         "matchProbCount": len(probs),
         "backtest": backtest,
-        "note": "Group-stage match probs from Elo + Dixon-Coles (+GBM blend). "
+        "note": "Group-stage match probs from Elo + Dixon-Coles + GBM blend. "
                 "Knockout paths + champion odds come from the simulator (Phase 3).",
+        "knownLimitations": [
+            "Elo uses the frozen ln(|gd|+1) MOV term, which is 0 for draws → drawn matches "
+            "do not move ratings. Documented; revisit with a model improvement (see elo.py).",
+            "Match kickoff times are date-only from the source; precise UTC times TBD.",
+        ],
     }
     write_json("meta.json", meta)
     print(f"Done. modelVersion={MODEL_VERSION}, {len(probs)} match probs, "

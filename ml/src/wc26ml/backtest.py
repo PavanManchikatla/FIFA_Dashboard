@@ -69,8 +69,13 @@ def run_backtest(verbose: bool = True) -> dict:
         dc = DixonColes.fit(train, ref_date=cutoff)
         gbm = fit_gbm(train)
 
-        # Tune blend weight on the last 2 years of training data.
-        val = train[train["date"] >= cutoff - pd.Timedelta(days=730)]
+        # Tune the blend weight on IN-DISTRIBUTION validation: prior World Cup matches
+        # (what we're predicting), not recent friendlies/qualifiers. Falls back to the last
+        # 2 years if too few prior WC matches exist.
+        val = train[(train["tournament"] == "FIFA World Cup") &
+                    (train["date"] >= cutoff - pd.Timedelta(days=365 * 16))]
+        if len(val) < 64:
+            val = train[train["date"] >= cutoff - pd.Timedelta(days=730)]
         w = _tune_weight(dc_proba_frame(dc, val), gbm_proba(gbm, val),
                          val["outcome"].map(OUT_IDX).to_numpy())
 

@@ -53,6 +53,58 @@ describe('normalizeWc26ir', () => {
   });
 });
 
+// Minimal real-shape game builder for adversarial cases.
+function mkGame(over: Partial<import('@/mocks/wc26irRaw').Wc26irGame>): import('@/mocks/wc26irRaw').Wc26irGame {
+  return {
+    _id: 'x', id: '1', home_team_id: '1', away_team_id: '2', home_score: '0', away_score: '0',
+    home_scorers: 'null', away_scorers: 'null', group: 'A', matchday: '1',
+    local_date: '06/11/2026 13:00', persian_date: '', stadium_id: '1', finished: 'FALSE',
+    time_elapsed: 'notstarted', type: 'group', ...over,
+  };
+}
+const wrap = (games: import('@/mocks/wc26irRaw').Wc26irGame[]): Wc26irData => ({
+  games, teams: WC26IR_FIXTURE.teams, stadiums: WC26IR_FIXTURE.stadiums,
+});
+
+describe('normalize edge cases / robustness', () => {
+  it('handles empty data without throwing', () => {
+    expect(normalizeWc26ir({ games: [], teams: [], stadiums: [] })).toEqual([]);
+  });
+
+  it('falls back to the raw id when a team is unknown and unembedded', () => {
+    const m = normalizeWc26ir(wrap([mkGame({ home_team_id: '999', away_team_id: '998' })]))[0];
+    expect(m.home).toBe('999');
+    expect(m.away).toBe('998');
+  });
+
+  it('yields null stadiumId for an unknown stadium', () => {
+    const m = normalizeWc26ir(wrap([mkGame({ stadium_id: '404' })]))[0];
+    expect(m.stadiumId).toBeNull();
+  });
+
+  it('treats HT / ET / numeric / 45+2 as live, not scheduled', () => {
+    for (const te of ['HT', 'ET', 'PEN', '90', '45+2', 'live']) {
+      const m = normalizeWc26ir(wrap([mkGame({ time_elapsed: te })]))[0];
+      expect(m.status, `time_elapsed=${te}`).toBe('live');
+    }
+  });
+
+  it('lets finished override a stale live time_elapsed', () => {
+    const m = normalizeWc26ir(wrap([mkGame({ finished: 'TRUE', time_elapsed: 'live' })]))[0];
+    expect(m.status).toBe('finished');
+  });
+
+  it('parses junk score strings to 0 rather than NaN', () => {
+    const m = normalizeWc26ir(wrap([mkGame({ finished: 'TRUE', time_elapsed: 'finished', home_score: 'null', away_score: '' })]))[0];
+    expect(m.homeScore).toBe(0);
+    expect(m.awayScore).toBe(0);
+  });
+
+  it('does not throw on an unparseable local_date', () => {
+    expect(() => normalizeWc26ir(wrap([mkGame({ local_date: 'sometime next week' })]))).not.toThrow();
+  });
+});
+
 describe('live minute parsing', () => {
   it('reads a numeric time_elapsed as the minute and marks live', () => {
     const data: Wc26irData = {

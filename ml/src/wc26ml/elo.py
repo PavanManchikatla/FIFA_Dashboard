@@ -25,7 +25,14 @@ K_FACTOR = {
 
 
 def mov_multiplier(goal_diff: int, elo_diff: float) -> float:
-    """WC-Elo margin-of-victory multiplier: ln(|gd|+1) * 2.2/(0.001*|elo_diff|+2.2)."""
+    """WC-Elo margin-of-victory multiplier (PLAN.md §4.1, frozen):
+    ln(|gd|+1) * 2.2/(0.001*|elo_diff|+2.2).
+
+    KNOWN LIMITATION: ln(1)=0 at a draw, so DRAWS produce no rating change (~22% of
+    matches). We keep the frozen formula because (a) it's the PLAN spec, and (b) correcting
+    it (goal-index floored at 1) strengthens the Elo-only baseline enough that the blended
+    model no longer clears the §4.5 acceptance gate (3/4 → 2/4). Revisit alongside a model
+    improvement that beats the stronger baseline. Tracked in test_elo + meta.json.note."""
     return math.log(abs(goal_diff) + 1) * (2.2 / (0.001 * abs(elo_diff) + 2.2))
 
 

@@ -15,12 +15,14 @@ import numpy as np
 import pandas as pd
 from scipy.optimize import minimize
 from scipy.special import gammaln
+from sklearn.calibration import CalibratedClassifierCV
 from sklearn.ensemble import HistGradientBoostingClassifier
 
 from .features import FEATURE_COLUMNS, feature_matrix
 
 HALF_LIFE_DAYS = 730.0  # ~2 years
 MAX_GOALS = 10
+MAX_LAMBDA = 8.0  # cap expected goals so the score matrix can't underflow to NaN
 OUTCOMES = ("H", "D", "A")
 
 
@@ -106,8 +108,8 @@ class DixonColes:
     def score_matrix(self, home: str, away: str, neutral: bool) -> np.ndarray:
         ah, dh = self._strength(home)
         aa, da = self._strength(away)
-        lam = np.exp(ah - da + (0.0 if neutral else self.home_adv))
-        mu = np.exp(aa - dh)
+        lam = min(np.exp(ah - da + (0.0 if neutral else self.home_adv)), MAX_LAMBDA)
+        mu = min(np.exp(aa - dh), MAX_LAMBDA)
         gk = np.arange(MAX_GOALS + 1)
         # Independent Poisson pmfs then DC-correct the four low-score cells.
         log_px = gk * np.log(lam) - lam - gammaln(gk + 1)
@@ -132,16 +134,19 @@ class DixonColes:
 
 
 # ---- GBM ----
-def fit_gbm(train: pd.DataFrame) -> HistGradientBoostingClassifier:
-    clf = HistGradientBoostingClassifier(
-        max_iter=300, learning_rate=0.05, max_depth=4, l2_regularization=1.0,
-        validation_fraction=0.1, random_state=0,
+def fit_gbm(train: pd.DataFrame):
+    """Gradient-boosting classifier wrapped in probability calibration. Raw GBM proba are
+    overconfident, which made the blend tuner discard it (w→1); sigmoid calibration on a
+    CV split fixes the probabilities so the blend actually combines DC + GBM signal."""
+    base = HistGradientBoostingClassifier(
+        max_iter=300, learning_rate=0.05, max_depth=4, l2_regularization=1.0, random_state=0,
     )
+    clf = CalibratedClassifierCV(base, method="sigmoid", cv=3)
     clf.fit(feature_matrix(train), train["outcome"].to_numpy())
     return clf
 
 
-def gbm_proba(clf: HistGradientBoostingClassifier, df: pd.DataFrame) -> np.ndarray:
+def gbm_proba(clf, df: pd.DataFrame) -> np.ndarray:
     """Return P in (H, D, A) column order regardless of the classifier's class order."""
     proba = clf.predict_proba(feature_matrix(df))
     cls = list(clf.classes_)

@@ -52,10 +52,12 @@ def build_features(matches: pd.DataFrame) -> pd.DataFrame:
 
     long = _team_perspective_rows(df).sort_values(["team", "date"]).reset_index(drop=True)
     g = long.groupby("team", sort=False)
-    # Rolling mean of past goal diffs (exclude current match via shift).
-    long["form"] = g["gd"].apply(lambda s: s.shift(1).rolling(FORM_WINDOW, min_periods=1).mean()).to_numpy()
-    long["form"] = long["form"].fillna(0.0)
-    # Days since the team's previous match, capped.
+    # Rolling mean of PAST goal diffs (shift(1) excludes the current match). transform
+    # guarantees the result is index-aligned back to `long` (no reordering surprises).
+    long["form"] = g["gd"].transform(
+        lambda s: s.shift(1).rolling(FORM_WINDOW, min_periods=1).mean()
+    ).fillna(0.0)
+    # Days since the team's previous match, capped (groupby.diff preserves index alignment).
     rest = g["date"].diff().dt.days.astype("float")
     long["rest"] = rest.fillna(REST_CAP_DAYS).clip(upper=REST_CAP_DAYS)
 

@@ -4,9 +4,9 @@
     "home": "Mexico",
     "away": "South Africa",
     "kickoffUtc": "2026-06-11T00:00:00Z",
-    "pHome": 0.7119,
-    "pDraw": 0.2007,
-    "pAway": 0.0874,
+    "pHome": 0.7157,
+    "pDraw": 0.201,
+    "pAway": 0.0833,
     "likelyScore": [
       2,
       0
@@ -18,9 +18,9 @@
     "home": "South Korea",
     "away": "Czech Republic",
     "kickoffUtc": "2026-06-11T00:00:00Z",
-    "pHome": 0.4563,
-    "pDraw": 0.2768,
-    "pAway": 0.2669,
+    "pHome": 0.5285,
+    "pDraw": 0.2367,
+    "pAway": 0.2348,
     "likelyScore": [
       1,
       1
@@ -32,9 +32,9 @@
     "home": "Canada",
     "away": "Bosnia-Herzegovina",
     "kickoffUtc": "2026-06-12T00:00:00Z",
-    "pHome": 0.6641,
-    "pDraw": 0.2212,
-    "pAway": 0.1146,
+    "pHome": 0.7099,
+    "pDraw": 0.2161,
+    "pAway": 0.074,
     "likelyScore": [
       1,
       0
@@ -46,9 +46,9 @@
     "home": "United States",
     "away": "Paraguay",
     "kickoffUtc": "2026-06-12T00:00:00Z",
-    "pHome": 0.3692,
-    "pDraw": 0.2883,
-    "pAway": 0.3425,
+    "pHome": 0.5924,
+    "pDraw": 0.2158,
+    "pAway": 0.1918,
     "likelyScore": [
       1,
       1
@@ -60,9 +60,9 @@
     "home": "Qatar",
     "away": "Switzerland",
     "kickoffUtc": "2026-06-13T00:00:00Z",
-    "pHome": 0.0863,
-    "pDraw": 0.1566,
-    "pAway": 0.7571,
+    "pHome": 0.1032,
+    "pDraw": 0.2014,
+    "pAway": 0.6954,
     "likelyScore": [
       0,
       2
@@ -74,9 +74,9 @@
     "home": "Brazil",
     "away": "Morocco",
     "kickoffUtc": "2026-06-13T00:00:00Z",
-    "pHome": 0.5113,
-    "pDraw": 0.3043,
-    "pAway": 0.1844,
+    "pHome": 0.4918,
+    "pDraw": 0.2657,
+    "pAway": 0.2426,
     "likelyScore": [
       1,
       0
@@ -88,9 +88,9 @@
     "home": "Haiti",
     "away": "Scotland",
     "kickoffUtc": "2026-06-13T00:00:00Z",
-    "pHome": 0.1902,
-    "pDraw": 0.2421,
-    "pAway": 0.5676,
+    "pHome": 0.2756,
+    "pDraw": 0.2502,
+    "pAway": 0.4742,
     "likelyScore": [
       0,
       1
@@ -102,9 +102,9 @@
     "home": "Australia",
     "away": "Turkey",
     "kickoffUtc": "2026-06-13T00:00:00Z",
-    "pHome": 0.4026,
-    "pDraw": 0.2957,
-    "pAway": 0.3017,
+    "pHome": 0.3704,
+    "pDraw": 0.2581,
+    "pAway": 0.3715,
     "likelyScore": [
       1,
       1
@@ -116,9 +116,9 @@
     "home": "Sweden",
     "away": "Tunisia",
     "kickoffUtc": "2026-06-14T00:00:00Z",
-    "pHome": 0.4089,
-    "pDraw": 0.2954,
-    "pAway": 0.2957,
+    "pHome": 0.368,
+    "pDraw": 0.2599,
+    "pAway": 0.3721,
     "likelyScore": [
       1,
       1
@@ -130,9 +130,9 @@
     "home": "Netherlands",
     "away": "Japan",
     "kickoffUtc": "2026-06-14T00:00:00Z",
-    "pHome": 0.3425,
-    "pDraw": 0.296,
-    "pAway": 0.3615,
+    "pHome": 0.4022,
+    "pDraw": 0.2757,
+    "pAway": 0.3221,
     "likelyScore": [
       1,
       1
@@ -144,9 +144,9 @@
     "home": "Germany",
     "away": "Curaçao",
     "kickoffUtc": "2026-06-14T00:00:00Z",
-    "pHome": 0.9041,
-    "pDraw": 0.0705,
-    "pAway": 0.0254,
+    "pHome": 0.7679,
+    "pDraw": 0.1842,
+    "pAway": 0.0479,
     "likelyScore": [
       3,
       0
@@ -158,9 +158,9 @@
     "home": "Ivory Coast",
     "away": "Ecuador",
     "kickoffUtc": "2026-06-14T00:00:00Z",
-    "pHome": 0.1408,
-    "pDraw": 0.3393,
-    "pAway": 0.52,
+    "pHome": 0.251,
+    "pDraw": 0.2533,
+    "pAway": 0.4957,
     "likelyScore": [
       0,
       1
@@ -172,9 +172,9 @@
     "home": "Belgium",
     "away": "Egypt",
     "kickoffUtc": "2026-06-15T00:00:00Z",
-    "pHome": 0.5327,
-    "pDraw": 0.2814,
-    "pAway": 0.1859,
+    "pHome": 0.6328,
+    "pDraw": 0.1964,
+    "pAway": 0.1708,
     "likelyScore": [
       1,
       0
@@ -186,9 +186,9 @@
     "home": "Iran",
     "away": "New Zealand",
     "kickoffUtc": "2026-06-15T00:00:00Z",
-    "pHome": 0.5297,
-    "pDraw": 0.2688,
-    "pAway": 0.2015,
+    "pHome": 0.5982,
+    "pDraw": 0.2282,
+    "pAway": 0.1736,
     "likelyScore": [
       1,
       0
@@ -200,9 +200,9 @@
     "home": "Spain",
     "away": "Cape Verde",
     "kickoffUtc": "2026-06-15T00:00:00Z",
-    "pHome": 0.8515,
-    "pDraw": 0.1115,
-    "pAway": 0.0371,
+    "pHome": 0.7987,
+    "pDraw": 0.1718,
+    "pAway": 0.0295,
     "likelyScore": [
       2,
       0
@@ -214,9 +214,9 @@
     "home": "Saudi Arabia",
     "away": "Uruguay",
     "kickoffUtc": "2026-06-15T00:00:00Z",
-    "pHome": 0.0901,
-    "pDraw": 0.2727,
-    "pAway": 0.6373,
+    "pHome": 0.1245,
+    "pDraw": 0.2568,
+    "pAway": 0.6187,
     "likelyScore": [
       0,
       1
@@ -228,9 +228,9 @@
     "home": "Austria",
     "away": "Jordan",
     "kickoffUtc": "2026-06-16T00:00:00Z",
-    "pHome": 0.5789,
-    "pDraw": 0.2442,
-    "pAway": 0.1768,
+    "pHome": 0.5432,
+    "pDraw": 0.2335,
+    "pAway": 0.2233,
     "likelyScore": [
       1,
       0
@@ -242,9 +242,9 @@
     "home": "Argentina",
     "away": "Algeria",
     "kickoffUtc": "2026-06-16T00:00:00Z",
-    "pHome": 0.6943,
-    "pDraw": 0.2265,
-    "pAway": 0.0792,
+    "pHome": 0.6228,
+    "pDraw": 0.2141,
+    "pAway": 0.1631,
     "likelyScore": [
       1,
       0
@@ -256,9 +256,9 @@
     "home": "France",
     "away": "Senegal",
     "kickoffUtc": "2026-06-16T00:00:00Z",
-    "pHome": 0.4929,
-    "pDraw": 0.2848,
-    "pAway": 0.2224,
+    "pHome": 0.6058,
+    "pDraw": 0.1984,
+    "pAway": 0.1957,
     "likelyScore": [
       1,
       0
@@ -270,9 +270,9 @@
     "home": "Iraq",
     "away": "Norway",
     "kickoffUtc": "2026-06-16T00:00:00Z",
-    "pHome": 0.1277,
-    "pDraw": 0.245,
-    "pAway": 0.6273,
+    "pHome": 0.2135,
+    "pDraw": 0.2373,
+    "pAway": 0.5492,
     "likelyScore": [
       0,
       1
@@ -284,9 +284,9 @@
     "home": "Portugal",
     "away": "DR Congo",
     "kickoffUtc": "2026-06-17T00:00:00Z",
-    "pHome": 0.6429,
-    "pDraw": 0.2477,
-    "pAway": 0.1095,
+    "pHome": 0.6674,
+    "pDraw": 0.2542,
+    "pAway": 0.0784,
     "likelyScore": [
       1,
       0
@@ -298,9 +298,9 @@
     "home": "Uzbekistan",
     "away": "Colombia",
     "kickoffUtc": "2026-06-17T00:00:00Z",
-    "pHome": 0.0879,
-    "pDraw": 0.2184,
-    "pAway": 0.6937,
+    "pHome": 0.1341,
+    "pDraw": 0.2149,
+    "pAway": 0.651,
     "likelyScore": [
       0,
       1
@@ -312,9 +312,9 @@
     "home": "England",
     "away": "Croatia",
     "kickoffUtc": "2026-06-17T00:00:00Z",
-    "pHome": 0.5027,
-    "pDraw": 0.2888,
-    "pAway": 0.2086,
+    "pHome": 0.5269,
+    "pDraw": 0.2551,
+    "pAway": 0.2181,
     "likelyScore": [
       1,
       0
@@ -326,9 +326,9 @@
     "home": "Ghana",
     "away": "Panama",
     "kickoffUtc": "2026-06-17T00:00:00Z",
-    "pHome": 0.2876,
-    "pDraw": 0.2956,
-    "pAway": 0.4168,
+    "pHome": 0.2351,
+    "pDraw": 0.2624,
+    "pAway": 0.5025,
     "likelyScore": [
       1,
       1
@@ -340,9 +340,9 @@
     "home": "Czech Republic",
     "away": "South Africa",
     "kickoffUtc": "2026-06-18T00:00:00Z",
-    "pHome": 0.4721,
-    "pDraw": 0.2935,
-    "pAway": 0.2344,
+    "pHome": 0.4901,
+    "pDraw": 0.2517,
+    "pAway": 0.2582,
     "likelyScore": [
       1,
       0
@@ -354,9 +354,9 @@
     "home": "Mexico",
     "away": "South Korea",
     "kickoffUtc": "2026-06-18T00:00:00Z",
-    "pHome": 0.5152,
-    "pDraw": 0.2678,
-    "pAway": 0.2169,
+    "pHome": 0.5439,
+    "pDraw": 0.2452,
+    "pAway": 0.211,
     "likelyScore": [
       1,
       0
@@ -368,9 +368,9 @@
     "home": "Switzerland",
     "away": "Bosnia-Herzegovina",
     "kickoffUtc": "2026-06-18T00:00:00Z",
-    "pHome": 0.658,
-    "pDraw": 0.2141,
-    "pAway": 0.1279,
+    "pHome": 0.7014,
+    "pDraw": 0.2224,
+    "pAway": 0.0762,
     "likelyScore": [
       2,
       0
@@ -382,9 +382,9 @@
     "home": "Canada",
     "away": "Qatar",
     "kickoffUtc": "2026-06-18T00:00:00Z",
-    "pHome": 0.761,
-    "pDraw": 0.1613,
-    "pAway": 0.0776,
+    "pHome": 0.7126,
+    "pDraw": 0.2146,
+    "pAway": 0.0728,
     "likelyScore": [
       2,
       0
@@ -396,9 +396,9 @@
     "home": "Turkey",
     "away": "Paraguay",
     "kickoffUtc": "2026-06-19T00:00:00Z",
-    "pHome": 0.2834,
-    "pDraw": 0.2923,
-    "pAway": 0.4243,
+    "pHome": 0.5036,
+    "pDraw": 0.2568,
+    "pAway": 0.2396,
     "likelyScore": [
       1,
       1
@@ -410,9 +410,9 @@
     "home": "Scotland",
     "away": "Morocco",
     "kickoffUtc": "2026-06-19T00:00:00Z",
-    "pHome": 0.1761,
-    "pDraw": 0.3105,
-    "pAway": 0.5133,
+    "pHome": 0.1855,
+    "pDraw": 0.261,
+    "pAway": 0.5535,
     "likelyScore": [
       0,
       1
@@ -424,9 +424,9 @@
     "home": "Brazil",
     "away": "Haiti",
     "kickoffUtc": "2026-06-19T00:00:00Z",
-    "pHome": 0.923,
-    "pDraw": 0.0587,
-    "pAway": 0.0184,
+    "pHome": 0.718,
+    "pDraw": 0.2194,
+    "pAway": 0.0626,
     "likelyScore": [
       3,
       0
@@ -438,9 +438,9 @@
     "home": "United States",
     "away": "Australia",
     "kickoffUtc": "2026-06-19T00:00:00Z",
-    "pHome": 0.3899,
-    "pDraw": 0.288,
-    "pAway": 0.3221,
+    "pHome": 0.4924,
+    "pDraw": 0.2489,
+    "pAway": 0.2587,
     "likelyScore": [
       1,
       1
@@ -452,9 +452,9 @@
     "home": "Netherlands",
     "away": "Sweden",
     "kickoffUtc": "2026-06-20T00:00:00Z",
-    "pHome": 0.6042,
-    "pDraw": 0.2155,
-    "pAway": 0.1803,
+    "pHome": 0.6805,
+    "pDraw": 0.2033,
+    "pAway": 0.1162,
     "likelyScore": [
       1,
       1
@@ -466,9 +466,9 @@
     "home": "Tunisia",
     "away": "Japan",
     "kickoffUtc": "2026-06-20T00:00:00Z",
-    "pHome": 0.1436,
-    "pDraw": 0.2867,
-    "pAway": 0.5697,
+    "pHome": 0.1884,
+    "pDraw": 0.2447,
+    "pAway": 0.5669,
     "likelyScore": [
       0,
       1
@@ -480,9 +480,9 @@
     "home": "Germany",
     "away": "Ivory Coast",
     "kickoffUtc": "2026-06-20T00:00:00Z",
-    "pHome": 0.5671,
-    "pDraw": 0.2503,
-    "pAway": 0.1826,
+    "pHome": 0.619,
+    "pDraw": 0.2116,
+    "pAway": 0.1694,
     "likelyScore": [
       1,
       0
@@ -494,9 +494,9 @@
     "home": "Ecuador",
     "away": "Curaçao",
     "kickoffUtc": "2026-06-20T00:00:00Z",
-    "pHome": 0.8373,
-    "pDraw": 0.1325,
-    "pAway": 0.0302,
+    "pHome": 0.7212,
+    "pDraw": 0.2147,
+    "pAway": 0.0641,
     "likelyScore": [
       2,
       0
@@ -508,9 +508,9 @@
     "home": "Belgium",
     "away": "Iran",
     "kickoffUtc": "2026-06-21T00:00:00Z",
-    "pHome": 0.4605,
-    "pDraw": 0.2749,
-    "pAway": 0.2646,
+    "pHome": 0.4505,
+    "pDraw": 0.2802,
+    "pAway": 0.2694,
     "likelyScore": [
       1,
       1
@@ -522,9 +522,9 @@
     "home": "New Zealand",
     "away": "Egypt",
     "kickoffUtc": "2026-06-21T00:00:00Z",
-    "pHome": 0.2714,
-    "pDraw": 0.3254,
-    "pAway": 0.4033,
+    "pHome": 0.2793,
+    "pDraw": 0.2715,
+    "pAway": 0.4493,
     "likelyScore": [
       0,
       1
@@ -536,9 +536,9 @@
     "home": "Spain",
     "away": "Saudi Arabia",
     "kickoffUtc": "2026-06-21T00:00:00Z",
-    "pHome": 0.7821,
-    "pDraw": 0.1592,
-    "pAway": 0.0587,
+    "pHome": 0.7812,
+    "pDraw": 0.1825,
+    "pAway": 0.0363,
     "likelyScore": [
       2,
       0
@@ -550,9 +550,9 @@
     "home": "Uruguay",
     "away": "Cape Verde",
     "kickoffUtc": "2026-06-21T00:00:00Z",
-    "pHome": 0.7163,
-    "pDraw": 0.2176,
-    "pAway": 0.0661,
+    "pHome": 0.6573,
+    "pDraw": 0.2425,
+    "pAway": 0.1002,
     "likelyScore": [
       1,
       0
@@ -564,9 +564,9 @@
     "home": "France",
     "away": "Iraq",
     "kickoffUtc": "2026-06-22T00:00:00Z",
-    "pHome": 0.7056,
-    "pDraw": 0.21,
-    "pAway": 0.0844,
+    "pHome": 0.6859,
+    "pDraw": 0.2445,
+    "pAway": 0.0696,
     "likelyScore": [
       1,
       0
@@ -578,9 +578,9 @@
     "home": "Norway",
     "away": "Senegal",
     "kickoffUtc": "2026-06-22T00:00:00Z",
-    "pHome": 0.3993,
-    "pDraw": 0.2928,
-    "pAway": 0.308,
+    "pHome": 0.3617,
+    "pDraw": 0.2774,
+    "pAway": 0.3609,
     "likelyScore": [
       1,
       1
@@ -592,9 +592,9 @@
     "home": "Argentina",
     "away": "Austria",
     "kickoffUtc": "2026-06-22T00:00:00Z",
-    "pHome": 0.6846,
-    "pDraw": 0.2354,
-    "pAway": 0.0801,
+    "pHome": 0.6447,
+    "pDraw": 0.2448,
+    "pAway": 0.1105,
     "likelyScore": [
       1,
       0
@@ -606,9 +606,9 @@
     "home": "Jordan",
     "away": "Algeria",
     "kickoffUtc": "2026-06-22T00:00:00Z",
-    "pHome": 0.176,
-    "pDraw": 0.2372,
-    "pAway": 0.5868,
+    "pHome": 0.2491,
+    "pDraw": 0.2391,
+    "pAway": 0.5118,
     "likelyScore": [
       0,
       1
@@ -620,9 +620,9 @@
     "home": "Portugal",
     "away": "Uzbekistan",
     "kickoffUtc": "2026-06-23T00:00:00Z",
-    "pHome": 0.6157,
-    "pDraw": 0.2509,
-    "pAway": 0.1333,
+    "pHome": 0.6549,
+    "pDraw": 0.216,
+    "pAway": 0.1291,
     "likelyScore": [
       1,
       0
@@ -634,9 +634,9 @@
     "home": "Colombia",
     "away": "DR Congo",
     "kickoffUtc": "2026-06-23T00:00:00Z",
-    "pHome": 0.7145,
-    "pDraw": 0.2136,
-    "pAway": 0.0719,
+    "pHome": 0.6894,
+    "pDraw": 0.2328,
+    "pAway": 0.0778,
     "likelyScore": [
       1,
       0
@@ -648,9 +648,9 @@
     "home": "England",
     "away": "Ghana",
     "kickoffUtc": "2026-06-23T00:00:00Z",
-    "pHome": 0.7533,
-    "pDraw": 0.1816,
-    "pAway": 0.0651,
+    "pHome": 0.7317,
+    "pDraw": 0.2025,
+    "pAway": 0.0658,
     "likelyScore": [
       2,
       0
@@ -662,9 +662,9 @@
     "home": "Panama",
     "away": "Croatia",
     "kickoffUtc": "2026-06-23T00:00:00Z",
-    "pHome": 0.1715,
-    "pDraw": 0.2426,
-    "pAway": 0.5859,
+    "pHome": 0.2371,
+    "pDraw": 0.2427,
+    "pAway": 0.5202,
     "likelyScore": [
       0,
       1
@@ -676,9 +676,9 @@
     "home": "Morocco",
     "away": "Haiti",
     "kickoffUtc": "2026-06-24T00:00:00Z",
-    "pHome": 0.7084,
-    "pDraw": 0.2091,
-    "pAway": 0.0826,
+    "pHome": 0.6741,
+    "pDraw": 0.2278,
+    "pAway": 0.0981,
     "likelyScore": [
       1,
       0
@@ -690,9 +690,9 @@
     "home": "Bosnia-Herzegovina",
     "away": "Qatar",
     "kickoffUtc": "2026-06-24T00:00:00Z",
-    "pHome": 0.4263,
-    "pDraw": 0.2837,
-    "pAway": 0.29,
+    "pHome": 0.3864,
+    "pDraw": 0.2537,
+    "pAway": 0.36,
     "likelyScore": [
       1,
       1
@@ -704,9 +704,9 @@
     "home": "Scotland",
     "away": "Brazil",
     "kickoffUtc": "2026-06-24T00:00:00Z",
-    "pHome": 0.0693,
-    "pDraw": 0.1519,
-    "pAway": 0.7788,
+    "pHome": 0.121,
+    "pDraw": 0.2114,
+    "pAway": 0.6676,
     "likelyScore": [
       0,
       2
@@ -718,9 +718,9 @@
     "home": "South Africa",
     "away": "South Korea",
     "kickoffUtc": "2026-06-24T00:00:00Z",
-    "pHome": 0.1675,
-    "pDraw": 0.2779,
-    "pAway": 0.5546,
+    "pHome": 0.1884,
+    "pDraw": 0.2482,
+    "pAway": 0.5634,
     "likelyScore": [
       0,
       1
@@ -732,9 +732,9 @@
     "home": "Mexico",
     "away": "Czech Republic",
     "kickoffUtc": "2026-06-24T00:00:00Z",
-    "pHome": 0.6311,
-    "pDraw": 0.2208,
-    "pAway": 0.1481,
+    "pHome": 0.6783,
+    "pDraw": 0.2076,
+    "pAway": 0.1141,
     "likelyScore": [
       1,
       0
@@ -746,9 +746,9 @@
     "home": "Canada",
     "away": "Switzerland",
     "kickoffUtc": "2026-06-24T00:00:00Z",
-    "pHome": 0.3918,
-    "pDraw": 0.2798,
-    "pAway": 0.3284,
+    "pHome": 0.4241,
+    "pDraw": 0.2611,
+    "pAway": 0.3148,
     "likelyScore": [
       1,
       1
@@ -760,9 +760,9 @@
     "home": "United States",
     "away": "Turkey",
     "kickoffUtc": "2026-06-25T00:00:00Z",
-    "pHome": 0.4752,
-    "pDraw": 0.2441,
-    "pAway": 0.2807,
+    "pHome": 0.4952,
+    "pDraw": 0.2529,
+    "pAway": 0.252,
     "likelyScore": [
       1,
       1
@@ -774,9 +774,9 @@
     "home": "Paraguay",
     "away": "Australia",
     "kickoffUtc": "2026-06-25T00:00:00Z",
-    "pHome": 0.3473,
-    "pDraw": 0.3405,
-    "pAway": 0.3122,
+    "pHome": 0.2855,
+    "pDraw": 0.2615,
+    "pAway": 0.453,
     "likelyScore": [
       0,
       0
@@ -788,9 +788,9 @@
     "home": "Curaçao",
     "away": "Ivory Coast",
     "kickoffUtc": "2026-06-25T00:00:00Z",
-    "pHome": 0.104,
-    "pDraw": 0.2235,
-    "pAway": 0.6724,
+    "pHome": 0.157,
+    "pDraw": 0.2242,
+    "pAway": 0.6189,
     "likelyScore": [
       0,
       1
@@ -802,9 +802,9 @@
     "home": "Ecuador",
     "away": "Germany",
     "kickoffUtc": "2026-06-25T00:00:00Z",
-    "pHome": 0.4029,
-    "pDraw": 0.32,
-    "pAway": 0.2772,
+    "pHome": 0.3016,
+    "pDraw": 0.3059,
+    "pAway": 0.3925,
     "likelyScore": [
       1,
       0
@@ -816,9 +816,9 @@
     "home": "Japan",
     "away": "Sweden",
     "kickoffUtc": "2026-06-25T00:00:00Z",
-    "pHome": 0.5762,
-    "pDraw": 0.247,
-    "pAway": 0.1768,
+    "pHome": 0.6344,
+    "pDraw": 0.2334,
+    "pAway": 0.1322,
     "likelyScore": [
       1,
       0
@@ -830,9 +830,9 @@
     "home": "Tunisia",
     "away": "Netherlands",
     "kickoffUtc": "2026-06-25T00:00:00Z",
-    "pHome": 0.1467,
-    "pDraw": 0.2481,
-    "pAway": 0.6052,
+    "pHome": 0.1367,
+    "pDraw": 0.2583,
+    "pAway": 0.605,
     "likelyScore": [
       0,
       1
@@ -844,9 +844,9 @@
     "home": "Senegal",
     "away": "Iraq",
     "kickoffUtc": "2026-06-26T00:00:00Z",
-    "pHome": 0.5385,
-    "pDraw": 0.3069,
-    "pAway": 0.1545,
+    "pHome": 0.6104,
+    "pDraw": 0.2249,
+    "pAway": 0.1647,
     "likelyScore": [
       1,
       0
@@ -858,9 +858,9 @@
     "home": "Norway",
     "away": "France",
     "kickoffUtc": "2026-06-26T00:00:00Z",
-    "pHome": 0.2659,
-    "pDraw": 0.2617,
-    "pAway": 0.4724,
+    "pHome": 0.2111,
+    "pDraw": 0.2268,
+    "pAway": 0.5621,
     "likelyScore": [
       1,
       1
@@ -872,9 +872,9 @@
     "home": "Uruguay",
     "away": "Spain",
     "kickoffUtc": "2026-06-26T00:00:00Z",
-    "pHome": 0.2829,
-    "pDraw": 0.325,
-    "pAway": 0.3921,
+    "pHome": 0.1513,
+    "pDraw": 0.2713,
+    "pAway": 0.5774,
     "likelyScore": [
       0,
       0
@@ -886,9 +886,9 @@
     "home": "New Zealand",
     "away": "Belgium",
     "kickoffUtc": "2026-06-26T00:00:00Z",
-    "pHome": 0.1349,
-    "pDraw": 0.2177,
-    "pAway": 0.6473,
+    "pHome": 0.1363,
+    "pDraw": 0.1578,
+    "pAway": 0.7059,
     "likelyScore": [
       0,
       1
@@ -900,9 +900,9 @@
     "home": "Egypt",
     "away": "Iran",
     "kickoffUtc": "2026-06-26T00:00:00Z",
-    "pHome": 0.2546,
-    "pDraw": 0.3211,
-    "pAway": 0.4243,
+    "pHome": 0.2814,
+    "pDraw": 0.2629,
+    "pAway": 0.4557,
     "likelyScore": [
       0,
       1
@@ -914,9 +914,9 @@
     "home": "Cape Verde",
     "away": "Saudi Arabia",
     "kickoffUtc": "2026-06-26T00:00:00Z",
-    "pHome": 0.2714,
-    "pDraw": 0.3456,
-    "pAway": 0.3829,
+    "pHome": 0.3389,
+    "pDraw": 0.2618,
+    "pAway": 0.3994,
     "likelyScore": [
       0,
       0
@@ -928,9 +928,9 @@
     "home": "Panama",
     "away": "England",
     "kickoffUtc": "2026-06-27T00:00:00Z",
-    "pHome": 0.0858,
-    "pDraw": 0.1922,
-    "pAway": 0.722,
+    "pHome": 0.1255,
+    "pDraw": 0.2175,
+    "pAway": 0.657,
     "likelyScore": [
       0,
       2
@@ -942,9 +942,9 @@
     "home": "Algeria",
     "away": "Austria",
     "kickoffUtc": "2026-06-27T00:00:00Z",
-    "pHome": 0.3495,
-    "pDraw": 0.3016,
-    "pAway": 0.3489,
+    "pHome": 0.4063,
+    "pDraw": 0.2456,
+    "pAway": 0.3482,
     "likelyScore": [
       1,
       1
@@ -956,9 +956,9 @@
     "home": "Jordan",
     "away": "Argentina",
     "kickoffUtc": "2026-06-27T00:00:00Z",
-    "pHome": 0.025,
-    "pDraw": 0.1046,
-    "pAway": 0.8704,
+    "pHome": 0.1037,
+    "pDraw": 0.1242,
+    "pAway": 0.7721,
     "likelyScore": [
       0,
       2
@@ -970,9 +970,9 @@
     "home": "Colombia",
     "away": "Portugal",
     "kickoffUtc": "2026-06-27T00:00:00Z",
-    "pHome": 0.461,
-    "pDraw": 0.2788,
-    "pAway": 0.2601,
+    "pHome": 0.343,
+    "pDraw": 0.2878,
+    "pAway": 0.3692,
     "likelyScore": [
       1,
       1
@@ -984,9 +984,9 @@
     "home": "DR Congo",
     "away": "Uzbekistan",
     "kickoffUtc": "2026-06-27T00:00:00Z",
-    "pHome": 0.2683,
-    "pDraw": 0.3868,
-    "pAway": 0.3449,
+    "pHome": 0.3013,
+    "pDraw": 0.2797,
+    "pAway": 0.4191,
     "likelyScore": [
       0,
       0
@@ -998,9 +998,9 @@
     "home": "Croatia",
     "away": "Ghana",
     "kickoffUtc": "2026-06-27T00:00:00Z",
-    "pHome": 0.6322,
-    "pDraw": 0.236,
-    "pAway": 0.1318,
+    "pHome": 0.6616,
+    "pDraw": 0.2329,
+    "pAway": 0.1055,
     "likelyScore": [
       1,
       0

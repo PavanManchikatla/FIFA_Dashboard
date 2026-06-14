@@ -57,15 +57,27 @@ async function upstash(command: (string | number)[]): Promise<unknown> {
 }
 
 // ---- public surface ---------------------------------------------------------
+// The cache is a best-effort accelerator, never a hard dependency: a Redis outage must
+// degrade to "serve fresh / skip caching", not crash the request (CLAUDE.md). So reads
+// swallow errors → null and writes swallow errors → no-op.
 export async function get(key: string): Promise<string | null> {
   if (CACHE_BACKEND === 'memory') return memGet(key);
-  return ((await upstash(['GET', key])) as string | null) ?? null;
+  try {
+    return ((await upstash(['GET', key])) as string | null) ?? null;
+  } catch (err) {
+    console.error('cache get failed (degrading to miss):', (err as Error).message);
+    return null;
+  }
 }
 
 export async function set(key: string, value: string, ttlSeconds?: number): Promise<void> {
   if (CACHE_BACKEND === 'memory') return memSet(key, value, ttlSeconds);
-  if (ttlSeconds) await upstash(['SET', key, value, 'EX', ttlSeconds]);
-  else await upstash(['SET', key, value]);
+  try {
+    if (ttlSeconds) await upstash(['SET', key, value, 'EX', ttlSeconds]);
+    else await upstash(['SET', key, value]);
+  } catch (err) {
+    console.error('cache set failed (skipping write):', (err as Error).message);
+  }
 }
 
 export async function getJson<T>(key: string): Promise<T | null> {

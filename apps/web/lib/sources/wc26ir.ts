@@ -6,6 +6,7 @@ import {
   type Wc26irStadium,
   type Wc26irTeam,
 } from '@/mocks/wc26irRaw';
+import { unwrapList } from './unwrap';
 
 // worldcup26.ir adapter — the ONLY place the raw API is fetched (PLAN.md §3).
 // Verified contract: docs/wc26ir-REAL-SHAPES.md (API v1.0.5).
@@ -69,18 +70,6 @@ async function getList<T>(path: string): Promise<T[]> {
 
   const json = (await res.json()) as unknown;
   return unwrapList<T>(json);
-}
-
-/** Handle both a bare array and a {data:[...]}/{games:[...]} wrapper (UNVERIFIED at write time). */
-function unwrapList<T>(json: unknown): T[] {
-  if (Array.isArray(json)) return json as T[];
-  if (json && typeof json === 'object') {
-    for (const key of ['data', 'games', 'teams', 'stadiums', 'results']) {
-      const v = (json as Record<string, unknown>)[key];
-      if (Array.isArray(v)) return v as T[];
-    }
-  }
-  return [];
 }
 
 // ---- public surface ---------------------------------------------------------

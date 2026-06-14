@@ -1,6 +1,8 @@
 import math
 
-from wc26ml.elo import INITIAL_ELO, K_FACTOR, expected_score, mov_multiplier
+import pandas as pd
+
+from wc26ml.elo import INITIAL_ELO, K_FACTOR, expected_score, mov_multiplier, run_elo
 
 
 def test_initial_and_kfactors():
@@ -19,3 +21,19 @@ def test_mov_multiplier_grows_with_margin():
     # dampened by a large elo gap (blowout-protection)
     assert mov_multiplier(3, 0) > mov_multiplier(3, 500)
     assert not math.isnan(mov_multiplier(2, 100))
+
+
+def test_draws_do_not_update_ratings_known_limitation():
+    """KNOWN LIMITATION (locked, not a passing feature): the frozen ln(|gd|+1) MOV term is
+    0 at a draw, so a drawn match produces no Elo change. Documented in elo.mov_multiplier /
+    meta.json. If we adopt the goal-index fix, flip this assertion."""
+    assert mov_multiplier(0, 0) == 0.0
+    df = pd.DataFrame([{
+        "date": pd.Timestamp("2020-01-01"), "home_team": "Strong", "away_team": "Weak",
+        "home_score": 1, "away_score": 1, "importance": "friendly", "neutral": True,
+        "outcome": "D",
+    }])
+    _, ratings = run_elo(df)
+    # Both stay at the initial rating because the draw didn't move anything.
+    assert ratings["Strong"] == INITIAL_ELO
+    assert ratings["Weak"] == INITIAL_ELO

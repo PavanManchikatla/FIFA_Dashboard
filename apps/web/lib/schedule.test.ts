@@ -43,6 +43,22 @@ describe('hasActiveWindow', () => {
   });
 });
 
+describe('isActive boundaries', () => {
+  it('is active exactly at kickoff and at the window edge, not past it', () => {
+    expect(isActive(match({ kickoffUtc: new Date(NOW).toISOString() }), NOW)).toBe(true);
+    expect(isActive(match({ kickoffUtc: new Date(NOW + KICKOFF_WINDOW_MS).toISOString() }), NOW)).toBe(true);
+    expect(isActive(match({ kickoffUtc: new Date(NOW + KICKOFF_WINDOW_MS + 1).toISOString() }), NOW)).toBe(false);
+  });
+
+  it('is not active for a kickoff already in the past (but not yet flagged live)', () => {
+    expect(isActive(match({ kickoffUtc: new Date(NOW - 1).toISOString() }), NOW)).toBe(false);
+  });
+
+  it('does not throw / is false for an unparseable kickoff', () => {
+    expect(isActive(match({ kickoffUtc: 'not-a-date' }), NOW)).toBe(false);
+  });
+});
+
 describe('snapshotAgeMs', () => {
   it('measures age and treats null/bad as Infinity', () => {
     const s: LiveSnapshot = { generatedAt: new Date(NOW - 5000).toISOString(), stale: false, source: 't', matches: [] };
