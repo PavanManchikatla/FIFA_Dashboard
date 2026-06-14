@@ -1,5 +1,5 @@
 import 'server-only';
-import { fetchGames } from './sources/wc26ir';
+import { fetchData } from './sources/wc26ir';
 import { normalizeWc26ir } from './normalize';
 import { CACHE_KEYS, TTL, getJson, setJson } from './cache';
 import { REFRESH_AFTER_MS, hasActiveWindow, snapshotAgeMs } from './schedule';
@@ -23,7 +23,7 @@ export async function readSnapshot(): Promise<LiveSnapshot | null> {
  * marked stale (or an empty stale snapshot if there is none). Never throws.
  */
 export async function refreshSnapshot(now: number = Date.now()): Promise<LiveSnapshot> {
-  const result = await fetchGames();
+  const result = await fetchData();
 
   if (!result.ok) {
     const lastGood = await readSnapshot();
@@ -33,7 +33,7 @@ export async function refreshSnapshot(now: number = Date.now()): Promise<LiveSna
     return stale;
   }
 
-  const matches = normalizeWc26ir(result.payload);
+  const matches = normalizeWc26ir(result.data, { now });
   const snapshot: LiveSnapshot = {
     generatedAt: new Date(now).toISOString(),
     stale: false,
