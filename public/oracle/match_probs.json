@@ -11,6 +11,8 @@
       2,
       0
     ],
+    "lambdaHome": 1.966,
+    "lambdaAway": 0.535,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -25,6 +27,8 @@
       1,
       1
     ],
+    "lambdaHome": 1.424,
+    "lambdaAway": 1.027,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -39,6 +43,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.851,
+    "lambdaAway": 0.626,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -53,6 +59,8 @@
       1,
       1
     ],
+    "lambdaHome": 1.219,
+    "lambdaAway": 1.164,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -67,6 +75,8 @@
       0,
       2
     ],
+    "lambdaHome": 0.752,
+    "lambdaAway": 2.533,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -81,6 +91,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.273,
+    "lambdaAway": 0.647,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -95,6 +107,8 @@
       1,
       1
     ],
+    "lambdaHome": 0.922,
+    "lambdaAway": 1.763,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -109,6 +123,8 @@
       1,
       1
     ],
+    "lambdaHome": 1.23,
+    "lambdaAway": 1.027,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -123,6 +139,8 @@
       1,
       1
     ],
+    "lambdaHome": 1.241,
+    "lambdaAway": 1.013,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -137,6 +155,8 @@
       1,
       1
     ],
+    "lambdaHome": 1.12,
+    "lambdaAway": 1.158,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -151,6 +171,8 @@
       3,
       0
     ],
+    "lambdaHome": 3.573,
+    "lambdaAway": 0.554,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -165,6 +187,8 @@
       0,
       1
     ],
+    "lambdaHome": 0.434,
+    "lambdaAway": 1.103,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -179,6 +203,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.425,
+    "lambdaAway": 0.727,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -193,6 +219,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.523,
+    "lambdaAway": 0.837,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -207,6 +235,8 @@
       2,
       0
     ],
+    "lambdaHome": 2.781,
+    "lambdaAway": 0.457,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -221,6 +251,8 @@
       0,
       1
     ],
+    "lambdaHome": 0.367,
+    "lambdaAway": 1.426,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -235,6 +267,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.732,
+    "lambdaAway": 0.848,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -249,6 +283,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.712,
+    "lambdaAway": 0.408,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -263,6 +299,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.391,
+    "lambdaAway": 0.843,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -277,6 +315,8 @@
       0,
       1
     ],
+    "lambdaHome": 0.607,
+    "lambdaAway": 1.667,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -291,6 +331,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.617,
+    "lambdaAway": 0.51,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -305,6 +347,8 @@
       0,
       1
     ],
+    "lambdaHome": 0.479,
+    "lambdaAway": 1.803,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -319,6 +363,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.368,
+    "lambdaAway": 0.78,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -333,6 +379,8 @@
       1,
       1
     ],
+    "lambdaHome": 0.991,
+    "lambdaAway": 1.25,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -347,6 +395,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.32,
+    "lambdaAway": 0.846,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -361,6 +411,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.529,
+    "lambdaAway": 0.9,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -375,6 +427,8 @@
       2,
       0
     ],
+    "lambdaHome": 1.959,
+    "lambdaAway": 0.736,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -389,6 +443,8 @@
       2,
       0
     ],
+    "lambdaHome": 2.393,
+    "lambdaAway": 0.639,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -403,6 +459,8 @@
       1,
       1
     ],
+    "lambdaHome": 0.995,
+    "lambdaAway": 1.28,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -417,6 +475,8 @@
       0,
       1
     ],
+    "lambdaHome": 0.603,
+    "lambdaAway": 1.239,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -431,6 +491,8 @@
       3,
       0
     ],
+    "lambdaHome": 3.722,
+    "lambdaAway": 0.482,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -445,6 +507,8 @@
       1,
       1
     ],
+    "lambdaHome": 1.258,
+    "lambdaAway": 1.118,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -459,6 +523,8 @@
       1,
       1
     ],
+    "lambdaHome": 2.056,
+    "lambdaAway": 1.04,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -473,6 +539,8 @@
       0,
       1
     ],
+    "lambdaHome": 0.552,
+    "lambdaAway": 1.382,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -487,6 +555,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.679,
+    "lambdaAway": 0.844,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -501,6 +571,8 @@
       2,
       0
     ],
+    "lambdaHome": 2.348,
+    "lambdaAway": 0.285,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -515,6 +587,8 @@
       1,
       1
     ],
+    "lambdaHome": 1.443,
+    "lambdaAway": 1.03,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -529,6 +603,8 @@
       0,
       1
     ],
+    "lambdaHome": 0.827,
+    "lambdaAway": 1.074,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -543,6 +619,8 @@
       2,
       0
     ],
+    "lambdaHome": 2.278,
+    "lambdaAway": 0.473,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -557,6 +635,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.741,
+    "lambdaAway": 0.355,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -571,6 +651,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.866,
+    "lambdaAway": 0.484,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -585,6 +667,8 @@
       1,
       1
     ],
+    "lambdaHome": 1.243,
+    "lambdaAway": 1.057,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -599,6 +683,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.648,
+    "lambdaAway": 0.393,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -613,6 +699,8 @@
       0,
       1
     ],
+    "lambdaHome": 0.881,
+    "lambdaAway": 1.801,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -627,6 +715,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.627,
+    "lambdaAway": 0.614,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -641,6 +731,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.792,
+    "lambdaAway": 0.398,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -655,6 +747,8 @@
       2,
       0
     ],
+    "lambdaHome": 2.059,
+    "lambdaAway": 0.444,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -669,6 +763,8 @@
       0,
       1
     ],
+    "lambdaHome": 0.831,
+    "lambdaAway": 1.743,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -683,6 +779,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.868,
+    "lambdaAway": 0.476,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -697,6 +795,8 @@
       1,
       1
     ],
+    "lambdaHome": 1.34,
+    "lambdaAway": 1.058,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -711,6 +811,8 @@
       0,
       2
     ],
+    "lambdaHome": 0.611,
+    "lambdaAway": 2.468,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -725,6 +827,8 @@
       0,
       1
     ],
+    "lambdaHome": 0.669,
+    "lambdaAway": 1.448,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -739,6 +843,8 @@
       2,
       0
     ],
+    "lambdaHome": 1.933,
+    "lambdaAway": 0.821,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -753,6 +859,8 @@
       1,
       1
     ],
+    "lambdaHome": 1.316,
+    "lambdaAway": 1.183,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -767,6 +875,8 @@
       1,
       1
     ],
+    "lambdaHome": 1.737,
+    "lambdaAway": 1.29,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -781,6 +891,8 @@
       0,
       0
     ],
+    "lambdaHome": 0.927,
+    "lambdaAway": 0.863,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -795,6 +907,8 @@
       0,
       1
     ],
+    "lambdaHome": 0.556,
+    "lambdaAway": 1.803,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -809,6 +923,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.099,
+    "lambdaAway": 0.86,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -823,6 +939,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.706,
+    "lambdaAway": 0.834,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -837,6 +955,8 @@
       0,
       1
     ],
+    "lambdaHome": 0.688,
+    "lambdaAway": 1.666,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -851,6 +971,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.263,
+    "lambdaAway": 0.541,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -865,6 +987,8 @@
       1,
       1
     ],
+    "lambdaHome": 1.112,
+    "lambdaAway": 1.562,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -879,6 +1003,8 @@
       0,
       0
     ],
+    "lambdaHome": 0.856,
+    "lambdaAway": 1.061,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -893,6 +1019,8 @@
       0,
       1
     ],
+    "lambdaHome": 0.761,
+    "lambdaAway": 1.937,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -907,6 +1035,8 @@
       0,
       1
     ],
+    "lambdaHome": 0.8,
+    "lambdaAway": 1.12,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -921,6 +1051,8 @@
       0,
       0
     ],
+    "lambdaHome": 0.761,
+    "lambdaAway": 0.962,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -935,6 +1067,8 @@
       0,
       2
     ],
+    "lambdaHome": 0.557,
+    "lambdaAway": 2.049,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -949,6 +1083,8 @@
       1,
       1
     ],
+    "lambdaHome": 1.104,
+    "lambdaAway": 1.103,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -963,6 +1099,8 @@
       0,
       2
     ],
+    "lambdaHome": 0.314,
+    "lambdaAway": 2.689,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -977,6 +1115,8 @@
       1,
       1
     ],
+    "lambdaHome": 1.413,
+    "lambdaAway": 0.995,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -991,6 +1131,8 @@
       0,
       0
     ],
+    "lambdaHome": 0.651,
+    "lambdaAway": 0.779,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -1005,6 +1147,8 @@
       1,
       0
     ],
+    "lambdaHome": 1.751,
+    "lambdaAway": 0.661,
     "modelVersion": "elo+dc+gbm-0.1.0"
   }
 ]

@@ -132,6 +132,15 @@ class DixonColes:
         i, j = np.unravel_index(int(np.argmax(mat)), mat.shape)
         return int(i), int(j)
 
+    def intensities(self, home: str, away: str, neutral: bool) -> tuple[float, float]:
+        """Expected goals (λ_home, λ_away) for a full match — the inputs the live analytic
+        win-prob (PLAN.md §4.4) scales by remaining time. Same λ the score matrix is built on."""
+        ah, dh = self._strength(home)
+        aa, da = self._strength(away)
+        lam = min(float(np.exp(ah - da + (0.0 if neutral else self.home_adv))), MAX_LAMBDA)
+        mu = min(float(np.exp(aa - dh)), MAX_LAMBDA)
+        return lam, mu
+
 
 # ---- GBM ----
 def fit_gbm(train: pd.DataFrame):

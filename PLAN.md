@@ -237,10 +237,19 @@ getMeta`) that static-import + zod-validate the committed `public/oracle/*.json`
   champion-odds bars, group heat tables, Bracket of Doom visualization, model card.
 - Done when: daily run commits fresh JSON and the page renders deltas.
 
-**Phase 4 — Live layer**
+**Phase 4 — Live layer** — ✅ DONE
 - In-match analytic win prob + heartbeat chart on `/match/[id]`; Panic Index gauge;
   insight templates wired into ticker; goal-event beacon flash on the holo lattice.
-- Done when: during a live match the probability curve updates within one poll cycle.
+- Done when: during a live match the probability curve updates within one poll cycle. ✅
+- **[as-built]** `/api/winprob` does remaining-time Poisson on the published Dixon-Coles λ
+  (`lambdaHome/lambdaAway` added to the MatchProb contract); a red card multiplies the
+  opponent λ by 1.35 (param — wc26ir gives no cards yet). The heartbeat is reconstructed from
+  the goal-minute timeline parsed from wc26ir `home_scorers/away_scorers` (so one snapshot
+  yields the whole curve — no Redis time-series needed). Panic Index is computed client-side
+  in `lib/winprob.ts` from live state + the team's `pChampion` + a per-team trauma weight.
+  Goal flash = beacon pulse when a live match's score increases between polls. Win-prob math
+  is pure + unit-tested (`lib/winprob.test.ts`). Note: match-id route segments are URL-encoded,
+  so the `/match/[id]` page decodes the param before use.
 
 **Phase 5 — Polish (knockouts, from June 28)**
 - HoloLattice (react-three-fiber port with bloom), lattice→map cross-fade transition,

@@ -12,6 +12,6 @@ const HoloMap = dynamic(() => import('./HoloMap').then((m) => m.HoloMap), {
   ),
 });
 
-export default function HoloMapClient() {
-  return <HoloMap />;
+export default function HoloMapClient({ insightLines = [] }: { insightLines?: string[] }) {
+  return <HoloMap insightLines={insightLines} />;
 }

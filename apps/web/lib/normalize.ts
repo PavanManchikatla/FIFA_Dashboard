@@ -50,6 +50,22 @@ function parseMinute(timeElapsed: string): number | null {
   return m ? Number(m[1]) : null;
 }
 
+/**
+ * Extract goal minutes from a wc26ir scorers field. It's a messy stringified set with smart
+ * quotes, e.g. `{"J. Quiñones 9'","R. Jiménez 67'"}` or the literal string "null". We just
+ * pull every `<minute>'` token (handling "45+2'" → 45), sorted — enough to rebuild the
+ * score timeline for the heartbeat chart.
+ */
+function parseGoalMinutes(scorers: string | undefined): number[] {
+  if (!scorers || scorers === 'null') return [];
+  const out: number[] = [];
+  for (const m of scorers.matchAll(/(\d+)(?:\+\d+)?\s*'/g)) {
+    const min = Number(m[1]);
+    if (!Number.isNaN(min)) out.push(min);
+  }
+  return out.sort((a, b) => a - b);
+}
+
 // wc26ir `local_date` is "MM/DD/YYYY HH:MM" with an ambiguous TZ. We have no authoritative
 // UTC schedule, so parse it best-effort as UTC for *display* only (live state comes from
 // time_elapsed, not this). lib/fixtures.ts can override with a real UTC kickoff when curated.
@@ -90,6 +106,8 @@ export function normalizeWc26ir(data: Wc26irData, opts: { stale?: boolean } = {}
       status,
       kickoffUtc,
       minute: status === 'live' ? parseMinute(g.time_elapsed) : null,
+      homeGoalMinutes: parseGoalMinutes(g.home_scorers),
+      awayGoalMinutes: parseGoalMinutes(g.away_scorers),
       group: g.group,
       source: 'worldcup26.ir',
       stale: opts.stale ?? false,

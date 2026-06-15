@@ -17,6 +17,9 @@ export type Match = {
   kickoffUtc: string;
   /** Minutes elapsed when live (e.g. 64). null otherwise. */
   minute: number | null;
+  /** Goal minutes parsed from the scorers fields — reconstructs the in-match heartbeat. */
+  homeGoalMinutes: number[];
+  awayGoalMinutes: number[];
   group: string | null;
   /** Source-of-truth provenance + freshness, for honest UI labelling. */
   source: string;

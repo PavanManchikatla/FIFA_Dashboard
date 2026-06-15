@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import MapGL, { Marker, Popup, NavigationControl, type MapRef, type ErrorEvent } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { STADIUMS } from '@/lib/stadiums';
@@ -33,7 +33,7 @@ function matchForStadium(matches: Match[], stadiumId: string): Match | null {
   );
 }
 
-export function HoloMap() {
+export function HoloMap({ insightLines = [] }: { insightLines?: string[] }) {
   const mapRef = useRef<MapRef | null>(null);
   // Broker is stable across renders; bump `providerTick` to recompute the style.
   const brokerRef = useRef<TileBroker | null>(null);
@@ -49,6 +49,32 @@ export function HoloMap() {
   const { snapshot } = useLive();
   const matches = useMemo(() => snapshot?.matches ?? [], [snapshot]);
   const live = useMemo(() => liveByStadium(matches), [matches]);
+
+  // Goal-event beacon flash: detect a live match's score increasing between polls and pulse
+  // that stadium's beacon for ~2s.
+  const prevGoals = useRef<Map<string, number>>(new Map());
+  const [flashing, setFlashing] = useState<Set<string>>(new Set());
+  useEffect(() => {
+    const justScored: string[] = [];
+    for (const m of matches) {
+      const total = (m.homeScore ?? 0) + (m.awayScore ?? 0);
+      const prev = prevGoals.current.get(m.id);
+      if (m.status === 'live' && m.stadiumId && prev != null && total > prev) {
+        justScored.push(m.stadiumId);
+      }
+      prevGoals.current.set(m.id, total);
+    }
+    if (justScored.length === 0) return;
+    setFlashing((s) => new Set([...s, ...justScored]));
+    const t = setTimeout(() => {
+      setFlashing((s) => {
+        const next = new Set(s);
+        justScored.forEach((id) => next.delete(id));
+        return next;
+      });
+    }, 2000);
+    return () => clearTimeout(t);
+  }, [matches]);
 
   // Style is keyed on the active provider; providerTick forces recompute on failover.
   const mapStyle = useMemo(
@@ -129,13 +155,14 @@ export function HoloMap() {
           <NavigationControl position="bottom-right" visualizePitch />
           {STADIUMS.map((s) => {
             const isLive = live.has(s.id);
+            const isFlashing = flashing.has(s.id);
             return (
               <Marker key={s.id} longitude={s.lon} latitude={s.lat} anchor="center">
                 <div
                   role="button"
                   tabIndex={0}
                   aria-label={`${s.name}, ${s.city}`}
-                  className={`beacon${isLive ? ' live' : ''}`}
+                  className={`beacon${isLive ? ' live' : ''}${isFlashing ? ' goal-flash' : ''}`}
                   onMouseEnter={() => setHovered(s)}
                   onMouseLeave={() => setHovered((h) => (h === s ? null : h))}
                   onClick={() => flyTo(s)}
@@ -222,7 +249,7 @@ export function HoloMap() {
         )}
       </div>
 
-      <Ticker matches={matches} />
+      <Ticker matches={matches} insightLines={insightLines} />
     </div>
   );
 }

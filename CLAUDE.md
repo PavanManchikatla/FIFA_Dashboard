@@ -3,7 +3,7 @@
 Read PLAN.md first. It is the source of truth for architecture, data contracts, and phases.
 Work phase by phase; do not start a later phase before the current one's "Done when" passes.
 
-## Current status (phases 1–3 shipped)
+## Current status (phases 1–4 shipped)
 
 - ✅ **Phase 1 — Foundation**: holo `/map` with tile-broker failover + live beacons + ticker.
   Wired to **real wc26ir + Upstash** (verified on localhost); public Vercel deploy is
@@ -13,9 +13,11 @@ Work phase by phase; do not start a later phase before the current one's "Done w
 - ✅ **Phase 3 — Simulator + Oracle page**: 48-team Monte Carlo (`simulate.py`) →
   `simulation.json` + `insights.json`; `/oracle` page (champion bars, group heat, Bracket of
   Doom survival heatmap, model card).
-- ⬜ **Phase 4 — Live layer** (next): `/api/winprob` analytic in-match prob, heartbeat chart on
-  `/match/[id]`, Panic Index gauge, goal-event beacon flash, insight templates in the ticker.
-- ⬜ **Phase 5 — Polish**: HoloLattice (r3f), lattice→map cross-fade, SSE, OG cards.
+- ✅ **Phase 4 — Live layer**: `/api/winprob` analytic in-match prob (remaining-time Poisson on
+  published Dixon-Coles λ); heartbeat chart on `/match/[id]` (rebuilt from goal-minute timeline,
+  no per-minute storage); Panic Index gauge (shakes); goal-event beacon flash on the map;
+  Oracle insights wired into the ticker.
+- ⬜ **Phase 5 — Polish** (next): HoloLattice (r3f), lattice→map cross-fade, SSE, OG cards.
 
 Tests: web vitest (`apps/web`) + ml pytest (`ml`) both green; CI runs them + the backtest gate.
 

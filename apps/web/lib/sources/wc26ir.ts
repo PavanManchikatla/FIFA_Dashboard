@@ -99,9 +99,14 @@ function mockData(): Wc26irData {
 
   const elapsed = Math.floor((Date.now() / 1000) % 90) + 1; // 1→90, off wall-clock
   const goalsSince = Math.floor(elapsed / 23);
+  // Synthesize scorers at the goal minutes (23, 46, …) so the heartbeat chart has events.
+  const scorers =
+    goalsSince > 0
+      ? '{' + Array.from({ length: goalsSince }, (_, i) => `"Mock ${i + 1} ${(i + 1) * 23}'"`).join(',') + '}'
+      : 'null';
   const games = WC26IR_FIXTURE.games.map((g) =>
     g.id === '6'
-      ? { ...g, finished: 'FALSE', time_elapsed: String(elapsed), home_score: String(goalsSince) }
+      ? { ...g, finished: 'FALSE', time_elapsed: String(elapsed), home_score: String(goalsSince), home_scorers: scorers }
       : g,
   );
   return { ...WC26IR_FIXTURE, games };

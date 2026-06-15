@@ -83,12 +83,15 @@ def build_match_probs(matches: pd.DataFrame) -> list[dict]:
     for i, row in enumerate(fixtures.itertuples(index=False)):
         ph, pdraw, pa = p[i]
         hs, as_ = dc.likely_score(row.home_team, row.away_team, bool(row.neutral))
+        lam, mu = dc.intensities(row.home_team, row.away_team, bool(row.neutral))
         out.append({
             "matchId": f"wc26-2026-{i + 1:03d}",
             "home": row.home_team, "away": row.away_team,
             "kickoffUtc": pd.Timestamp(row.date).strftime("%Y-%m-%dT00:00:00Z"),
             "pHome": _clamp(ph), "pDraw": _clamp(pdraw), "pAway": _clamp(pa),
             "likelyScore": [int(hs), int(as_)],
+            # Dixon-Coles expected goals — drive the live in-match win prob (PLAN.md §4.4).
+            "lambdaHome": round(lam, 3), "lambdaAway": round(mu, 3),
             "modelVersion": MODEL_VERSION,
         })
     return out, w

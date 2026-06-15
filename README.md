@@ -17,7 +17,9 @@ See [PLAN.md](PLAN.md) for the architecture / data contracts / phased roadmap an
 - ✅ **Phase 3 — Simulator + Oracle page**: 48-team Monte Carlo (`simulate.py`, exhaustive
   bracket tests) → `simulation.json` + `insights.json`; `/oracle` page with champion-odds bars,
   group heat tables, Bracket-of-Doom survival heatmap, and the honest model card.
-- ⬜ Phase 4 — Live layer (in-match win prob, heartbeat chart, panic index)
+- ✅ **Phase 4 — Live layer**: `/api/winprob` analytic in-match win prob (remaining-time Poisson
+  on published Dixon-Coles λ); `/match/[id]` with the heartbeat chart + Panic Index gauges;
+  goal-event beacon flash on the map; Oracle insights wired into the ticker.
 - ⬜ Phase 5 — Polish (HoloLattice, cross-fade, SSE, OG cards)
 
 ## Pages
@@ -27,7 +29,7 @@ See [PLAN.md](PLAN.md) for the architecture / data contracts / phased roadmap an
   multi-provider tile failover, template-driven ticker.
 - `/oracle` — the Oracle: champion-odds bars, group heat tables, Bracket-of-Doom survival
   heatmap, model card. Server-rendered from the committed `public/oracle/*.json`.
-- `/match/[id]` — live in-match win prob + heartbeat chart (Phase 4, not built yet).
+- `/match/[id]` — live in-match win prob, heartbeat chart, and Panic Index gauges.
 
 ## Architecture / data flow
 

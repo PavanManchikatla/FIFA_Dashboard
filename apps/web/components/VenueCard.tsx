@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import type { Match, Stadium } from '@/lib/types';
 import { venueQuip } from '@/lib/commentary';
 
@@ -54,6 +55,14 @@ export function VenueCard({
         <span className={line.live ? 'text-amber [text-shadow:0_0_8px_rgba(255,177,59,0.6)]' : ''}>{line.text}</span>
       </div>
       <div className="mt-[10px] text-[14px] leading-[1.5] text-ink-dim">{venueQuip(stadium.id)}</div>
+      {match && (
+        <Link
+          href={`/match/${encodeURIComponent(match.id)}`}
+          className="mt-3 inline-block font-mono text-[12px] uppercase tracking-[0.12em] text-cyan hover:text-mint"
+        >
+          View match feed →
+        </Link>
+      )}
     </aside>
   );
 }

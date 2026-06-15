@@ -107,11 +107,13 @@ export const WC26IR_GAMES: Wc26irGame[] = [
   game({
     id: '1', home_team_id: '1', away_team_id: '2', stadium_id: '1', group: 'A',
     home_score: '2', away_score: '0', finished: 'TRUE', time_elapsed: 'finished',
+    home_scorers: '{"J. Quiñones 9\'","R. Jiménez 67\'"}',
     local_date: '06/11/2026 13:00', home_team_name_en: 'Mexico', away_team_name_en: 'South Africa',
   }),
   game({
     id: '6', home_team_id: '3', away_team_id: '4', stadium_id: '12', group: 'B',
     home_score: '1', away_score: '0', finished: 'FALSE', time_elapsed: 'live',
+    home_scorers: '{"M. Duke 23\'"}',
     local_date: '06/13/2026 21:00', home_team_name_en: 'Australia', away_team_name_en: 'Turkey',
   }),
   game({

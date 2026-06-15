@@ -7,7 +7,8 @@ const NOW = Date.parse('2026-06-11T19:00:00Z');
 function match(over: Partial<Match>): Match {
   return {
     id: 'm', stadiumId: 'azteca', home: 'A', away: 'B', homeScore: null, awayScore: null,
-    status: 'scheduled', kickoffUtc: '2026-06-11T19:00:00Z', minute: null, group: null,
+    status: 'scheduled', kickoffUtc: '2026-06-11T19:00:00Z', minute: null,
+    homeGoalMinutes: [], awayGoalMinutes: [], group: null,
     source: 'test', stale: false, ...over,
   };
 }

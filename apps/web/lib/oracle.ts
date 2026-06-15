@@ -15,6 +15,10 @@ export const MatchProbSchema = z.object({
   pAway: z.number(),
   pAdvanceHome: z.number().optional(),
   likelyScore: z.tuple([z.number(), z.number()]),
+  // Dixon-Coles expected goals — drive the live analytic win prob (PLAN.md §4.4). Optional
+  // so older artifacts still validate.
+  lambdaHome: z.number().optional(),
+  lambdaAway: z.number().optional(),
   modelVersion: z.string(),
 });
 export type MatchProb = z.infer<typeof MatchProbSchema>;
