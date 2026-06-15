@@ -4,15 +4,15 @@
     "home": "Mexico",
     "away": "South Africa",
     "kickoffUtc": "2026-06-11T00:00:00Z",
-    "pHome": 0.7157,
-    "pDraw": 0.201,
-    "pAway": 0.0833,
+    "pHome": 0.7152,
+    "pDraw": 0.2038,
+    "pAway": 0.0809,
     "likelyScore": [
-      2,
+      1,
       0
     ],
-    "lambdaHome": 1.966,
-    "lambdaAway": 0.535,
+    "lambdaHome": 1.929,
+    "lambdaAway": 0.544,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -20,15 +20,15 @@
     "home": "South Korea",
     "away": "Czech Republic",
     "kickoffUtc": "2026-06-11T00:00:00Z",
-    "pHome": 0.5285,
-    "pDraw": 0.2367,
-    "pAway": 0.2348,
+    "pHome": 0.5283,
+    "pDraw": 0.2348,
+    "pAway": 0.237,
     "likelyScore": [
       1,
       1
     ],
-    "lambdaHome": 1.424,
-    "lambdaAway": 1.027,
+    "lambdaHome": 1.391,
+    "lambdaAway": 1.068,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -36,15 +36,15 @@
     "home": "Canada",
     "away": "Bosnia-Herzegovina",
     "kickoffUtc": "2026-06-12T00:00:00Z",
-    "pHome": 0.7099,
-    "pDraw": 0.2161,
-    "pAway": 0.074,
+    "pHome": 0.7073,
+    "pDraw": 0.2169,
+    "pAway": 0.0759,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.851,
-    "lambdaAway": 0.626,
+    "lambdaHome": 1.77,
+    "lambdaAway": 0.649,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -52,15 +52,15 @@
     "home": "United States",
     "away": "Paraguay",
     "kickoffUtc": "2026-06-12T00:00:00Z",
-    "pHome": 0.5924,
-    "pDraw": 0.2158,
-    "pAway": 0.1918,
+    "pHome": 0.6251,
+    "pDraw": 0.2048,
+    "pAway": 0.1702,
     "likelyScore": [
       1,
       1
     ],
-    "lambdaHome": 1.219,
-    "lambdaAway": 1.164,
+    "lambdaHome": 1.234,
+    "lambdaAway": 1.142,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -68,15 +68,15 @@
     "home": "Qatar",
     "away": "Switzerland",
     "kickoffUtc": "2026-06-13T00:00:00Z",
-    "pHome": 0.1032,
-    "pDraw": 0.2014,
-    "pAway": 0.6954,
+    "pHome": 0.1064,
+    "pDraw": 0.2242,
+    "pAway": 0.6695,
     "likelyScore": [
       0,
       2
     ],
-    "lambdaHome": 0.752,
-    "lambdaAway": 2.533,
+    "lambdaHome": 0.731,
+    "lambdaAway": 2.529,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -84,15 +84,15 @@
     "home": "Brazil",
     "away": "Morocco",
     "kickoffUtc": "2026-06-13T00:00:00Z",
-    "pHome": 0.4918,
-    "pDraw": 0.2657,
-    "pAway": 0.2426,
+    "pHome": 0.4678,
+    "pDraw": 0.2853,
+    "pAway": 0.2469,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.273,
-    "lambdaAway": 0.647,
+    "lambdaHome": 1.254,
+    "lambdaAway": 0.674,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -100,15 +100,15 @@
     "home": "Haiti",
     "away": "Scotland",
     "kickoffUtc": "2026-06-13T00:00:00Z",
-    "pHome": 0.2756,
-    "pDraw": 0.2502,
-    "pAway": 0.4742,
+    "pHome": 0.2561,
+    "pDraw": 0.2384,
+    "pAway": 0.5055,
     "likelyScore": [
       0,
       1
     ],
-    "lambdaHome": 0.922,
-    "lambdaAway": 1.763,
+    "lambdaHome": 0.841,
+    "lambdaAway": 1.743,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -116,15 +116,15 @@
     "home": "Australia",
     "away": "Turkey",
     "kickoffUtc": "2026-06-13T00:00:00Z",
-    "pHome": 0.3704,
-    "pDraw": 0.2581,
-    "pAway": 0.3715,
+    "pHome": 0.4062,
+    "pDraw": 0.2788,
+    "pAway": 0.3149,
     "likelyScore": [
       1,
       1
     ],
-    "lambdaHome": 1.23,
-    "lambdaAway": 1.027,
+    "lambdaHome": 1.227,
+    "lambdaAway": 1.025,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -132,15 +132,15 @@
     "home": "Sweden",
     "away": "Tunisia",
     "kickoffUtc": "2026-06-14T00:00:00Z",
-    "pHome": 0.368,
-    "pDraw": 0.2599,
-    "pAway": 0.3721,
+    "pHome": 0.458,
+    "pDraw": 0.2419,
+    "pAway": 0.3001,
     "likelyScore": [
       1,
       1
     ],
-    "lambdaHome": 1.241,
-    "lambdaAway": 1.013,
+    "lambdaHome": 1.509,
+    "lambdaAway": 1.001,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -148,15 +148,15 @@
     "home": "Netherlands",
     "away": "Japan",
     "kickoffUtc": "2026-06-14T00:00:00Z",
-    "pHome": 0.4022,
-    "pDraw": 0.2757,
-    "pAway": 0.3221,
+    "pHome": 0.4258,
+    "pDraw": 0.2616,
+    "pAway": 0.3127,
     "likelyScore": [
       1,
       1
     ],
-    "lambdaHome": 1.12,
-    "lambdaAway": 1.158,
+    "lambdaHome": 1.228,
+    "lambdaAway": 1.173,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -164,15 +164,15 @@
     "home": "Germany",
     "away": "Curaçao",
     "kickoffUtc": "2026-06-14T00:00:00Z",
-    "pHome": 0.7679,
-    "pDraw": 0.1842,
-    "pAway": 0.0479,
+    "pHome": 0.7971,
+    "pDraw": 0.1613,
+    "pAway": 0.0416,
     "likelyScore": [
-      3,
+      4,
       0
     ],
-    "lambdaHome": 3.573,
-    "lambdaAway": 0.554,
+    "lambdaHome": 4.225,
+    "lambdaAway": 0.538,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -180,15 +180,15 @@
     "home": "Ivory Coast",
     "away": "Ecuador",
     "kickoffUtc": "2026-06-14T00:00:00Z",
-    "pHome": 0.251,
-    "pDraw": 0.2533,
-    "pAway": 0.4957,
+    "pHome": 0.3286,
+    "pDraw": 0.2503,
+    "pAway": 0.421,
     "likelyScore": [
       0,
-      1
+      0
     ],
-    "lambdaHome": 0.434,
-    "lambdaAway": 1.103,
+    "lambdaHome": 0.458,
+    "lambdaAway": 0.986,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -196,15 +196,15 @@
     "home": "Belgium",
     "away": "Egypt",
     "kickoffUtc": "2026-06-15T00:00:00Z",
-    "pHome": 0.6328,
-    "pDraw": 0.1964,
-    "pAway": 0.1708,
+    "pHome": 0.6339,
+    "pDraw": 0.1996,
+    "pAway": 0.1666,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.425,
-    "lambdaAway": 0.727,
+    "lambdaHome": 1.465,
+    "lambdaAway": 0.712,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -212,15 +212,15 @@
     "home": "Iran",
     "away": "New Zealand",
     "kickoffUtc": "2026-06-15T00:00:00Z",
-    "pHome": 0.5982,
-    "pDraw": 0.2282,
-    "pAway": 0.1736,
+    "pHome": 0.6308,
+    "pDraw": 0.1972,
+    "pAway": 0.172,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.523,
-    "lambdaAway": 0.837,
+    "lambdaHome": 1.547,
+    "lambdaAway": 0.831,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -228,15 +228,15 @@
     "home": "Spain",
     "away": "Cape Verde",
     "kickoffUtc": "2026-06-15T00:00:00Z",
-    "pHome": 0.7987,
-    "pDraw": 0.1718,
-    "pAway": 0.0295,
+    "pHome": 0.8076,
+    "pDraw": 0.1691,
+    "pAway": 0.0234,
     "likelyScore": [
       2,
       0
     ],
-    "lambdaHome": 2.781,
-    "lambdaAway": 0.457,
+    "lambdaHome": 2.837,
+    "lambdaAway": 0.448,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -244,15 +244,15 @@
     "home": "Saudi Arabia",
     "away": "Uruguay",
     "kickoffUtc": "2026-06-15T00:00:00Z",
-    "pHome": 0.1245,
-    "pDraw": 0.2568,
-    "pAway": 0.6187,
+    "pHome": 0.1329,
+    "pDraw": 0.2279,
+    "pAway": 0.6392,
     "likelyScore": [
       0,
       1
     ],
-    "lambdaHome": 0.367,
-    "lambdaAway": 1.426,
+    "lambdaHome": 0.371,
+    "lambdaAway": 1.41,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -260,15 +260,15 @@
     "home": "Austria",
     "away": "Jordan",
     "kickoffUtc": "2026-06-16T00:00:00Z",
-    "pHome": 0.5432,
-    "pDraw": 0.2335,
-    "pAway": 0.2233,
+    "pHome": 0.5291,
+    "pDraw": 0.2442,
+    "pAway": 0.2267,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.732,
-    "lambdaAway": 0.848,
+    "lambdaHome": 1.814,
+    "lambdaAway": 0.813,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -276,15 +276,15 @@
     "home": "Argentina",
     "away": "Algeria",
     "kickoffUtc": "2026-06-16T00:00:00Z",
-    "pHome": 0.6228,
-    "pDraw": 0.2141,
-    "pAway": 0.1631,
+    "pHome": 0.6299,
+    "pDraw": 0.2056,
+    "pAway": 0.1645,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.712,
-    "lambdaAway": 0.408,
+    "lambdaHome": 1.692,
+    "lambdaAway": 0.414,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -292,15 +292,15 @@
     "home": "France",
     "away": "Senegal",
     "kickoffUtc": "2026-06-16T00:00:00Z",
-    "pHome": 0.6058,
-    "pDraw": 0.1984,
-    "pAway": 0.1957,
+    "pHome": 0.6118,
+    "pDraw": 0.1861,
+    "pAway": 0.2021,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.391,
-    "lambdaAway": 0.843,
+    "lambdaHome": 1.425,
+    "lambdaAway": 0.834,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -308,15 +308,15 @@
     "home": "Iraq",
     "away": "Norway",
     "kickoffUtc": "2026-06-16T00:00:00Z",
-    "pHome": 0.2135,
-    "pDraw": 0.2373,
-    "pAway": 0.5492,
+    "pHome": 0.2167,
+    "pDraw": 0.2421,
+    "pAway": 0.5412,
     "likelyScore": [
       0,
       1
     ],
-    "lambdaHome": 0.607,
-    "lambdaAway": 1.667,
+    "lambdaHome": 0.582,
+    "lambdaAway": 1.732,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -324,15 +324,15 @@
     "home": "Portugal",
     "away": "DR Congo",
     "kickoffUtc": "2026-06-17T00:00:00Z",
-    "pHome": 0.6674,
-    "pDraw": 0.2542,
-    "pAway": 0.0784,
+    "pHome": 0.6672,
+    "pDraw": 0.2504,
+    "pAway": 0.0823,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.617,
-    "lambdaAway": 0.51,
+    "lambdaHome": 1.667,
+    "lambdaAway": 0.497,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -340,15 +340,15 @@
     "home": "Uzbekistan",
     "away": "Colombia",
     "kickoffUtc": "2026-06-17T00:00:00Z",
-    "pHome": 0.1341,
-    "pDraw": 0.2149,
-    "pAway": 0.651,
+    "pHome": 0.1314,
+    "pDraw": 0.2094,
+    "pAway": 0.6592,
     "likelyScore": [
       0,
       1
     ],
-    "lambdaHome": 0.479,
-    "lambdaAway": 1.803,
+    "lambdaHome": 0.481,
+    "lambdaAway": 1.808,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -356,15 +356,15 @@
     "home": "England",
     "away": "Croatia",
     "kickoffUtc": "2026-06-17T00:00:00Z",
-    "pHome": 0.5269,
-    "pDraw": 0.2551,
-    "pAway": 0.2181,
+    "pHome": 0.5284,
+    "pDraw": 0.2511,
+    "pAway": 0.2205,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.368,
-    "lambdaAway": 0.78,
+    "lambdaHome": 1.381,
+    "lambdaAway": 0.796,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -372,15 +372,15 @@
     "home": "Ghana",
     "away": "Panama",
     "kickoffUtc": "2026-06-17T00:00:00Z",
-    "pHome": 0.2351,
-    "pDraw": 0.2624,
-    "pAway": 0.5025,
+    "pHome": 0.2283,
+    "pDraw": 0.2442,
+    "pAway": 0.5275,
     "likelyScore": [
       1,
       1
     ],
-    "lambdaHome": 0.991,
-    "lambdaAway": 1.25,
+    "lambdaHome": 1.027,
+    "lambdaAway": 1.233,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -388,15 +388,15 @@
     "home": "Czech Republic",
     "away": "South Africa",
     "kickoffUtc": "2026-06-18T00:00:00Z",
-    "pHome": 0.4901,
-    "pDraw": 0.2517,
-    "pAway": 0.2582,
+    "pHome": 0.4746,
+    "pDraw": 0.2555,
+    "pAway": 0.2699,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.32,
-    "lambdaAway": 0.846,
+    "lambdaHome": 1.358,
+    "lambdaAway": 0.833,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -404,15 +404,15 @@
     "home": "Mexico",
     "away": "South Korea",
     "kickoffUtc": "2026-06-18T00:00:00Z",
-    "pHome": 0.5439,
-    "pDraw": 0.2452,
-    "pAway": 0.211,
+    "pHome": 0.5527,
+    "pDraw": 0.2474,
+    "pAway": 0.2,
     "likelyScore": [
       1,
-      0
+      1
     ],
-    "lambdaHome": 1.529,
-    "lambdaAway": 0.9,
+    "lambdaHome": 1.517,
+    "lambdaAway": 0.909,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -420,15 +420,15 @@
     "home": "Switzerland",
     "away": "Bosnia-Herzegovina",
     "kickoffUtc": "2026-06-18T00:00:00Z",
-    "pHome": 0.7014,
-    "pDraw": 0.2224,
-    "pAway": 0.0762,
+    "pHome": 0.6936,
+    "pDraw": 0.2276,
+    "pAway": 0.0789,
     "likelyScore": [
       2,
       0
     ],
-    "lambdaHome": 1.959,
-    "lambdaAway": 0.736,
+    "lambdaHome": 1.93,
+    "lambdaAway": 0.742,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -436,14 +436,14 @@
     "home": "Canada",
     "away": "Qatar",
     "kickoffUtc": "2026-06-18T00:00:00Z",
-    "pHome": 0.7126,
-    "pDraw": 0.2146,
-    "pAway": 0.0728,
+    "pHome": 0.7131,
+    "pDraw": 0.217,
+    "pAway": 0.0699,
     "likelyScore": [
       2,
       0
     ],
-    "lambdaHome": 2.393,
+    "lambdaHome": 2.319,
     "lambdaAway": 0.639,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
@@ -452,15 +452,15 @@
     "home": "Turkey",
     "away": "Paraguay",
     "kickoffUtc": "2026-06-19T00:00:00Z",
-    "pHome": 0.5036,
-    "pDraw": 0.2568,
-    "pAway": 0.2396,
+    "pHome": 0.4845,
+    "pDraw": 0.2408,
+    "pAway": 0.2747,
     "likelyScore": [
       1,
       1
     ],
-    "lambdaHome": 0.995,
-    "lambdaAway": 1.28,
+    "lambdaHome": 1.038,
+    "lambdaAway": 1.231,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -468,15 +468,15 @@
     "home": "Scotland",
     "away": "Morocco",
     "kickoffUtc": "2026-06-19T00:00:00Z",
-    "pHome": 0.1855,
-    "pDraw": 0.261,
-    "pAway": 0.5535,
+    "pHome": 0.1901,
+    "pDraw": 0.263,
+    "pAway": 0.5469,
     "likelyScore": [
       0,
       1
     ],
-    "lambdaHome": 0.603,
-    "lambdaAway": 1.239,
+    "lambdaHome": 0.601,
+    "lambdaAway": 1.202,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -484,15 +484,15 @@
     "home": "Brazil",
     "away": "Haiti",
     "kickoffUtc": "2026-06-19T00:00:00Z",
-    "pHome": 0.718,
-    "pDraw": 0.2194,
-    "pAway": 0.0626,
+    "pHome": 0.6922,
+    "pDraw": 0.2279,
+    "pAway": 0.0799,
     "likelyScore": [
       3,
       0
     ],
-    "lambdaHome": 3.722,
-    "lambdaAway": 0.482,
+    "lambdaHome": 3.635,
+    "lambdaAway": 0.472,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -500,15 +500,15 @@
     "home": "United States",
     "away": "Australia",
     "kickoffUtc": "2026-06-19T00:00:00Z",
-    "pHome": 0.4924,
-    "pDraw": 0.2489,
-    "pAway": 0.2587,
+    "pHome": 0.4538,
+    "pDraw": 0.2374,
+    "pAway": 0.3088,
     "likelyScore": [
       1,
       1
     ],
-    "lambdaHome": 1.258,
-    "lambdaAway": 1.118,
+    "lambdaHome": 1.219,
+    "lambdaAway": 1.138,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -516,15 +516,15 @@
     "home": "Netherlands",
     "away": "Sweden",
     "kickoffUtc": "2026-06-20T00:00:00Z",
-    "pHome": 0.6805,
-    "pDraw": 0.2033,
-    "pAway": 0.1162,
+    "pHome": 0.6532,
+    "pDraw": 0.2008,
+    "pAway": 0.1461,
     "likelyScore": [
       1,
       1
     ],
-    "lambdaHome": 2.056,
-    "lambdaAway": 1.04,
+    "lambdaHome": 2.103,
+    "lambdaAway": 1.153,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -532,15 +532,15 @@
     "home": "Tunisia",
     "away": "Japan",
     "kickoffUtc": "2026-06-20T00:00:00Z",
-    "pHome": 0.1884,
-    "pDraw": 0.2447,
-    "pAway": 0.5669,
+    "pHome": 0.1398,
+    "pDraw": 0.2439,
+    "pAway": 0.6163,
     "likelyScore": [
       0,
       1
     ],
-    "lambdaHome": 0.552,
-    "lambdaAway": 1.382,
+    "lambdaHome": 0.584,
+    "lambdaAway": 1.535,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -548,15 +548,15 @@
     "home": "Germany",
     "away": "Ivory Coast",
     "kickoffUtc": "2026-06-20T00:00:00Z",
-    "pHome": 0.619,
-    "pDraw": 0.2116,
-    "pAway": 0.1694,
+    "pHome": 0.613,
+    "pDraw": 0.2174,
+    "pAway": 0.1696,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.679,
-    "lambdaAway": 0.844,
+    "lambdaHome": 1.675,
+    "lambdaAway": 0.843,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -564,15 +564,15 @@
     "home": "Ecuador",
     "away": "Curaçao",
     "kickoffUtc": "2026-06-20T00:00:00Z",
-    "pHome": 0.7212,
-    "pDraw": 0.2147,
-    "pAway": 0.0641,
+    "pHome": 0.7127,
+    "pDraw": 0.2218,
+    "pAway": 0.0655,
     "likelyScore": [
       2,
       0
     ],
-    "lambdaHome": 2.348,
-    "lambdaAway": 0.285,
+    "lambdaHome": 2.488,
+    "lambdaAway": 0.292,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -580,15 +580,15 @@
     "home": "Belgium",
     "away": "Iran",
     "kickoffUtc": "2026-06-21T00:00:00Z",
-    "pHome": 0.4505,
-    "pDraw": 0.2802,
-    "pAway": 0.2694,
+    "pHome": 0.454,
+    "pDraw": 0.3031,
+    "pAway": 0.2429,
     "likelyScore": [
       1,
       1
     ],
-    "lambdaHome": 1.443,
-    "lambdaAway": 1.03,
+    "lambdaHome": 1.502,
+    "lambdaAway": 1.001,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -596,15 +596,15 @@
     "home": "New Zealand",
     "away": "Egypt",
     "kickoffUtc": "2026-06-21T00:00:00Z",
-    "pHome": 0.2793,
-    "pDraw": 0.2715,
-    "pAway": 0.4493,
+    "pHome": 0.2795,
+    "pDraw": 0.2672,
+    "pAway": 0.4533,
     "likelyScore": [
       0,
-      1
+      0
     ],
-    "lambdaHome": 0.827,
-    "lambdaAway": 1.074,
+    "lambdaHome": 0.811,
+    "lambdaAway": 1.101,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -612,15 +612,15 @@
     "home": "Spain",
     "away": "Saudi Arabia",
     "kickoffUtc": "2026-06-21T00:00:00Z",
-    "pHome": 0.7812,
-    "pDraw": 0.1825,
-    "pAway": 0.0363,
+    "pHome": 0.7765,
+    "pDraw": 0.1903,
+    "pAway": 0.0332,
     "likelyScore": [
       2,
       0
     ],
-    "lambdaHome": 2.278,
-    "lambdaAway": 0.473,
+    "lambdaHome": 2.36,
+    "lambdaAway": 0.464,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -628,15 +628,15 @@
     "home": "Uruguay",
     "away": "Cape Verde",
     "kickoffUtc": "2026-06-21T00:00:00Z",
-    "pHome": 0.6573,
-    "pDraw": 0.2425,
-    "pAway": 0.1002,
+    "pHome": 0.6246,
+    "pDraw": 0.2674,
+    "pAway": 0.108,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.741,
-    "lambdaAway": 0.355,
+    "lambdaHome": 1.695,
+    "lambdaAway": 0.359,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -644,15 +644,15 @@
     "home": "France",
     "away": "Iraq",
     "kickoffUtc": "2026-06-22T00:00:00Z",
-    "pHome": 0.6859,
-    "pDraw": 0.2445,
-    "pAway": 0.0696,
+    "pHome": 0.6878,
+    "pDraw": 0.2444,
+    "pAway": 0.0677,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.866,
-    "lambdaAway": 0.484,
+    "lambdaHome": 1.936,
+    "lambdaAway": 0.47,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -660,15 +660,15 @@
     "home": "Norway",
     "away": "Senegal",
     "kickoffUtc": "2026-06-22T00:00:00Z",
-    "pHome": 0.3617,
-    "pDraw": 0.2774,
-    "pAway": 0.3609,
+    "pHome": 0.3828,
+    "pDraw": 0.2598,
+    "pAway": 0.3574,
     "likelyScore": [
       1,
       1
     ],
-    "lambdaHome": 1.243,
-    "lambdaAway": 1.057,
+    "lambdaHome": 1.275,
+    "lambdaAway": 1.032,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -676,15 +676,15 @@
     "home": "Argentina",
     "away": "Austria",
     "kickoffUtc": "2026-06-22T00:00:00Z",
-    "pHome": 0.6447,
-    "pDraw": 0.2448,
-    "pAway": 0.1105,
+    "pHome": 0.6323,
+    "pDraw": 0.2484,
+    "pAway": 0.1193,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.648,
-    "lambdaAway": 0.393,
+    "lambdaHome": 1.588,
+    "lambdaAway": 0.405,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -692,15 +692,15 @@
     "home": "Jordan",
     "away": "Algeria",
     "kickoffUtc": "2026-06-22T00:00:00Z",
-    "pHome": 0.2491,
-    "pDraw": 0.2391,
-    "pAway": 0.5118,
+    "pHome": 0.2607,
+    "pDraw": 0.2337,
+    "pAway": 0.5056,
     "likelyScore": [
       0,
       1
     ],
-    "lambdaHome": 0.881,
-    "lambdaAway": 1.801,
+    "lambdaHome": 0.866,
+    "lambdaAway": 1.852,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -708,15 +708,15 @@
     "home": "Portugal",
     "away": "Uzbekistan",
     "kickoffUtc": "2026-06-23T00:00:00Z",
-    "pHome": 0.6549,
-    "pDraw": 0.216,
-    "pAway": 0.1291,
+    "pHome": 0.664,
+    "pDraw": 0.2091,
+    "pAway": 0.1269,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.627,
-    "lambdaAway": 0.614,
+    "lambdaHome": 1.694,
+    "lambdaAway": 0.595,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -724,15 +724,15 @@
     "home": "Colombia",
     "away": "DR Congo",
     "kickoffUtc": "2026-06-23T00:00:00Z",
-    "pHome": 0.6894,
-    "pDraw": 0.2328,
-    "pAway": 0.0778,
+    "pHome": 0.6762,
+    "pDraw": 0.2373,
+    "pAway": 0.0865,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.792,
-    "lambdaAway": 0.398,
+    "lambdaHome": 1.778,
+    "lambdaAway": 0.401,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -740,15 +740,15 @@
     "home": "England",
     "away": "Ghana",
     "kickoffUtc": "2026-06-23T00:00:00Z",
-    "pHome": 0.7317,
-    "pDraw": 0.2025,
-    "pAway": 0.0658,
+    "pHome": 0.7222,
+    "pDraw": 0.2178,
+    "pAway": 0.06,
     "likelyScore": [
       2,
       0
     ],
-    "lambdaHome": 2.059,
-    "lambdaAway": 0.444,
+    "lambdaHome": 2.111,
+    "lambdaAway": 0.442,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -756,15 +756,15 @@
     "home": "Panama",
     "away": "Croatia",
     "kickoffUtc": "2026-06-23T00:00:00Z",
-    "pHome": 0.2371,
-    "pDraw": 0.2427,
-    "pAway": 0.5202,
+    "pHome": 0.2337,
+    "pDraw": 0.2596,
+    "pAway": 0.5067,
     "likelyScore": [
       0,
       1
     ],
-    "lambdaHome": 0.831,
-    "lambdaAway": 1.743,
+    "lambdaHome": 0.807,
+    "lambdaAway": 1.847,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -772,15 +772,15 @@
     "home": "Morocco",
     "away": "Haiti",
     "kickoffUtc": "2026-06-24T00:00:00Z",
-    "pHome": 0.6741,
-    "pDraw": 0.2278,
-    "pAway": 0.0981,
+    "pHome": 0.6362,
+    "pDraw": 0.2733,
+    "pAway": 0.0905,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.868,
-    "lambdaAway": 0.476,
+    "lambdaHome": 1.879,
+    "lambdaAway": 0.454,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -788,15 +788,15 @@
     "home": "Bosnia-Herzegovina",
     "away": "Qatar",
     "kickoffUtc": "2026-06-24T00:00:00Z",
-    "pHome": 0.3864,
-    "pDraw": 0.2537,
-    "pAway": 0.36,
+    "pHome": 0.3774,
+    "pDraw": 0.2314,
+    "pAway": 0.3912,
     "likelyScore": [
       1,
       1
     ],
-    "lambdaHome": 1.34,
-    "lambdaAway": 1.058,
+    "lambdaHome": 1.373,
+    "lambdaAway": 1.032,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -804,15 +804,15 @@
     "home": "Scotland",
     "away": "Brazil",
     "kickoffUtc": "2026-06-24T00:00:00Z",
-    "pHome": 0.121,
-    "pDraw": 0.2114,
-    "pAway": 0.6676,
+    "pHome": 0.1783,
+    "pDraw": 0.1934,
+    "pAway": 0.6283,
     "likelyScore": [
       0,
       2
     ],
-    "lambdaHome": 0.611,
-    "lambdaAway": 2.468,
+    "lambdaHome": 0.625,
+    "lambdaAway": 2.325,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -820,15 +820,15 @@
     "home": "South Africa",
     "away": "South Korea",
     "kickoffUtc": "2026-06-24T00:00:00Z",
-    "pHome": 0.1884,
-    "pDraw": 0.2482,
-    "pAway": 0.5634,
+    "pHome": 0.1924,
+    "pDraw": 0.2387,
+    "pAway": 0.5689,
     "likelyScore": [
       0,
       1
     ],
-    "lambdaHome": 0.669,
-    "lambdaAway": 1.448,
+    "lambdaHome": 0.676,
+    "lambdaAway": 1.436,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -836,15 +836,15 @@
     "home": "Mexico",
     "away": "Czech Republic",
     "kickoffUtc": "2026-06-24T00:00:00Z",
-    "pHome": 0.6783,
-    "pDraw": 0.2076,
-    "pAway": 0.1141,
+    "pHome": 0.6839,
+    "pDraw": 0.205,
+    "pAway": 0.1111,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.933,
-    "lambdaAway": 0.821,
+    "lambdaHome": 1.868,
+    "lambdaAway": 0.859,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -852,15 +852,15 @@
     "home": "Canada",
     "away": "Switzerland",
     "kickoffUtc": "2026-06-24T00:00:00Z",
-    "pHome": 0.4241,
-    "pDraw": 0.2611,
-    "pAway": 0.3148,
+    "pHome": 0.4251,
+    "pDraw": 0.2694,
+    "pAway": 0.3055,
     "likelyScore": [
       1,
       1
     ],
-    "lambdaHome": 1.316,
-    "lambdaAway": 1.183,
+    "lambdaHome": 1.254,
+    "lambdaAway": 1.196,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -868,15 +868,15 @@
     "home": "United States",
     "away": "Turkey",
     "kickoffUtc": "2026-06-25T00:00:00Z",
-    "pHome": 0.4952,
-    "pDraw": 0.2529,
-    "pAway": 0.252,
+    "pHome": 0.523,
+    "pDraw": 0.2456,
+    "pAway": 0.2314,
     "likelyScore": [
       1,
       1
     ],
-    "lambdaHome": 1.737,
-    "lambdaAway": 1.29,
+    "lambdaHome": 1.701,
+    "lambdaAway": 1.327,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -884,15 +884,15 @@
     "home": "Paraguay",
     "away": "Australia",
     "kickoffUtc": "2026-06-25T00:00:00Z",
-    "pHome": 0.2855,
-    "pDraw": 0.2615,
-    "pAway": 0.453,
+    "pHome": 0.2316,
+    "pDraw": 0.2449,
+    "pAway": 0.5235,
     "likelyScore": [
       0,
       0
     ],
-    "lambdaHome": 0.927,
-    "lambdaAway": 0.863,
+    "lambdaHome": 0.882,
+    "lambdaAway": 0.89,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -900,15 +900,15 @@
     "home": "Curaçao",
     "away": "Ivory Coast",
     "kickoffUtc": "2026-06-25T00:00:00Z",
-    "pHome": 0.157,
-    "pDraw": 0.2242,
-    "pAway": 0.6189,
+    "pHome": 0.1098,
+    "pDraw": 0.2104,
+    "pAway": 0.6798,
     "likelyScore": [
       0,
-      1
+      2
     ],
-    "lambdaHome": 0.556,
-    "lambdaAway": 1.803,
+    "lambdaHome": 0.515,
+    "lambdaAway": 2.037,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -916,15 +916,15 @@
     "home": "Ecuador",
     "away": "Germany",
     "kickoffUtc": "2026-06-25T00:00:00Z",
-    "pHome": 0.3016,
-    "pDraw": 0.3059,
-    "pAway": 0.3925,
+    "pHome": 0.2357,
+    "pDraw": 0.2966,
+    "pAway": 0.4677,
     "likelyScore": [
-      1,
+      0,
       0
     ],
-    "lambdaHome": 1.099,
-    "lambdaAway": 0.86,
+    "lambdaHome": 1.029,
+    "lambdaAway": 0.95,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -932,15 +932,15 @@
     "home": "Japan",
     "away": "Sweden",
     "kickoffUtc": "2026-06-25T00:00:00Z",
-    "pHome": 0.6344,
-    "pDraw": 0.2334,
-    "pAway": 0.1322,
+    "pHome": 0.5957,
+    "pDraw": 0.2289,
+    "pAway": 0.1754,
     "likelyScore": [
       1,
-      0
+      1
     ],
-    "lambdaHome": 1.706,
-    "lambdaAway": 0.834,
+    "lambdaHome": 1.695,
+    "lambdaAway": 0.972,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -948,15 +948,15 @@
     "home": "Tunisia",
     "away": "Netherlands",
     "kickoffUtc": "2026-06-25T00:00:00Z",
-    "pHome": 0.1367,
-    "pDraw": 0.2583,
-    "pAway": 0.605,
+    "pHome": 0.1165,
+    "pDraw": 0.2379,
+    "pAway": 0.6456,
     "likelyScore": [
       0,
       1
     ],
-    "lambdaHome": 0.688,
-    "lambdaAway": 1.666,
+    "lambdaHome": 0.693,
+    "lambdaAway": 1.905,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -964,15 +964,15 @@
     "home": "Senegal",
     "away": "Iraq",
     "kickoffUtc": "2026-06-26T00:00:00Z",
-    "pHome": 0.6104,
-    "pDraw": 0.2249,
-    "pAway": 0.1647,
+    "pHome": 0.6293,
+    "pDraw": 0.211,
+    "pAway": 0.1597,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.263,
-    "lambdaAway": 0.541,
+    "lambdaHome": 1.284,
+    "lambdaAway": 0.533,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -980,15 +980,15 @@
     "home": "Norway",
     "away": "France",
     "kickoffUtc": "2026-06-26T00:00:00Z",
-    "pHome": 0.2111,
-    "pDraw": 0.2268,
-    "pAway": 0.5621,
+    "pHome": 0.2006,
+    "pDraw": 0.2175,
+    "pAway": 0.5819,
     "likelyScore": [
       1,
       1
     ],
-    "lambdaHome": 1.112,
-    "lambdaAway": 1.562,
+    "lambdaHome": 1.124,
+    "lambdaAway": 1.556,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -996,15 +996,15 @@
     "home": "Uruguay",
     "away": "Spain",
     "kickoffUtc": "2026-06-26T00:00:00Z",
-    "pHome": 0.1513,
-    "pDraw": 0.2713,
-    "pAway": 0.5774,
+    "pHome": 0.1364,
+    "pDraw": 0.2785,
+    "pAway": 0.585,
     "likelyScore": [
       0,
       0
     ],
-    "lambdaHome": 0.856,
-    "lambdaAway": 1.061,
+    "lambdaHome": 0.824,
+    "lambdaAway": 1.103,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -1012,15 +1012,15 @@
     "home": "New Zealand",
     "away": "Belgium",
     "kickoffUtc": "2026-06-26T00:00:00Z",
-    "pHome": 0.1363,
-    "pDraw": 0.1578,
-    "pAway": 0.7059,
+    "pHome": 0.1241,
+    "pDraw": 0.1483,
+    "pAway": 0.7277,
     "likelyScore": [
       0,
-      1
+      2
     ],
-    "lambdaHome": 0.761,
-    "lambdaAway": 1.937,
+    "lambdaHome": 0.729,
+    "lambdaAway": 2.037,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -1028,15 +1028,15 @@
     "home": "Egypt",
     "away": "Iran",
     "kickoffUtc": "2026-06-26T00:00:00Z",
-    "pHome": 0.2814,
-    "pDraw": 0.2629,
-    "pAway": 0.4557,
+    "pHome": 0.2941,
+    "pDraw": 0.2574,
+    "pAway": 0.4485,
     "likelyScore": [
       0,
       1
     ],
-    "lambdaHome": 0.8,
-    "lambdaAway": 1.12,
+    "lambdaHome": 0.812,
+    "lambdaAway": 1.113,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -1044,15 +1044,15 @@
     "home": "Cape Verde",
     "away": "Saudi Arabia",
     "kickoffUtc": "2026-06-26T00:00:00Z",
-    "pHome": 0.3389,
-    "pDraw": 0.2618,
-    "pAway": 0.3994,
+    "pHome": 0.3409,
+    "pDraw": 0.2503,
+    "pAway": 0.4088,
     "likelyScore": [
       0,
       0
     ],
-    "lambdaHome": 0.761,
-    "lambdaAway": 0.962,
+    "lambdaHome": 0.767,
+    "lambdaAway": 0.953,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -1060,15 +1060,15 @@
     "home": "Panama",
     "away": "England",
     "kickoffUtc": "2026-06-27T00:00:00Z",
-    "pHome": 0.1255,
-    "pDraw": 0.2175,
-    "pAway": 0.657,
+    "pHome": 0.1417,
+    "pDraw": 0.2101,
+    "pAway": 0.6482,
     "likelyScore": [
       0,
       2
     ],
-    "lambdaHome": 0.557,
-    "lambdaAway": 2.049,
+    "lambdaHome": 0.544,
+    "lambdaAway": 2.162,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -1076,15 +1076,15 @@
     "home": "Algeria",
     "away": "Austria",
     "kickoffUtc": "2026-06-27T00:00:00Z",
-    "pHome": 0.4063,
-    "pDraw": 0.2456,
-    "pAway": 0.3482,
+    "pHome": 0.368,
+    "pDraw": 0.2703,
+    "pAway": 0.3617,
     "likelyScore": [
       1,
       1
     ],
-    "lambdaHome": 1.104,
-    "lambdaAway": 1.103,
+    "lambdaHome": 1.08,
+    "lambdaAway": 1.127,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -1092,15 +1092,15 @@
     "home": "Jordan",
     "away": "Argentina",
     "kickoffUtc": "2026-06-27T00:00:00Z",
-    "pHome": 0.1037,
-    "pDraw": 0.1242,
-    "pAway": 0.7721,
+    "pHome": 0.1425,
+    "pDraw": 0.1288,
+    "pAway": 0.7288,
     "likelyScore": [
       0,
       2
     ],
-    "lambdaHome": 0.314,
-    "lambdaAway": 2.689,
+    "lambdaHome": 0.312,
+    "lambdaAway": 2.724,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -1108,15 +1108,15 @@
     "home": "Colombia",
     "away": "Portugal",
     "kickoffUtc": "2026-06-27T00:00:00Z",
-    "pHome": 0.343,
-    "pDraw": 0.2878,
-    "pAway": 0.3692,
+    "pHome": 0.3359,
+    "pDraw": 0.3118,
+    "pAway": 0.3522,
     "likelyScore": [
       1,
       1
     ],
-    "lambdaHome": 1.413,
-    "lambdaAway": 0.995,
+    "lambdaHome": 1.375,
+    "lambdaAway": 1.041,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -1124,15 +1124,15 @@
     "home": "DR Congo",
     "away": "Uzbekistan",
     "kickoffUtc": "2026-06-27T00:00:00Z",
-    "pHome": 0.3013,
-    "pDraw": 0.2797,
-    "pAway": 0.4191,
+    "pHome": 0.3116,
+    "pDraw": 0.2575,
+    "pAway": 0.4309,
     "likelyScore": [
       0,
       0
     ],
-    "lambdaHome": 0.651,
-    "lambdaAway": 0.779,
+    "lambdaHome": 0.653,
+    "lambdaAway": 0.77,
     "modelVersion": "elo+dc+gbm-0.1.0"
   },
   {
@@ -1140,15 +1140,15 @@
     "home": "Croatia",
     "away": "Ghana",
     "kickoffUtc": "2026-06-27T00:00:00Z",
-    "pHome": 0.6616,
-    "pDraw": 0.2329,
-    "pAway": 0.1055,
+    "pHome": 0.663,
+    "pDraw": 0.245,
+    "pAway": 0.092,
     "likelyScore": [
       1,
       0
     ],
-    "lambdaHome": 1.751,
-    "lambdaAway": 0.661,
+    "lambdaHome": 1.803,
+    "lambdaAway": 0.656,
     "modelVersion": "elo+dc+gbm-0.1.0"
   }
 ]
