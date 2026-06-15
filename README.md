@@ -20,11 +20,13 @@ See [PLAN.md](PLAN.md) for the architecture / data contracts / phased roadmap an
 - ✅ **Phase 4 — Live layer**: `/api/winprob` analytic in-match win prob (remaining-time Poisson
   on published Dixon-Coles λ); `/match/[id]` with the heartbeat chart + Panic Index gauges;
   goal-event beacon flash on the map; Oracle insights wired into the ticker.
-- ⬜ Phase 5 — Polish (HoloLattice, cross-fade, SSE, OG cards)
+- ✅ **Phase 5 — Polish**: HoloLattice landing (react-three-fiber, with a CSS fallback when
+  WebGL is unavailable); lattice→map cross-fade; SSE push (`/api/live/stream`) with polling
+  fallback; OG share cards for `/` and `/oracle`. **All five phases shipped.**
 
 ## Pages
 
-- `/` — landing (links into the map and the Oracle).
+- `/` — HoloLattice landing (3D dot-matrix + stadium light-pillars; CSS fallback without WebGL).
 - `/map` — holo hybrid MapLibre map: 16 stadium beacons (amber when a match is live),
   multi-provider tile failover, template-driven ticker.
 - `/oracle` — the Oracle: champion-odds bars, group heat tables, Bracket-of-Doom survival

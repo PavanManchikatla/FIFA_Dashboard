@@ -3,7 +3,7 @@
 Read PLAN.md first. It is the source of truth for architecture, data contracts, and phases.
 Work phase by phase; do not start a later phase before the current one's "Done when" passes.
 
-## Current status (phases 1–4 shipped)
+## Current status (phases 1–5 shipped — feature-complete)
 
 - ✅ **Phase 1 — Foundation**: holo `/map` with tile-broker failover + live beacons + ticker.
   Wired to **real wc26ir + Upstash** (verified on localhost); public Vercel deploy is
@@ -17,7 +17,12 @@ Work phase by phase; do not start a later phase before the current one's "Done w
   published Dixon-Coles λ); heartbeat chart on `/match/[id]` (rebuilt from goal-minute timeline,
   no per-minute storage); Panic Index gauge (shakes); goal-event beacon flash on the map;
   Oracle insights wired into the ticker.
-- ⬜ **Phase 5 — Polish** (next): HoloLattice (r3f), lattice→map cross-fade, SSE, OG cards.
+- ✅ **Phase 5 — Polish**: HoloLattice landing (react-three-fiber, additive glow) with a
+  graceful CSS fallback; lattice→map cross-fade; SSE push (`/api/live/stream`) with polling
+  fallback; OG share cards (`opengraph-image.tsx` for `/` and `/oracle`).
+
+All five phases shipped. Remaining: the postponed public Vercel deploy (DEPLOY.md Step 3 —
+rotate the wc26ir token first).
 
 Tests: web vitest (`apps/web`) + ml pytest (`ml`) both green; CI runs them + the backtest gate.
 
@@ -105,3 +110,11 @@ Tests: web vitest (`apps/web`) + ml pytest (`ml`) both green; CI runs them + the
   cross-group by construction. Second-order on aggregate odds. Noted in `simulate.py` + the page.
 - **Secrets**: only `NEXT_PUBLIC_*` (tile keys) reach the client; everything else is server-only
   and gitignored in `.env.local`. Audited: 0 secret hits in the built client bundle / git history.
+- **HoloLattice (r3f)**: bloom/postprocessing was dropped (too heavy — context-loss on low-end/
+  headless GL); glow is additive materials + halo spheres. The landing detects WebGL failure
+  (unsupported, lost context, or no first frame within 3.5s) and falls back to `LatticeFallback`
+  (CSS grid + geo-placed beacons) so it never shows a black void. `web-prod` launch config
+  (`npm start`) avoids dev Fast-Refresh context churn when previewing 3D.
+- **SSE** (`/api/live/stream`, `useLiveStream`): bounded push stream with automatic fallback to
+  CDN-cached polling. On Vercel Hobby, polling stays the scalable default (SSE holds a function
+  per client); SSE shines on runtimes that sustain cheap connections.

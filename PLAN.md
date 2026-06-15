@@ -251,9 +251,17 @@ getMeta`) that static-import + zod-validate the committed `public/oracle/*.json`
   is pure + unit-tested (`lib/winprob.test.ts`). Note: match-id route segments are URL-encoded,
   so the `/match/[id]` page decodes the param before use.
 
-**Phase 5 — Polish (knockouts, from June 28)**
+**Phase 5 — Polish (knockouts, from June 28)** — ✅ DONE
 - HoloLattice (react-three-fiber port with bloom), lattice→map cross-fade transition,
   SSE push instead of 30s polling, OG-image cards of daily sim results for sharing.
+- **[as-built]** The `wc26-holo-pitch.html` prototype was never provided, so HoloLattice was
+  built from this spec: instanced dot-matrix field + 16 geo-placed light-pillars (amber when
+  live) + slow auto-orbit. Bloom/postprocessing was dropped (context-loss on low-end/headless
+  GL); glow = additive materials + halo spheres. Graceful fallback (`LatticeFallback`, CSS grid
+  + beacons) when WebGL is unavailable / loses context / never paints. Cross-fade = an opacity
+  veil before `router.push`. SSE (`/api/live/stream` + `useLiveStream`) is a bounded push stream
+  with automatic fallback to CDN-cached polling, which remains the $0-scalable default on Vercel
+  Hobby. OG cards via `next/og` `opengraph-image.tsx` at `/` and `/oracle` (auto-wired by Next).
 
 ## 8. Risks & mitigations
 - **wc26ir downtime** → cache last-good in Redis with stale flag; self-host the repo as

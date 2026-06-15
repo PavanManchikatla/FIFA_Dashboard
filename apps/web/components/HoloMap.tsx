@@ -7,7 +7,7 @@ import { STADIUMS } from '@/lib/stadiums';
 import { buildHoloStyle } from '@/lib/holoStyle';
 import { TileBroker } from '@/lib/tileBroker';
 import type { Match, Stadium } from '@/lib/types';
-import { useLive } from './useLive';
+import { useLiveStream } from './useLiveStream';
 import { Ticker } from './Ticker';
 import { VenueCard } from './VenueCard';
 
@@ -46,7 +46,7 @@ export function HoloMap({ insightLines = [] }: { insightLines?: string[] }) {
   const [hovered, setHovered] = useState<Stadium | null>(null);
 
   // Demo: poll faster when mock goals are ticking so the beacon flip is visible quickly.
-  const { snapshot } = useLive();
+  const { snapshot } = useLiveStream();
   const matches = useMemo(() => snapshot?.matches ?? [], [snapshot]);
   const live = useMemo(() => liveByStadium(matches), [matches]);
 
