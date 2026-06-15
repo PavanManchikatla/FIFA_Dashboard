@@ -86,7 +86,18 @@ const fmtKickoff = (iso: string): string =>
 export function buildTickerLines(matches: Match[]): string[] {
   const lines: string[] = [];
 
-  for (const m of matches) {
+  // Cap how many matches feed the ticker — one line per match across a full 104-match slate
+  // makes the marquee enormous. Prioritise the action: all live, the next few kickoffs, a few
+  // recent results.
+  const live = matches.filter((m) => m.status === 'live');
+  const upcoming = matches
+    .filter((m) => m.status === 'scheduled')
+    .sort((a, b) => a.kickoffUtc.localeCompare(b.kickoffUtc))
+    .slice(0, 4);
+  const finished = matches.filter((m) => m.status === 'finished').slice(-3);
+  const picked = [...live, ...upcoming, ...finished];
+
+  for (const m of picked) {
     if (m.status === 'live') {
       const leader = (m.homeScore ?? 0) >= (m.awayScore ?? 0) ? m.home : m.away;
       lines.push(
