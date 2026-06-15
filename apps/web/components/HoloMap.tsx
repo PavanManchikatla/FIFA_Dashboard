@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import MapGL, { Marker, Popup, NavigationControl, type MapRef, type ErrorEvent } from 'react-map-gl/maplibre';
+import MapGL, { Marker, Popup, NavigationControl, AttributionControl, type MapRef, type ErrorEvent } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { STADIUMS, stadiumById } from '@/lib/stadiums';
 import { buildHoloStyle, mapPalette } from '@/lib/holoStyle';
@@ -205,6 +205,12 @@ export function HoloMap({ insightLines = [], oddsByPair = {} }: { insightLines?:
           style={{ position: 'absolute', inset: 0 }}
         >
           <NavigationControl position="bottom-right" visualizePitch />
+          {/* OSM/OpenFreeMap data is ODbL — attribution is required on a public deploy. */}
+          <AttributionControl
+            position="bottom-left"
+            compact
+            customAttribution="© OpenStreetMap contributors"
+          />
           {STADIUMS.map((s) => {
             const state = stadiumState.get(s.id) ?? 'idle';
             const cls = state === 'live' ? ' live' : state === 'next' ? ' next' : state === 'finished' ? ' finished' : '';
