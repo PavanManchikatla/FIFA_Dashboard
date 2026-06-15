@@ -2,7 +2,7 @@
 
 > **Status (as-built, phases 1–3):** ✅ **worldcup26.ir** wired to the real v1.0.5 API and
 > verified (`docs/wc26ir-REAL-SHAPES.md`). ✅ **Upstash Redis** wired + verified. ✅ **ML
-> sources** (martj42) fully used by the Phase 2/3 pipeline → `public/oracle/*.json`. ⏸️
+> sources** (martj42) fully used by the Phase 2/3 pipeline → `apps/web/oracle-data/*.json`. ⏸️
 > **Vercel** deploy postponed until all phases done (code ready, incl. `CRON_SECRET` + CDN
 > caching). ⬜ **API-Football, Open-Meteo, TheSportsDB, terrain** are Phase 4+. The per-item
 > states below predate this and describe each integration's wiring; treat this banner as the
@@ -14,7 +14,7 @@ state**, and **work to do**.
 
 Rule (CLAUDE.md): the frontend never calls these directly — every external call goes
 through a `lib/sources/*` adapter on the server; the browser only reads `/api/*` or
-`public/oracle/`.
+`apps/web/oracle-data/`.
 
 Legend: ✅ wired & switch-ready · 🟡 partially scaffolded · ⬜ not built yet
 
@@ -121,7 +121,7 @@ OpenFreeMap, worldcup26.ir, martj42, openfootball, Open-Meteo, AWS terrain → *
 `oracle-daily.yml` is scaffolded but the pipeline is a no-op until Phase 2.
 
 - [ ] `GITHUB_TOKEN` — default token has `contents:write` (already set in the workflow) to
-  commit refreshed `public/oracle/*.json`. Verify branch protection allows the bot push.
+  commit refreshed `apps/web/oracle-data/*.json`. Verify branch protection allows the bot push.
 - [ ] Any source keys the ML run needs (Open-Meteo is keyless; martj42/openfootball are public)
   → likely **none** required for the core run. Add only if a source gains a key.
 

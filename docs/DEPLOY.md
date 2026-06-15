@@ -118,7 +118,12 @@ Guardrails so client polling can't stampede wc26ir:
 
 ### 3b. Import + configure
 - vercel.com → New Project → import the GitHub repo.
-- **Root Directory: `apps/web`** (monorepo).
+- **Root Directory: `apps/web`** (monorepo). This is REQUIRED — without it Vercel builds the
+  repo root, only installs the root `package.json` (which has no deps), and the build fails with
+  `next: command not found` (exit 127). With it, Vercel installs `apps/web` deps and runs
+  `next build` there.
+- The ML artifacts live INSIDE `apps/web` (`apps/web/oracle-data/*.json`), so you do **not** need
+  Vercel's "Include files outside of the Root Directory" toggle.
 - Framework preset: Next.js (auto).
 - Add env vars (Production + Preview): `WC26IR_BASE_URL`, `WC26IR_TOKEN`, `WC26IR_EMAIL`,
   `WC26IR_PASSWORD`, `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`, and **`CRON_SECRET`**

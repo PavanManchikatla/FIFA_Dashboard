@@ -5,13 +5,13 @@ import { z } from 'zod';
 import { MatchProbSchema, MetaSchema, RatingSchema, clampProb } from './oracle';
 
 // Enforce the frozen JSON contract (PLAN.md §5) from the TS side: the artifacts that
-// publish.py (Python) commits to public/oracle must validate against the zod schemas.
+// publish.py (Python) commits to apps/web/oracle-data must validate against the zod schemas.
 // Keeps the Python producer and TS consumer in lock-step (CLAUDE.md).
 
 const oracle = (name: string) =>
-  JSON.parse(readFileSync(fileURLToPath(new URL(`../../../public/oracle/${name}`, import.meta.url)), 'utf8'));
+  JSON.parse(readFileSync(fileURLToPath(new URL(`../oracle-data/${name}`, import.meta.url)), 'utf8'));
 
-describe('public/oracle artifacts match the frozen contract', () => {
+describe('oracle-data artifacts match the frozen contract', () => {
   it('ratings.json is a non-empty ranked Rating[]', () => {
     const ratings = z.array(RatingSchema).parse(oracle('ratings.json'));
     expect(ratings.length).toBeGreaterThan(0);

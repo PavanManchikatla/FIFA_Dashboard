@@ -70,9 +70,9 @@ wc26-chaos-board/
 │   │   ├── simulate.py          # 10k Monte Carlo tournament sims (48-team format)
 │   │   ├── insights.py          # derive insight objects from sim output
 │   │   ├── backtest.py          # walk-forward eval on WC 2010/2014/2018/2022
-│   │   └── publish.py           # write JSON artifacts to public/oracle/
+│   │   └── publish.py           # write JSON artifacts to apps/web/oracle-data/
 │   └── tests/
-├── public/oracle/               # model outputs consumed by the web app (committed)
+├── apps/web/oracle-data/               # model outputs consumed by the web app (committed)
 │   ├── ratings.json
 │   ├── match_probs.json
 │   ├── simulation.json
@@ -97,7 +97,7 @@ wc26-chaos-board/
 | AWS Terrain Tiles (terrarium) | Optional 3D terrain | Free open data. |
 
 Rules: every external call goes through `lib/sources/*` adapters; the frontend never
-calls external APIs directly; all reads come from Redis cache or `public/oracle/` JSON.
+calls external APIs directly; all reads come from Redis cache or `apps/web/oracle-data/` JSON.
 
 ## 4. ML specification
 
@@ -200,13 +200,13 @@ type Simulation = { runAt: string; modelVersion: string; nRuns: number;         
 //             knownLimitations: string[], note } — validated by a passthrough MetaSchema.
 ```
 `lib/oracle.ts` exposes typed accessors (`getSimulation/getInsights/getMatchProbs/getRatings/
-getMeta`) that static-import + zod-validate the committed `public/oracle/*.json` at build time.
+getMeta`) that static-import + zod-validate the committed `apps/web/oracle-data/*.json` at build time.
 
 ## 6. Automation (free)
 
 - **GitHub Actions `oracle-daily.yml`**: cron 06:00 UTC + manual dispatch.
   Steps: ingest latest results (wc26ir + martj42) → update Elo → refit goals model →
-  simulate 10k → insights → publish JSON → commit to `public/oracle/` → Vercel auto-deploys.
+  simulate 10k → insights → publish JSON → commit to `apps/web/oracle-data/` → Vercel auto-deploys.
   Runtime budget: < 10 min on the free runner (vectorize the simulator with numpy).
 - **Vercel Cron** hits `/api/cron/poll` every minute; route exits instantly unless a match
   is live or within 30 min of kickoff. API-Football calls only on score change.

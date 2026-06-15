@@ -1,4 +1,4 @@
-"""Write JSON artifacts to public/oracle/ (PLAN.md §5, §6). Phase 2+.
+"""Write JSON artifacts to apps/web/oracle-data/ (PLAN.md §5, §6). Phase 2+.
 
 Emits ratings.json, match_probs.json, meta.json (with the backtest model card).
 simulation.json + insights.json are produced in Phase 3. Shapes are FROZEN (PLAN.md §5)
@@ -23,7 +23,7 @@ from .ingest import derive_groups, load_matches, load_wc26_fixtures
 from .insights import derive_insights
 from .simulate import GROUP_LETTERS, GRID, _round_robin_pairs, simulate
 
-ORACLE_DIR = Path(__file__).resolve().parents[3] / "public" / "oracle"
+ORACLE_DIR = Path(__file__).resolve().parents[3] / "apps" / "web" / "oracle-data"
 MODEL_VERSION = "elo+dc+gbm-0.1.0"
 
 # Honesty rule (CLAUDE.md): displayed probabilities clamp to 1–99%. We clamp at the source
@@ -198,7 +198,7 @@ def build_simulation(matches: pd.DataFrame, n_runs: int = 10_000) -> dict:
 def write_json(name: str, data) -> None:
     ORACLE_DIR.mkdir(parents=True, exist_ok=True)
     (ORACLE_DIR / name).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
-    print(f"  wrote public/oracle/{name}")
+    print(f"  wrote apps/web/oracle-data/{name}")
 
 
 def main(run_backtest_for_card: bool = True) -> None:

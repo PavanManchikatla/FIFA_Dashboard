@@ -1,6 +1,6 @@
 name: oracle-daily
 
-# Retrain ratings + simulate + commit JSON to public/oracle/ → Vercel auto-deploys.
+# Retrain ratings + simulate + commit JSON to apps/web/oracle-data/ → Vercel auto-deploys.
 # Runtime budget < 10 min on the free runner (PLAN.md §6). The pipeline is implemented
 # in Phase 2+; until then the run is a no-op you can trigger manually to validate wiring.
 
@@ -31,10 +31,10 @@ jobs:
       - name: Commit refreshed artifacts
         working-directory: .
         run: |
-          if [ -n "$(git status --porcelain public/oracle)" ]; then
+          if [ -n "$(git status --porcelain apps/web/oracle-data)" ]; then
             git config user.name  "oracle-bot"
             git config user.email "oracle-bot@users.noreply.github.com"
-            git add public/oracle
+            git add apps/web/oracle-data
             git commit -m "chore(oracle): daily refresh"
             git push
           else

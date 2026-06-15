@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 // Frozen JSON contracts (PLAN.md §5). Changing these requires updating the Python
 // publishers (ml/src/wc26ml/publish.py) and PLAN.md in the same commit (CLAUDE.md).
-// The ML pipeline (Phase 2+) writes these to public/oracle/; these schemas validate
+// The ML pipeline (Phase 2+) writes these to apps/web/oracle-data/; these schemas validate
 // them at read time. Defined now so the contract is fixed before producers exist.
 
 export const MatchProbSchema = z.object({
@@ -92,12 +92,13 @@ export function clampProb(p: number): number {
 
 // ---- typed accessors over the committed ML artifacts (PLAN.md §2) ----------------
 // Static imports: resolved at build time, so a daily commit of fresh JSON → redeploy →
-// fresh page (PLAN.md §6). public/oracle lives at the repo root (../../../ from lib/).
-import simulationJson from '../../../public/oracle/simulation.json';
-import insightsJson from '../../../public/oracle/insights.json';
-import matchProbsJson from '../../../public/oracle/match_probs.json';
-import ratingsJson from '../../../public/oracle/ratings.json';
-import metaJson from '../../../public/oracle/meta.json';
+// fresh page (PLAN.md §6). The artifacts live inside apps/web (oracle-data/) so the Vercel
+// build — rooted at apps/web — can import them without reaching outside the root directory.
+import simulationJson from '../oracle-data/simulation.json';
+import insightsJson from '../oracle-data/insights.json';
+import matchProbsJson from '../oracle-data/match_probs.json';
+import ratingsJson from '../oracle-data/ratings.json';
+import metaJson from '../oracle-data/meta.json';
 
 export const getSimulation = (): Simulation => SimulationSchema.parse(simulationJson);
 export const getInsights = (): Insight[] => z.array(InsightSchema).parse(insightsJson);
