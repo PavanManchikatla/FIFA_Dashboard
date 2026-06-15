@@ -27,8 +27,10 @@ See [PLAN.md](PLAN.md) for the architecture / data contracts / phased roadmap an
 ## Pages
 
 - `/` — HoloLattice landing (3D dot-matrix + stadium light-pillars; CSS fallback without WebGL).
-- `/map` — holo hybrid MapLibre map: 16 stadium beacons (amber when a match is live),
-  multi-provider tile failover, template-driven ticker.
+- `/map` — holo hybrid MapLibre map: 16 stadium beacons (amber = live, azure ring = next
+  kickoff, dimmed = finished), auto-focus on the next match, a scrollable live/upcoming/finished
+  match list, click-for-popup with team flags + win-odds, multi-provider tile failover, ticker.
+- Colour themes (🎨 bottom-right): Holo / Warm / Light — user-switchable, saved per browser.
 - `/oracle` — the Oracle: champion-odds bars, group heat tables, Bracket-of-Doom survival
   heatmap, model card. Server-rendered from the committed `public/oracle/*.json`.
 - `/match/[id]` — live in-match win prob, heartbeat chart, and Panic Index gauges.

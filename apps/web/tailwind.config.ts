@@ -1,33 +1,31 @@
 import type { Config } from 'tailwindcss';
 
-// Palette + fonts from CLAUDE.md / the prototypes. Keep these the single source of
-// truth for theme tokens so React components match the holo look.
+// Colors are driven by CSS variables (see globals.css) so the user can switch themes
+// (softer-holo / warm-broadcast / light). Each token is an "R G B" triplet var so Tailwind's
+// alpha utilities (e.g. bg-cyan/10) keep working.
+const rgb = (v: string) => `rgb(var(${v}) / <alpha-value>)`;
+
 const config: Config = {
-  content: [
-    './app/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './lib/**/*.{ts,tsx}',
-  ],
+  content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './lib/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        bg: '#030B10',
-        panel: 'rgba(6,20,27,.9)',
-        line: 'rgba(64,229,209,.25)',
-        cyan: '#40E5D1',
-        azure: '#54A9FF',
-        mint: '#5CFFB1',
-        amber: '#FFB13B',
-        // FIFA World Cup 26 brand-inspired accents (vibrant blue/violet/pink + gold),
-        // blended into the holo look for prettier gradients and panel borders.
-        violet: '#8B6CFF',
-        magenta: '#FF5CA8',
-        gold: '#FFC94D',
-        ink: '#D8FFF8',
-        'ink-dim': '#5E8B86',
+        bg: rgb('--c-bg'),
+        panel: rgb('--c-panel'),
+        line: rgb('--c-line'),
+        cyan: rgb('--c-cyan'),
+        azure: rgb('--c-azure'),
+        mint: rgb('--c-mint'),
+        amber: rgb('--c-amber'),
+        violet: rgb('--c-violet'),
+        magenta: rgb('--c-magenta'),
+        gold: rgb('--c-gold'),
+        ink: rgb('--c-ink'),
+        'ink-dim': rgb('--c-ink-dim'),
       },
       backgroundImage: {
-        'holo-accent': 'linear-gradient(90deg,#40E5D1 0%,#54A9FF 45%,#8B6CFF 80%,#FF5CA8 100%)',
+        // Theme-defined accent sweep (set per theme in globals.css).
+        'holo-accent': 'var(--holo-accent)',
       },
       fontFamily: {
         display: ['Orbitron', 'sans-serif'],

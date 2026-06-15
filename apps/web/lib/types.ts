@@ -10,6 +10,9 @@ export type Match = {
   stadiumId: string | null;
   home: string;
   away: string;
+  /** Flag image URLs (from the teams endpoint); null if unknown. */
+  homeFlag: string | null;
+  awayFlag: string | null;
   homeScore: number | null;
   awayScore: number | null;
   status: MatchStatus;

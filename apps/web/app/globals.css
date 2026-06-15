@@ -4,20 +4,70 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg: #030b10;
-  --panel: rgba(6, 20, 27, 0.9);
-  --line: rgba(64, 229, 209, 0.25);
-  --cyan: #40e5d1;
-  --azure: #54a9ff;
-  --violet: #8b6cff;
-  --magenta: #ff5ca8;
-  --amber: #ffb13b;
-  --gold: #ffc94d;
-  --ink: #d8fff8;
-  --ink-dim: #5e8b86;
-  /* FIFA26-inspired holographic accent sweep, reused for borders/titles/glows. */
-  --holo-accent: linear-gradient(135deg, #40e5d1 0%, #54a9ff 45%, #8b6cff 78%, #ff5ca8 100%);
+/* ============================================================================
+   THEME PALETTES — colours are "R G B" triplets so Tailwind alpha utilities work.
+   Default = Softer Holo. [data-theme="warm"] and [data-theme="light"] override.
+   Research-backed: ease off pure-black + pure-neon (halation/eye strain) → softer
+   base, off-white text, gently desaturated accents.
+   ========================================================================== */
+:root,
+:root[data-theme='holo'] {
+  --c-bg: 15 21 27;
+  --c-panel: 16 30 38;
+  --c-line: 79 209 197;
+  --c-ink: 230 239 236;
+  --c-ink-dim: 124 152 148;
+  --c-cyan: 79 209 197;
+  --c-azure: 107 168 255;
+  --c-mint: 108 235 170;
+  --c-amber: 242 200 121;
+  --c-gold: 245 201 123;
+  --c-violet: 150 122 255;
+  --c-magenta: 255 125 168;
+  --holo-accent: linear-gradient(135deg, #4fd1c5 0%, #6ba8ff 45%, #967aff 78%, #ff7da8 100%);
+  --aurora:
+    radial-gradient(1200px 820px at 78% -12%, rgb(var(--c-azure) / 0.12), transparent 60%),
+    radial-gradient(1000px 720px at -8% 112%, rgb(var(--c-violet) / 0.13), transparent 55%),
+    radial-gradient(900px 700px at 110% 80%, rgb(var(--c-magenta) / 0.08), transparent 55%);
+  --fx-scan: repeating-linear-gradient(0deg, rgb(var(--c-ink) / 0.022) 0 1px, transparent 1px 3px);
+  --fx-vignette: inset 0 0 140px 40px rgba(0, 0, 0, 0.6);
+}
+
+:root[data-theme='warm'] {
+  --c-bg: 19 26 36;
+  --c-panel: 24 34 46;
+  --c-line: 70 201 176;
+  --c-ink: 234 241 248;
+  --c-ink-dim: 150 168 186;
+  --c-cyan: 70 201 176;
+  --c-azure: 96 165 250;
+  --c-mint: 80 200 150;
+  --c-amber: 255 180 84;
+  --c-gold: 255 190 110;
+  --c-violet: 150 130 245;
+  --c-magenta: 242 118 138;
+  --holo-accent: linear-gradient(135deg, #46c9b0 0%, #60a5fa 45%, #9682f5 78%, #f2768a 100%);
+}
+
+:root[data-theme='light'] {
+  --c-bg: 244 246 248;
+  --c-panel: 255 255 255;
+  --c-line: 30 41 59;
+  --c-ink: 22 32 43;
+  --c-ink-dim: 90 105 120;
+  --c-cyan: 13 148 136;
+  --c-azure: 37 99 235;
+  --c-mint: 5 150 105;
+  --c-amber: 217 119 6;
+  --c-gold: 202 138 4;
+  --c-violet: 124 58 237;
+  --c-magenta: 219 39 119;
+  --holo-accent: linear-gradient(135deg, #0d9488 0%, #2563eb 45%, #7c3aed 78%, #db2777 100%);
+  --aurora:
+    radial-gradient(1200px 820px at 78% -12%, rgb(var(--c-azure) / 0.06), transparent 60%),
+    radial-gradient(1000px 720px at -8% 112%, rgb(var(--c-violet) / 0.05), transparent 55%);
+  --fx-scan: none;
+  --fx-vignette: none;
 }
 
 html,
@@ -26,118 +76,116 @@ body {
 }
 
 body {
-  /* Layered aurora glow over the deep base — gives panels something to float on. */
-  background:
-    radial-gradient(1200px 820px at 78% -12%, rgba(84, 169, 255, 0.12), transparent 60%),
-    radial-gradient(1000px 720px at -8% 112%, rgba(139, 108, 255, 0.13), transparent 55%),
-    radial-gradient(900px 700px at 110% 80%, rgba(255, 92, 168, 0.08), transparent 55%),
-    var(--bg);
-  color: var(--ink);
+  background: var(--aurora), rgb(var(--c-bg));
+  color: rgb(var(--c-ink));
   font-family: 'Rajdhani', system-ui, sans-serif;
   overflow: hidden;
 }
 
-/* ----- Glass panels with a gradient hairline border (premium holo look) ----- */
-/* In @layer components so Tailwind positioning/padding utilities still override
-   (e.g. `absolute` on the feed HUD must beat this default `position: relative`). */
 @layer components {
-.holo-panel {
-  position: relative;
-  background: linear-gradient(160deg, rgba(10, 30, 40, 0.78), rgba(5, 14, 22, 0.66));
-  backdrop-filter: blur(12px) saturate(125%);
-  -webkit-backdrop-filter: blur(12px) saturate(125%);
-  border-radius: 10px;
-  box-shadow:
-    0 10px 34px rgba(2, 8, 12, 0.55),
-    inset 0 1px 0 rgba(190, 255, 250, 0.07);
-}
-.holo-panel::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: var(--holo-accent);
-  opacity: 0.7;
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+  /* Glass panels with a gradient hairline border. In @layer components so Tailwind
+     positioning/padding utilities still override (e.g. `absolute` beats `position: relative`). */
+  .holo-panel {
+    position: relative;
+    background: linear-gradient(160deg, rgb(var(--c-panel) / 0.82), rgb(var(--c-panel) / 0.66));
+    backdrop-filter: blur(12px) saturate(125%);
+    -webkit-backdrop-filter: blur(12px) saturate(125%);
+    border-radius: 10px;
+    box-shadow: 0 10px 34px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgb(var(--c-ink) / 0.06);
+  }
+  .holo-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--holo-accent);
+    opacity: 0.6;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .holo-btn {
+    background: linear-gradient(160deg, rgb(var(--c-panel) / 0.7), rgb(var(--c-panel) / 0.55));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgb(var(--c-line) / 0.5);
+    border-radius: 8px;
+    color: rgb(var(--c-cyan));
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.12s ease;
+  }
+  .holo-btn:hover {
+    border-color: rgb(var(--c-azure) / 0.6);
+    box-shadow: 0 0 18px rgb(var(--c-azure) / 0.22);
+    transform: translateY(-1px);
+  }
+  .holo-btn:focus-visible {
+    outline: 2px solid rgb(var(--c-violet));
+    outline-offset: 2px;
+  }
+
+  .holo-text-gradient {
+    background: var(--holo-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 }
 
-/* Glassy HUD control (buttons + select). */
-.holo-btn {
-  background: linear-gradient(160deg, rgba(10, 30, 40, 0.7), rgba(5, 14, 22, 0.58));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--cyan);
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.12s ease;
-}
-.holo-btn:hover {
-  border-color: rgba(84, 169, 255, 0.6);
-  box-shadow: 0 0 18px rgba(84, 169, 255, 0.22);
-  transform: translateY(-1px);
-}
-.holo-btn:focus-visible {
-  outline: 2px solid var(--violet);
-  outline-offset: 2px;
-}
-
-/* Gradient text for titles. */
-.holo-text-gradient {
-  background: var(--holo-accent);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-}
-
-/* CRT scanline + vignette overlay, ported from the prototype #fx layer. */
+/* CRT scanline + vignette overlay (theme-aware; off on light). */
 .holo-fx {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 3;
-  background: repeating-linear-gradient(0deg, rgba(190, 255, 250, 0.022) 0 1px, transparent 1px 3px);
-  box-shadow: inset 0 0 140px 40px rgba(2, 8, 12, 0.8);
+  background: var(--fx-scan);
+  box-shadow: var(--fx-vignette);
 }
 
-/* Stadium beacons (MapLibre markers). */
+/* ----- Stadium beacons (MapLibre markers) ----- */
 .beacon {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  /* Bright core fading into azure — reads as a holographic light pillar. */
-  background: radial-gradient(circle at 35% 30%, #eafffb 0%, var(--cyan) 45%, var(--azure) 100%);
+  background: radial-gradient(circle at 35% 30%, #eafffb 0%, rgb(var(--c-cyan)) 45%, rgb(var(--c-azure)) 100%);
   cursor: pointer;
   position: relative;
-  box-shadow:
-    0 0 10px rgba(64, 229, 209, 0.9),
-    0 0 24px rgba(84, 169, 255, 0.5);
+  box-shadow: 0 0 10px rgb(var(--c-cyan) / 0.9), 0 0 24px rgb(var(--c-azure) / 0.5);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .beacon:hover {
   transform: scale(1.25);
-  box-shadow: 0 0 14px rgba(64, 229, 209, 1), 0 0 30px rgba(84, 169, 255, 0.7);
+  box-shadow: 0 0 14px rgb(var(--c-cyan)), 0 0 30px rgb(var(--c-azure) / 0.7);
 }
+/* Live: amber/gold, pulsing ring. */
 .beacon.live {
-  background: radial-gradient(circle at 35% 30%, #fff3d6 0%, var(--gold) 45%, var(--amber) 100%);
-  box-shadow:
-    0 0 12px rgba(255, 201, 77, 0.95),
-    0 0 28px rgba(255, 177, 59, 0.6);
+  background: radial-gradient(circle at 35% 30%, #fff3d6 0%, rgb(var(--c-gold)) 45%, rgb(var(--c-amber)) 100%);
+  box-shadow: 0 0 12px rgb(var(--c-gold) / 0.95), 0 0 28px rgb(var(--c-amber) / 0.6);
 }
 .beacon.live::after {
   content: '';
   position: absolute;
   inset: -9px;
   border-radius: 50%;
-  border: 2px solid var(--gold);
+  border: 2px solid rgb(var(--c-gold));
   animation: pulse 1.7s ease-out infinite;
+}
+/* Next up: a cyan/azure attention ring so you can find the next kickoff. */
+.beacon.next::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid rgb(var(--c-azure));
+  animation: pulse 2.2s ease-out infinite;
+}
+/* Finished: dimmed and desaturated. */
+.beacon.finished {
+  background: radial-gradient(circle at 35% 30%, rgb(var(--c-ink) / 0.7) 0%, rgb(var(--c-ink-dim)) 60%);
+  box-shadow: 0 0 6px rgb(var(--c-ink-dim) / 0.5);
+  opacity: 0.6;
 }
 @keyframes pulse {
   0% {
@@ -162,7 +210,6 @@ body {
   }
 }
 
-/* Panic gauge shake (amplitude set inline; speed via animation duration). */
 @keyframes panic-shake {
   0%, 100% { transform: translate(0, 0) rotate(0deg); }
   25% { transform: translate(-1.5px, 1px) rotate(-1.2deg); }
@@ -170,7 +217,6 @@ body {
   75% { transform: translate(-1px, -1px) rotate(-0.8deg); }
 }
 
-/* Goal-event beacon flash on the holo map. */
 @keyframes beacon-goal-flash {
   0%, 100% { transform: scale(1); }
   20% { transform: scale(2.2); filter: brightness(1.8); }
@@ -181,7 +227,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .beacon.live::after {
+  .beacon.live::after,
+  .beacon.next::after {
     animation: none;
     opacity: 0.4;
   }
@@ -197,21 +244,34 @@ body {
   }
 }
 
-/* MapLibre popup theming to match the holo glass panels. */
+/* MapLibre popup theming to match the glass panels. */
 .maplibregl-popup-content {
-  background: linear-gradient(160deg, rgba(10, 30, 40, 0.92), rgba(5, 14, 22, 0.86)) !important;
+  background: linear-gradient(160deg, rgb(var(--c-panel) / 0.95), rgb(var(--c-panel) / 0.88)) !important;
   backdrop-filter: blur(12px) saturate(125%);
   -webkit-backdrop-filter: blur(12px) saturate(125%);
-  color: var(--ink);
-  border: 1px solid rgba(84, 169, 255, 0.45);
-  border-radius: 8px;
-  box-shadow: 0 8px 26px rgba(2, 8, 12, 0.55);
+  color: rgb(var(--c-ink));
+  border: 1px solid rgb(var(--c-azure) / 0.45);
+  border-radius: 10px;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5);
   font-family: 'Rajdhani', sans-serif;
   font-size: 14px;
   line-height: 1.5;
-  padding: 10px 13px;
+  padding: 12px 14px;
 }
 .maplibregl-popup-tip {
-  border-top-color: rgba(10, 30, 40, 0.92) !important;
-  border-bottom-color: rgba(10, 30, 40, 0.92) !important;
+  border-top-color: rgb(var(--c-panel) / 0.95) !important;
+  border-bottom-color: rgb(var(--c-panel) / 0.95) !important;
+}
+
+/* Thin themed scrollbar for the match-list panel. */
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--c-line) / 0.5) transparent;
+}
+.thin-scroll::-webkit-scrollbar {
+  width: 7px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: rgb(var(--c-line) / 0.4);
+  border-radius: 4px;
 }

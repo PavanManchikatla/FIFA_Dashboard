@@ -53,11 +53,15 @@ Tests: web vitest (`apps/web`) + ml pytest (`ml`) both green; CI runs them + the
 - ML: Python 3.11, pandas, numpy, scipy, scikit-learn, xgboost (optional), pytest.
 - Visual spec: `prototypes/*.html` — match their look when porting (colors, fonts,
   scanlines, beacon behavior). Fonts: Orbitron / Rajdhani / Share Tech Mono.
-  Palette: bg #030B10, cyan #40E5D1, azure #54A9FF, mint #5CFFB1, amber #FFB13B (live).
-  Extended with FIFA-WC26-inspired accents for glass panels/gradients: violet #8B6CFF,
-  magenta #FF5CA8, gold #FFC94D (live beacons). Theme tokens live in `apps/web/tailwind.config.ts`
-  + the `--holo-accent` sweep and `.holo-panel`/`.holo-btn`/`.holo-text-gradient` classes in
-  `apps/web/app/globals.css` (single source of truth).
+  Palette: **user-switchable themes** (research-driven, eye-strain-friendly — no pure black +
+  pure neon). Colors are CSS-variable triplets (`--c-*`) in `apps/web/app/globals.css` under
+  `:root` (holo, default), `[data-theme="warm"]`, `[data-theme="light"]`; Tailwind tokens map to
+  `rgb(var(--c-*) / <alpha-value>)` in `tailwind.config.ts`. The `ThemeToggle` (🎨, bottom-right)
+  persists to localStorage; a bootstrap script in `layout.tsx` applies it pre-paint (no flash).
+  When adding colors, use the token classes (`bg-bg`, `text-cyan`, `border-line`, etc.) or
+  `rgb(var(--c-*))` so all three themes stay correct. Reusable classes: `.holo-panel` /
+  `.holo-btn` / `.holo-text-gradient` + the `--holo-accent` sweep. NOTE: the 3D lattice + the
+  MapLibre basemap stay dark by design (cinematic) across themes; theming covers the DOM chrome.
 
 ## Commands
 

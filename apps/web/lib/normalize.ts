@@ -86,8 +86,10 @@ export function normalizeWc26ir(data: Wc26irData, opts: { stale?: boolean } = {}
   return data.games.map((g) => {
     // Prefer the embedded per-game name (correct for decided knockouts too), fall back to
     // the teams endpoint, then the raw id.
-    const home = g.home_team_name_en || teamById.get(g.home_team_id)?.name_en || g.home_team_id;
-    const away = g.away_team_name_en || teamById.get(g.away_team_id)?.name_en || g.away_team_id;
+    const homeTeam = teamById.get(g.home_team_id);
+    const awayTeam = teamById.get(g.away_team_id);
+    const home = g.home_team_name_en || homeTeam?.name_en || g.home_team_id;
+    const away = g.away_team_name_en || awayTeam?.name_en || g.away_team_id;
 
     const rawStadium = stadiumById.get(g.stadium_id);
     const stadiumId = rawStadium ? stadiumIdByName(rawStadium.name_en) : null;
@@ -100,6 +102,8 @@ export function normalizeWc26ir(data: Wc26irData, opts: { stale?: boolean } = {}
       stadiumId,
       home,
       away,
+      homeFlag: homeTeam?.flag ?? null,
+      awayFlag: awayTeam?.flag ?? null,
       // Scores are strings upstream; show them only once a match is live/finished.
       homeScore: status === 'scheduled' ? null : parseScore(g.home_score),
       awayScore: status === 'scheduled' ? null : parseScore(g.away_score),
