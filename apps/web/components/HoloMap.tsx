@@ -5,10 +5,11 @@ import Link from 'next/link';
 import MapGL, { Marker, Popup, NavigationControl, type MapRef, type ErrorEvent } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { STADIUMS, stadiumById } from '@/lib/stadiums';
-import { buildHoloStyle } from '@/lib/holoStyle';
+import { buildHoloStyle, mapPalette } from '@/lib/holoStyle';
 import { TileBroker } from '@/lib/tileBroker';
 import type { Match, Stadium } from '@/lib/types';
 import { useLiveStream } from './useLiveStream';
+import { useThemeColors } from './useThemeColors';
 import { Ticker } from './Ticker';
 import { VenueCard } from './VenueCard';
 import { MatchList } from './MatchList';
@@ -45,6 +46,7 @@ export function HoloMap({ insightLines = [], oddsByPair = {} }: { insightLines?:
   const [selected, setSelected] = useState<Stadium | null>(null);
   const [hovered, setHovered] = useState<Stadium | null>(null);
   const [showList, setShowList] = useState(true);
+  const { theme } = useThemeColors();
 
   const { snapshot } = useLiveStream();
   const matches = useMemo(() => snapshot?.matches ?? [], [snapshot]);
@@ -105,11 +107,27 @@ export function HoloMap({ insightLines = [], oddsByPair = {} }: { insightLines?:
     }
   }, [matches, nextMatch, flyTo]);
 
+  // The mapStyle PROP handles only tile-failover (provider change) — NOT theme — so it doesn't
+  // race the imperative theme restyle below. It still reads the current theme palette when it
+  // recomputes on failover.
   const mapStyle = useMemo(
-    () => buildHoloStyle(broker.active()),
+    () => buildHoloStyle(broker.active(), mapPalette(theme)),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [broker, providerTick],
   );
+
+  // Theme change → restyle the basemap imperatively (keeps the camera; markers are DOM overlays
+  // and persist). diff:false forces a clean full swap (a recolour diff didn't apply reliably).
+  // Skip the first run — the initial mapStyle prop already covers mount.
+  const styledOnce = useRef(false);
+  useEffect(() => {
+    if (!styledOnce.current) {
+      styledOnce.current = true;
+      return;
+    }
+    mapRef.current?.getMap()?.setStyle(buildHoloStyle(broker.active(), mapPalette(theme)), { diff: false });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [theme]);
 
   // Goal-event beacon flash on a score increase.
   const prevGoals = useRef<Map<string, number>>(new Map());

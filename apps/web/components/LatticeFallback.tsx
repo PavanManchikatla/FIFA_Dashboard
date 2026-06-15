@@ -23,8 +23,8 @@ export function LatticeFallback() {
         className="absolute inset-x-0 bottom-0 top-1/3 opacity-40"
         style={{
           background:
-            'linear-gradient(rgba(64,229,209,0.12) 1px, transparent 1px) 0 0/44px 44px,' +
-            'linear-gradient(90deg, rgba(64,229,209,0.12) 1px, transparent 1px) 0 0/44px 44px',
+            'linear-gradient(rgb(var(--c-cyan) / 0.12) 1px, transparent 1px) 0 0/44px 44px,' +
+            'linear-gradient(90deg, rgb(var(--c-cyan) / 0.12) 1px, transparent 1px) 0 0/44px 44px',
           transform: 'perspective(520px) rotateX(58deg)',
           transformOrigin: 'bottom',
           maskImage: 'linear-gradient(to top, #000 30%, transparent)',

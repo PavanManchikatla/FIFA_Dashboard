@@ -60,8 +60,11 @@ Tests: web vitest (`apps/web`) + ml pytest (`ml`) both green; CI runs them + the
   persists to localStorage; a bootstrap script in `layout.tsx` applies it pre-paint (no flash).
   When adding colors, use the token classes (`bg-bg`, `text-cyan`, `border-line`, etc.) or
   `rgb(var(--c-*))` so all three themes stay correct. Reusable classes: `.holo-panel` /
-  `.holo-btn` / `.holo-text-gradient` + the `--holo-accent` sweep. NOTE: the 3D lattice + the
-  MapLibre basemap stay dark by design (cinematic) across themes; theming covers the DOM chrome.
+  `.holo-btn` / `.holo-text-gradient` + the `--holo-accent` sweep. The 3D lattice and the MapLibre
+  basemap ALSO follow the theme: `useThemeColors()` reads the live CSS-var colours as `rgb()`
+  strings for WebGL/MapLibre. The lattice swaps additive→normal blending on the light theme; the
+  basemap is re-styled imperatively on theme change (`map.setStyle(..., {diff:false})`) — the
+  mapStyle PROP only handles tile-failover, so the two don't race. Light = a light street map.
 
 ## Commands
 
