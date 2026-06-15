@@ -7,10 +7,12 @@ with a real ML win-probability engine. Total infrastructure cost target: **$0/mo
 
 ## 0. Status (living)
 
-Phases 1–3 shipped and verified; Phase 4 is next. See CLAUDE.md "Current status" for the short
-version and `docs/` for deploy/integration/data-shape detail. Where the build diverged from this
-plan — the real wc26ir shape, the simulator's third-place approximation, the Elo draw limitation,
-the added JSON contracts — the relevant sections below are annotated **[as-built]**.
+All five phases shipped and verified, and the app is **deployed live on Vercel (Hobby, $0)**:
+**https://fifa-dashboard-chi.vercel.app** (since 2026-06-15). See CLAUDE.md "Current status" for
+the short version and `docs/` for deploy/integration/data-shape detail. Where the build diverged
+from this plan — the real wc26ir shape, the simulator's third-place approximation, the Elo draw
+limitation, the added JSON contracts, the move of model artifacts into `apps/web/oracle-data/` for
+the Vercel monorepo build — the relevant sections below are annotated **[as-built]**.
 
 ## 1. Vision
 
@@ -218,6 +220,16 @@ getMeta`) that static-import + zod-validate the committed `apps/web/oracle-data/
   to ~1 backend hit per window; `/api/cron/poll` runs daily for cache warming and requires
   `Authorization: Bearer $CRON_SECRET` when set. Upstash free is ~500k cmds/mo (not 10k/day).
   `oracle-daily.yml` runs the real `ingest → publish` (publish runs the backtest model card).
+- **[as-built] Live deploy (2026-06-15):** public on Vercel Hobby at
+  https://fifa-dashboard-chi.vercel.app. **Vercel Root Directory = `apps/web`** (required —
+  building the repo root fails with `next: command not found` because the root `package.json` has
+  no deps). The committed model artifacts were moved from repo-root `public/oracle/` to
+  **`apps/web/oracle-data/`** so the whole build is contained in the project root and needs no
+  "Include files outside the Root Directory" toggle. `CRON_SECRET` is set in Vercel env, so
+  `/api/cron/poll` returns 401 without the bearer (verified). `WC26IR_*` + `UPSTASH_*` env are set
+  (production serves real data, not mocks). The wc26ir adapter logs upstream failures server-side
+  (`console.warn`, status only) so a feed outage is diagnosable in Vercel logs (upstream 5xx vs
+  token 401) without ever crashing the route or exposing anything to the client.
 
 ## 7. Phased roadmap
 
@@ -225,7 +237,8 @@ getMeta`) that static-import + zod-validate the committed `apps/web/oracle-data/
 - Scaffold monorepo, port tile broker + holo style to `lib/`, render HoloMap with live
   beacons from `/api/live` backed by wc26ir poller. Ticker on template engine.
 - Done when: real scores appear on the map within 60s of a goal. ✅ (verified vs real wc26ir;
-  public Vercel deploy postponed to post-phases by choice.)
+  now **deployed live** at https://fifa-dashboard-chi.vercel.app with real `WC26IR_*` +
+  `UPSTASH_*` env and a secured daily cron.)
 
 **Phase 2 — The Oracle core** — ✅ DONE
 - `ingest → elo → goals_model → backtest`. No UI yet; CLI prints calibration table.

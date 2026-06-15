@@ -3,6 +3,8 @@
 A live, funny, interactive 3D dashboard for the 2026 FIFA World Cup with a real ML
 win-probability engine. Infrastructure cost target: **$0/month**.
 
+**🌐 Live:** https://fifa-dashboard-chi.vercel.app (Vercel Hobby, $0).
+
 See [PLAN.md](PLAN.md) for the architecture / data contracts / phased roadmap and
 [CLAUDE.md](CLAUDE.md) for the working rules.
 
@@ -10,7 +12,8 @@ See [PLAN.md](PLAN.md) for the architecture / data contracts / phased roadmap an
 
 - ✅ **Phase 1 — Foundation**: monorepo scaffold, tile-broker + holo MapLibre style, `HoloMap`
   with live beacons fed by `/api/live` (wc26ir → cache, cache-aside + CDN-edge cached),
-  template ticker. Real wc26ir + Upstash wired; public deploy (Vercel) postponed to post-phases.
+  template ticker. Real wc26ir + Upstash wired; **deployed live on Vercel** (root dir `apps/web`,
+  env set, daily cron secured).
 - ✅ **Phase 2 — Oracle core**: Python ML — ingest (martj42) → Elo → Dixon-Coles + GBM blend →
   walk-forward backtest (accepted, beats Elo-only 3/4). Publishes `ratings.json`,
   `match_probs.json`, `meta.json`.
@@ -22,7 +25,7 @@ See [PLAN.md](PLAN.md) for the architecture / data contracts / phased roadmap an
   goal-event beacon flash on the map; Oracle insights wired into the ticker.
 - ✅ **Phase 5 — Polish**: HoloLattice landing (react-three-fiber, with a CSS fallback when
   WebGL is unavailable); lattice→map cross-fade; SSE push (`/api/live/stream`) with polling
-  fallback; OG share cards for `/` and `/oracle`. **All five phases shipped.**
+  fallback; OG share cards for `/` and `/oracle`. **All five phases shipped & deployed live.**
 
 ## Pages
 

@@ -3,11 +3,15 @@
 Read PLAN.md first. It is the source of truth for architecture, data contracts, and phases.
 Work phase by phase; do not start a later phase before the current one's "Done when" passes.
 
-## Current status (phases 1–5 shipped — feature-complete)
+## Current status (phases 1–5 shipped — DEPLOYED LIVE)
+
+**Live:** https://fifa-dashboard-chi.vercel.app (Vercel Hobby, $0, since 2026-06-15).
+Vercel **Root Directory = `apps/web`**; `WC26IR_*` + `UPSTASH_*` + `CRON_SECRET` set in env;
+daily cron secured (401 without bearer). The wc26ir token was **reused, not rotated** (owner's
+call — low-stakes read-only token; rotation still recommended).
 
 - ✅ **Phase 1 — Foundation**: holo `/map` with tile-broker failover + live beacons + ticker.
-  Wired to **real wc26ir + Upstash** (verified on localhost); public Vercel deploy is
-  intentionally **postponed until all phases are done** (DEPLOY.md Step 3).
+  Wired to **real wc26ir + Upstash** and **deployed live on Vercel**.
 - ✅ **Phase 2 — Oracle core**: `ingest → elo → goals_model → backtest`. Backtest **accepted**
   (blended beats Elo-only 3/4; mean log-loss 0.975 < 1.003). Publishes ratings/match_probs/meta.
 - ✅ **Phase 3 — Simulator + Oracle page**: 48-team Monte Carlo (`simulate.py`) →
@@ -21,8 +25,30 @@ Work phase by phase; do not start a later phase before the current one's "Done w
   graceful CSS fallback; lattice→map cross-fade; SSE push (`/api/live/stream`) with polling
   fallback; OG share cards (`opengraph-image.tsx` for `/` and `/oracle`).
 
-All five phases shipped. Remaining: the postponed public Vercel deploy (DEPLOY.md Step 3 —
-rotate the wc26ir token first).
+All five phases shipped **and the app is publicly deployed** (DEPLOY.md Step 3 done). Nothing is
+outstanding to go live. Optional follow-ups: rotate the wc26ir token; bump Next.js to clear the 2
+moderate build-time postcss advisories.
+
+### Post-deploy fixes (2026-06-15) — all shipped & verified
+- **Model artifacts relocated** `public/oracle/` → **`apps/web/oracle-data/`** so the Vercel build
+  (root = `apps/web`) is self-contained and needs no "files outside root" toggle. All paths
+  (`lib/oracle.ts`, `oracle.test.ts`, `publish.py` `ORACLE_DIR`, `oracle-daily.yml`,
+  `next.config` `outputFileTracingRoot`) point here now. **This is the only valid artifact path.**
+- **Ticker** (`Ticker.tsx` + `commentary.buildTickerLines`): scrolls at a **constant ~70px/s**
+  (duration derived from measured width) and caps content (all live + next 4 kickoffs + last 3
+  results) — fixes the footer running runaway-fast on a full 104-match slate.
+- **Theme-on-load** (`useThemeColors.ts`): lazy-inits `theme` from the live `data-theme` attribute,
+  so the MapLibre basemap renders the correct theme on first paint (no neon flash when navigating
+  from the light Oracle to `/map`).
+- **Feed-offline UX** (`HoloMap.tsx` / `MatchList.tsx`): "FEED OFFLINE" badge + drawer note when
+  wc26ir is unreachable; `npm run dev:mock` (always-on demo incl. a live match) for local testing;
+  wc26ir fetch timeout 6s→10s.
+- **Observability** (`lib/sources/wc26ir.ts`): a server-only `console.warn` on upstream failure
+  (status/message only — no secrets) surfaces feed outages in Vercel logs so you can tell an
+  upstream 5xx from a token 401. The route still degrades to last-good + stale, never throws.
+- **wc26ir is community-run and intermittently down** (seen: host 200 but `/get/games` 500). When
+  it's down, production correctly shows empty + stale ("FEED OFFLINE"); real scores return
+  automatically when upstream recovers. Not a bug — do not "fix" by crashing the route.
 
 Tests: web vitest (`apps/web`) + ml pytest (`ml`) both green; CI runs them + the backtest gate.
 
