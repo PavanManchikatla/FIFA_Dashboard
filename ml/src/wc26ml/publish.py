@@ -225,10 +225,13 @@ def main(run_backtest_for_card: bool = True) -> None:
         "backtest": backtest,
         "note": "Group-stage match probs from Elo + Dixon-Coles + GBM blend. "
                 "Knockout paths + champion odds come from the simulator (Phase 3).",
+        # Plain-language for the public model card (general audience). Technical detail lives
+        # in elo.py / PLAN.md / CLAUDE.md, not here.
         "knownLimitations": [
-            "Elo uses the frozen ln(|gd|+1) MOV term, which is 0 for draws → drawn matches "
-            "do not move ratings. Documented; revisit with a model improvement (see elo.py).",
-            "Match kickoff times are date-only from the source; precise UTC times TBD.",
+            "Draws don't move our team ratings as much as they probably should — a known rough "
+            "edge we plan to improve.",
+            "Knockout matchups are an approximation of FIFA's exact bracket rules.",
+            "Kick-off times are shown by date only for now.",
         ],
     }
     write_json("meta.json", meta)

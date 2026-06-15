@@ -49,14 +49,17 @@ ml/  (offline, GitHub Actions):
 The browser never calls an external API. All external data flows through the server poller →
 Redis, or the committed ML JSON. See [PLAN.md](PLAN.md) §2–§6 and [CLAUDE.md](CLAUDE.md).
 
-## Quick start (web)
+## Quick start
+
+One command from the repo root (installs web deps on first run, then starts the host):
 
 ```bash
-cd apps/web
-npm install
-npm run dev          # http://localhost:3000
-# scripts: npm run lint | npm run typecheck | npm test | npm run build
+./run.sh             # → http://localhost:3000
+# or: npm run dev    (same thing; predev auto-installs if needed)
 ```
+
+Root scripts (all delegate to `apps/web`): `npm run dev | build | start | lint | typecheck |
+test`, plus `npm run test:ml` and `npm run oracle:publish` for the Python pipeline.
 
 With no env set, the app runs fully on in-process mocks (Upstash → Map fallback, wc26ir →
 `mocks/` fixtures, `MOCK_LIVE_GOALS=1` to tick a live match, OpenFreeMap keyless tiles).

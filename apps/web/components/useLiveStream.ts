@@ -40,6 +40,17 @@ export function useLiveStream() {
       tick();
     };
 
+    // SSE holds a serverless function per client, which doesn't fit Vercel Hobby — so polling
+    // (CDN-cached, scalable) is the default. Opt into SSE only where the runtime sustains
+    // connections cheaply, via NEXT_PUBLIC_ENABLE_SSE=1.
+    if (process.env.NEXT_PUBLIC_ENABLE_SSE !== '1' || typeof EventSource === 'undefined') {
+      startPolling();
+      return () => {
+        active = false;
+        clearTimeout(pollTimer);
+      };
+    }
+
     try {
       es = new EventSource('/api/live/stream');
       es.onmessage = (ev) => {

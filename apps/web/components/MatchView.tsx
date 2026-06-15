@@ -61,7 +61,7 @@ export function MatchView({ matchId, titleOdds }: { matchId: string; titleOdds: 
       {/* Current win probability */}
       <div className="holo-panel p-4">
         <div className="mb-2 font-mono text-[11px] uppercase tracking-widest text-ink-dim">
-          win probability {data.lambdaSource === 'default' ? '(generic intensities — fixture not in model)' : ''}
+          chance of winning {data.lambdaSource === 'default' ? '(rough estimate — limited data for this match)' : ''}
         </div>
         <div className="flex h-6 w-full overflow-hidden rounded-full border border-line">
           <div className="flex items-center justify-center bg-cyan/40 text-[11px] text-ink" style={{ width: `${current.pHome * 100}%` }}>
@@ -84,7 +84,7 @@ export function MatchView({ matchId, titleOdds }: { matchId: string; titleOdds: 
       {/* Heartbeat */}
       <div className="holo-panel p-4">
         <div className="mb-2 font-mono text-[11px] uppercase tracking-widest text-ink-dim">
-          heartbeat — win prob over 90&apos;
+          heartbeat — how the win chance moved
         </div>
         <WinProbChart points={heartbeat} homeGoals={data.heartbeat.length ? heartbeatGoalMins(heartbeat, 'home') : []} awayGoals={heartbeatGoalMins(heartbeat, 'away')} />
       </div>
@@ -96,7 +96,7 @@ export function MatchView({ matchId, titleOdds }: { matchId: string; titleOdds: 
       </div>
 
       <p className="text-center font-mono text-[11px] text-ink-dim">
-        analytic remaining-time Poisson from Dixon-Coles intensities · not a prediction
+        live estimate from each team&apos;s scoring rate and the clock · not a guarantee
       </p>
     </div>
   );

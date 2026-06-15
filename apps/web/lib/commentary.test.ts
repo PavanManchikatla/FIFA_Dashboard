@@ -19,8 +19,8 @@ describe('commentary engine', () => {
     const lines = buildTickerLines(matches);
     // one per match + tile_broker + system
     expect(lines).toHaveLength(matches.length + 2);
-    expect(lines.some((l) => l.startsWith('TILE BROKER'))).toBe(true);
-    expect(lines.some((l) => l.startsWith('SYSTEM'))).toBe(true);
+    expect(lines.some((l) => l.startsWith('BEHIND THE SCENES'))).toBe(true);
+    expect(lines.some((l) => l.startsWith('PS'))).toBe(true);
   });
 
   it('gives a quip for known and unknown venues', () => {

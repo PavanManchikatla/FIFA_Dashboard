@@ -129,14 +129,14 @@ export function HoloMap({ insightLines = [] }: { insightLines?: string[] }) {
     <div className="flex h-screen flex-col">
       <header className="relative z-10 flex flex-wrap items-center gap-[18px] px-6 py-[14px] after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-holo-accent after:opacity-50 after:content-['']">
         <h1 className="holo-text-gradient font-display text-[clamp(15px,2.2vw,21px)] font-bold uppercase tracking-[0.14em] [filter:drop-shadow(0_0_14px_rgba(84,169,255,0.45))]">
-          Holo-pitch hybrid{' '}
+          Stadium map{' '}
           <span className="text-gold [-webkit-text-fill-color:#FFC94D] [text-shadow:0_0_12px_rgba(255,201,77,0.55)]">
             {'// WC26'}
           </span>
         </h1>
         <div className="ml-auto flex items-center gap-[14px] font-mono text-[14px] text-cyan">
           <span className="holo-panel px-[12px] py-[5px] text-[11px] uppercase tracking-[0.18em] text-ink-dim">
-            {stale ? 'stale cache' : snapshot ? 'live feed' : 'connecting…'}
+            {stale ? 'showing last update' : snapshot ? 'live' : 'connecting…'}
           </span>
         </div>
       </header>
@@ -232,16 +232,16 @@ export function HoloMap({ insightLines = [] }: { insightLines?: string[] }) {
             onClick={simulateFeedLoss}
             className="holo-btn cursor-pointer px-[14px] py-2 text-[14px] font-semibold uppercase tracking-[0.08em]"
           >
-            ⚡ Simulate feed loss
+            ⚡ Test map backup
           </button>
         </div>
 
-        {/* Tile feed HUD */}
+        {/* Map source HUD — plain status; the map auto-switches to a backup if one goes down. */}
         <div className="holo-panel absolute right-[14px] top-[14px] z-[5] px-[14px] py-2 font-mono text-[12px] tracking-[0.08em] text-ink-dim">
-          TILE FEED: <b className="font-normal text-cyan">{active.name}</b> ({active.quota}){' '}
+          Map: <b className="font-normal text-cyan">{active.name}</b>{' '}
           <span className={feedDown ? 'text-[#FF6B5C]' : 'text-mint'}>●</span>
           <br />
-          <span>chain: {broker.chain()}</span>
+          <span>{feedDown ? 'switching to backup…' : 'backups ready if it drops'}</span>
         </div>
 
         {selected && (

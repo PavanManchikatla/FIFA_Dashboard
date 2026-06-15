@@ -74,8 +74,8 @@ export default function HoloLatticeLanding() {
           </span>
         </h1>
         <p className="mt-3 max-w-md px-6 text-[14px] leading-relaxed text-ink-dim">
-          A live, funny World Cup dashboard with a real ML win-probability engine. Drag the
-          lattice — amber pillars are live matches.
+          A live, funny World Cup dashboard that actually predicts matches. Drag to spin —
+          glowing towers are the 16 stadiums, amber means a match is on right now.
         </p>
         <div className="pointer-events-auto mt-6 flex flex-wrap items-center justify-center gap-3">
           <button

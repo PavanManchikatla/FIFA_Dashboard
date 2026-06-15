@@ -1,0 +1,18 @@
+{
+  "name": "wc26-chaos-board",
+  "version": "0.1.0",
+  "private": true,
+  "description": "WC26 Continental Chaos Board — run `npm run dev` (or ./run.sh) to start the app.",
+  "scripts": {
+    "setup": "npm --prefix apps/web install",
+    "predev": "node -e \"require('fs').existsSync('apps/web/node_modules')||process.exit(1)\" || npm --prefix apps/web install",
+    "dev": "npm --prefix apps/web run dev",
+    "build": "npm --prefix apps/web run build",
+    "start": "npm --prefix apps/web run start",
+    "lint": "npm --prefix apps/web run lint",
+    "typecheck": "npm --prefix apps/web run typecheck",
+    "test": "npm --prefix apps/web test",
+    "test:ml": "cd ml && uv run --extra dev pytest",
+    "oracle:publish": "cd ml && uv run python -m wc26ml.publish"
+  }
+}

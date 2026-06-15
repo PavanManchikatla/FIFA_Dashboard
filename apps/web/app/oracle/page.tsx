@@ -40,7 +40,7 @@ export default function OraclePage() {
               The Oracle <span className="text-gold [-webkit-text-fill-color:#FFC94D]">{'// WC26'}</span>
             </h1>
             <p className="mt-1 font-mono text-[12px] text-ink-dim">
-              {sim.nRuns.toLocaleString()} Monte Carlo tournaments · run {runDate} · {sim.modelVersion}
+              We played the whole tournament {sim.nRuns.toLocaleString()} times to see who wins · updated {runDate}
             </p>
           </div>
           <Link href="/map" className="holo-btn px-4 py-2 font-display text-[13px] uppercase tracking-[0.1em]">
@@ -65,24 +65,24 @@ export default function OraclePage() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Champion odds */}
           <section>
-            <SectionTitle>Champion odds</SectionTitle>
+            <SectionTitle>Who wins it all?</SectionTitle>
             <div className="holo-panel space-y-[10px] p-4">
               {top.map((t) => (
                 <ProbBar key={t.team} label={t.team} value={t.pChampion} max={leader} delta={t.dChampion24h} />
               ))}
               <p className="pt-1 font-mono text-[10px] text-ink-dim">
-                bar scaled to the favourite · ▲▼ = 24h change in title odds
+                chance of lifting the trophy · ▲▼ = change since yesterday
               </p>
             </div>
           </section>
 
           {/* Bracket of Doom */}
           <section>
-            <SectionTitle>Bracket of Doom — survival odds</SectionTitle>
+            <SectionTitle>Bracket of Doom — how far each team gets</SectionTitle>
             <div className="holo-panel p-4">
               <BracketDoom teams={sim.teams.slice(0, 12)} />
               <p className="pt-2 font-mono text-[10px] text-ink-dim">
-                P(reach round), % · darker = more likely
+                chance of reaching each round (%) · darker = more likely
               </p>
             </div>
           </section>
@@ -90,7 +90,7 @@ export default function OraclePage() {
 
         {/* Group heat */}
         <section className="mt-8">
-          <SectionTitle>Group heat — probability of advancing</SectionTitle>
+          <SectionTitle>Groups — who makes it out</SectionTitle>
           <GroupHeat groups={sim.groups} />
         </section>
 

@@ -16,9 +16,9 @@ const TEMPLATES: Record<string, (p: TemplateParams) => string> = {
   final_whistle: (p) =>
     `FT :: ${p.home} ${p.score} ${p.away}. The Oracle is updating its feelings about ${p.team}`,
   tile_broker: () =>
-    'TILE BROKER :: openfreemap primary / stadia + maptiler on standby. one style JSON, three providers, $0',
+    'BEHIND THE SCENES :: the map has backups on standby — if one map service blinks, another takes over instantly',
   system: () =>
-    'SYSTEM :: this ticker is template-powered madlibs. cost: $0. uptime: eternal',
+    'PS :: this scrolling text is hand-written jokes, not AI. running cost: nothing.',
   panic_index: (p) =>
     `PANIC INDEX :: neutral fans 0.0 / anyone whose team plays today ${p.level}`,
 };

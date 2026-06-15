@@ -18,7 +18,7 @@ export function ModelCard({ meta }: { meta: Meta }) {
     <div className="holo-panel space-y-4 p-5">
       <div className="flex flex-wrap items-center gap-3">
         <h3 className="font-display text-[15px] font-medium uppercase tracking-[0.12em] text-cyan">
-          Model card
+          How the Oracle works
         </h3>
         {bt.accepted != null && (
           <span
@@ -26,22 +26,26 @@ export function ModelCard({ meta }: { meta: Meta }) {
               bt.accepted ? 'border-mint/50 text-mint' : 'border-magenta/50 text-magenta'
             }`}
           >
-            backtest {bt.accepted ? 'accepted' : 'pending'}
-            {bt.blendBeatsEloCount != null ? ` · beats Elo ${bt.blendBeatsEloCount}/4` : ''}
+            {bt.accepted ? 'tested on past World Cups ✓' : 'testing in progress'}
+            {bt.blendBeatsEloCount != null ? ` · beat the baseline in ${bt.blendBeatsEloCount} of 4` : ''}
           </span>
         )}
-        <span className="font-mono text-[11px] text-ink-dim">{meta.modelVersion}</span>
       </div>
+
+      <p className="text-[13px] leading-relaxed text-ink-dim">
+        The Oracle rates every team from ~50 years of results, estimates each match, then plays
+        the whole tournament thousands of times to get these chances.
+      </p>
 
       {ll && (
         <div>
           <div className="mb-1 font-mono text-[11px] uppercase tracking-wider text-ink-dim">
-            walk-forward log-loss (lower is better)
+            how accurate? — replayed the 2010–2022 World Cups (lower score = better)
           </div>
-          <div className="flex gap-4 font-mono text-[13px]">
-            <span className="text-ink-dim">uniform {ll.uniform.toFixed(3)}</span>
-            <span className="text-ink-dim">elo-only {ll.eloOnly.toFixed(3)}</span>
-            <span className="text-mint">blended {ll.blended.toFixed(3)}</span>
+          <div className="flex flex-wrap gap-4 font-mono text-[13px]">
+            <span className="text-ink-dim">random guess {ll.uniform.toFixed(2)}</span>
+            <span className="text-ink-dim">simple model {ll.eloOnly.toFixed(2)}</span>
+            <span className="text-mint">the Oracle {ll.blended.toFixed(2)}</span>
           </div>
         </div>
       )}
@@ -49,13 +53,13 @@ export function ModelCard({ meta }: { meta: Meta }) {
       {bt.calibration && bt.calibration.length > 0 && (
         <div>
           <div className="mb-1 font-mono text-[11px] uppercase tracking-wider text-ink-dim">
-            calibration — predicted vs actual P(home win)
+            reality check — when it says X%, how often did it happen? (said / actual)
           </div>
           <div className="flex flex-wrap gap-2 font-mono text-[11px]">
             {bt.calibration.map((c) => (
               <span key={c.bucket} className="rounded border border-line px-2 py-1 text-ink-dim">
-                {c.bucket}: <span className="text-cyan">{(c.predicted * 100).toFixed(0)}</span>/
-                <span className="text-azure">{(c.actual * 100).toFixed(0)}</span>
+                <span className="text-cyan">{(c.predicted * 100).toFixed(0)}%</span> /
+                <span className="text-azure"> {(c.actual * 100).toFixed(0)}%</span>
               </span>
             ))}
           </div>
@@ -64,11 +68,11 @@ export function ModelCard({ meta }: { meta: Meta }) {
 
       <div>
         <div className="mb-1 font-mono text-[11px] uppercase tracking-wider text-ink-dim">
-          what this model can&apos;t know
+          what it can&apos;t know
         </div>
         <p className="text-[13px] leading-relaxed text-ink-dim">
           Red cards, injuries, weather, motivation, and the sheer chaos of knockout football.
-          Probabilities are clamped to 1–99% on single matches; nothing here is a guarantee.
+          Every chance is shown between 1% and 99% — nothing here is a guarantee.
         </p>
         {limitations.length > 0 && (
           <ul className="mt-2 list-disc space-y-1 pl-5 text-[12px] text-ink-dim/90">

@@ -115,6 +115,13 @@ Tests: web vitest (`apps/web`) + ml pytest (`ml`) both green; CI runs them + the
   (unsupported, lost context, or no first frame within 3.5s) and falls back to `LatticeFallback`
   (CSS grid + geo-placed beacons) so it never shows a black void. `web-prod` launch config
   (`npm start`) avoids dev Fast-Refresh context churn when previewing 3D.
-- **SSE** (`/api/live/stream`, `useLiveStream`): bounded push stream with automatic fallback to
-  CDN-cached polling. On Vercel Hobby, polling stays the scalable default (SSE holds a function
-  per client); SSE shines on runtimes that sustain cheap connections.
+- **SSE** (`/api/live/stream`, `useLiveStream`): bounded push stream (≤30s, `maxDuration` set,
+  client-disconnect aware) but **gated OFF by default** — production uses CDN-cached polling,
+  the $0-scalable path. Opt in with `NEXT_PUBLIC_ENABLE_SSE=1` on runtimes that sustain cheap
+  connections.
+- **Plain-language UI**: user-facing copy avoids ML jargon (no "Dixon-Coles / log-loss / Monte
+  Carlo / λ" on screen) — branded names (Oracle, Bracket of Doom, Panic Index) kept with plain
+  explanations. Honest model card lives in `ModelCard.tsx`; plain `knownLimitations` come from
+  `publish.py`. Keep new copy plain.
+- **Single run command**: root `package.json` + `./run.sh` (installs web deps if missing, then
+  `npm run dev`). Root scripts delegate to `apps/web` via `--prefix`.

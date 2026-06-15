@@ -10,6 +10,7 @@ export const alt = 'WC26 Oracle — champion odds';
 export default function OracleOgImage() {
   const sim = getSimulation();
   const top = sim.teams.slice(0, 5);
+  const leader = top[0]?.pChampion || 1; // guard against an empty/placeholder artifact
 
   return new ImageResponse(
     (
@@ -26,7 +27,7 @@ export default function OracleOgImage() {
         }}
       >
         <div style={{ display: 'flex', fontSize: 26, letterSpacing: 6, color: '#5E8B86' }}>
-          THE ORACLE · WC26 · {sim.nRuns.toLocaleString()} MONTE CARLO RUNS
+          THE ORACLE · WC26 · {sim.nRuns.toLocaleString()} SIMULATED TOURNAMENTS
         </div>
         <div style={{ display: 'flex', fontSize: 76, fontWeight: 800, marginTop: 8, color: '#40E5D1' }}>
           Champion odds
@@ -35,7 +36,7 @@ export default function OracleOgImage() {
         <div style={{ display: 'flex', flexDirection: 'column', marginTop: 36, gap: 16 }}>
           {top.map((t, i) => {
             const pct = Math.round(t.pChampion * 100);
-            const width = Math.max(6, (t.pChampion / (top[0].pChampion || 1)) * 760);
+            const width = Math.max(6, (t.pChampion / leader) * 760);
             const color = ['#40E5D1', '#54A9FF', '#8B6CFF', '#FF5CA8', '#FFC94D'][i];
             return (
               <div key={t.team} style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
@@ -50,7 +51,7 @@ export default function OracleOgImage() {
         </div>
 
         <div style={{ display: 'flex', marginTop: 'auto', fontSize: 24, color: '#5E8B86' }}>
-          Continental Chaos Board · Elo + Dixon-Coles + GBM · $0 infrastructure
+          Continental Chaos Board · we replayed the World Cup 10,000 times · free to run
         </div>
       </div>
     ),

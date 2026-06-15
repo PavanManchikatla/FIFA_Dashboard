@@ -23,8 +23,8 @@
     "templateId": "title_odds_move",
     "params": {
       "team": "Uruguay",
-      "deltaPct": -0.3,
-      "direction": "down"
+      "deltaPct": 0.3,
+      "direction": "up"
     },
     "generatedAt": "2026-06-12T00:00:00Z"
   },
@@ -55,7 +55,7 @@
     "templateId": "dark_horse",
     "params": {
       "team": "Ecuador",
-      "pct": 4.7,
+      "pct": 4.9,
       "rank": 21
     },
     "generatedAt": "2026-06-12T00:00:00Z"
