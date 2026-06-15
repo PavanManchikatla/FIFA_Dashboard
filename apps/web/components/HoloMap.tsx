@@ -174,6 +174,8 @@ export function HoloMap({ insightLines = [], oddsByPair = {} }: { insightLines?:
 
   const active = broker.active();
   const stale = snapshot?.stale ?? false;
+  // Upstream score feed unreachable and no cached data to show.
+  const offline = !!snapshot && stale && matches.length === 0;
   const selectedMatch = selected ? matchForStadium(matches, selected.id) : null;
   const selectedOdds = selectedMatch ? oddsByPair[`${selectedMatch.home}|${selectedMatch.away}`] : undefined;
 
@@ -187,8 +189,8 @@ export function HoloMap({ insightLines = [], oddsByPair = {} }: { insightLines?:
         <nav className="ml-auto flex items-center gap-2 font-mono text-[12px]">
           <Link href="/" className="holo-btn px-3 py-[6px] uppercase tracking-[0.12em]">Home</Link>
           <Link href="/oracle" className="holo-btn px-3 py-[6px] uppercase tracking-[0.12em]">Oracle →</Link>
-          <span className="holo-panel ml-1 px-[10px] py-[5px] text-[11px] uppercase tracking-[0.16em] text-ink-dim">
-            {stale ? 'last update' : snapshot ? 'live' : 'connecting…'}
+          <span className={`holo-panel ml-1 px-[10px] py-[5px] text-[11px] uppercase tracking-[0.16em] ${offline ? 'text-magenta' : 'text-ink-dim'}`}>
+            {!snapshot ? 'connecting…' : offline ? 'feed offline' : stale ? 'last update' : 'live'}
           </span>
         </nav>
       </header>
@@ -281,7 +283,11 @@ export function HoloMap({ insightLines = [], oddsByPair = {} }: { insightLines?:
               <span className="font-display text-[13px] font-medium uppercase tracking-[0.12em] text-cyan">Matches</span>
               <button type="button" onClick={() => setShowList(false)} aria-label="Hide matches" className="text-[14px] text-ink-dim hover:text-ink">✕</button>
             </div>
-            <MatchList matches={matches} onSelect={selectMatch} />
+            <MatchList
+              matches={matches}
+              onSelect={selectMatch}
+              emptyNote={offline ? 'Score feed (worldcup26.ir) is offline — retrying…' : undefined}
+            />
           </div>
         ) : (
           <button type="button" onClick={() => setShowList(true)} className="holo-btn absolute right-[14px] top-[14px] z-[5] px-[14px] py-2 text-[13px] font-semibold uppercase tracking-[0.08em]">

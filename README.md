@@ -60,7 +60,12 @@ One command from the repo root (installs web deps on first run, then starts the 
 ```bash
 ./run.sh             # → http://localhost:3000
 # or: npm run dev    (same thing; predev auto-installs if needed)
+# or: npm run dev:mock   ← always-on demo data incl. a LIVE match (use when worldcup26.ir is
+#                          down — the map then shows "FEED OFFLINE")
 ```
+
+If the map shows **FEED OFFLINE**, the community score API (worldcup26.ir) is unreachable — it's
+intermittent. Run `npm run dev:mock` to test the full UI with a live match regardless.
 
 Root scripts (all delegate to `apps/web`): `npm run dev | build | start | lint | typecheck |
 test`, plus `npm run test:ml` and `npm run oracle:publish` for the Python pipeline.

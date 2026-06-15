@@ -53,7 +53,7 @@ function Section({ title, matches, accent, onSelect }: { title: string; matches:
   );
 }
 
-export function MatchList({ matches, onSelect }: { matches: Match[]; onSelect: (m: Match) => void }) {
+export function MatchList({ matches, onSelect, emptyNote }: { matches: Match[]; onSelect: (m: Match) => void; emptyNote?: string }) {
   const live = matches.filter((m) => m.status === 'live');
   const upcoming = matches
     .filter((m) => m.status === 'scheduled')
@@ -63,7 +63,7 @@ export function MatchList({ matches, onSelect }: { matches: Match[]; onSelect: (
   return (
     <div className="thin-scroll h-full overflow-y-auto pr-1">
       {matches.length === 0 ? (
-        <p className="px-2 py-4 font-mono text-[12px] text-ink-dim">no matches yet…</p>
+        <p className="px-2 py-4 font-mono text-[12px] text-ink-dim">{emptyNote ?? 'no matches yet…'}</p>
       ) : (
         <>
           <Section title="Live now" matches={live} accent="text-amber" onSelect={onSelect} />

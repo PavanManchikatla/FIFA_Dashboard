@@ -16,7 +16,7 @@ import { unwrapList } from './unwrap';
 //    cache with a stale flag (CLAUDE.md).
 
 const BASE = process.env.WC26IR_BASE_URL;
-const FETCH_TIMEOUT_MS = 6_000;
+const FETCH_TIMEOUT_MS = 10_000; // wc26ir is community-run and slow on cold hits
 
 export type Wc26irResult = { ok: true; data: Wc26irData } | { ok: false; error: string };
 

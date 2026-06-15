@@ -44,15 +44,20 @@ function readColors(): ThemeColors {
   };
 }
 
+function currentTheme(): string {
+  return typeof document !== 'undefined' ? document.documentElement.getAttribute('data-theme') || 'holo' : 'holo';
+}
+
 export function useThemeColors(): { theme: string; colors: ThemeColors | null } {
-  const [theme, setTheme] = useState('holo');
-  const [ready, setReady] = useState(false);
+  // Lazy-init from the live DOM attribute so the FIRST render is already the correct theme —
+  // otherwise consumers (map basemap, lattice) build with the default theme on mount and the
+  // correction races their init. Consumers are client-only (dynamic ssr:false), so document exists.
+  const [theme, setTheme] = useState(currentTheme);
 
   useEffect(() => {
     const el = document.documentElement;
     const sync = () => setTheme(el.getAttribute('data-theme') || 'holo');
-    sync();
-    setReady(true);
+    sync(); // catch any change between first render and this effect attaching
     const obs = new MutationObserver(sync);
     obs.observe(el, { attributes: true, attributeFilter: ['data-theme'] });
     return () => obs.disconnect();
@@ -61,6 +66,6 @@ export function useThemeColors(): { theme: string; colors: ThemeColors | null } 
   // Recompute whenever the theme attribute changes — `theme` is the intentional trigger even
   // though readColors() pulls from the DOM, not from `theme` directly.
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const colors = useMemo(() => (ready ? readColors() : null), [theme, ready]);
+  const colors = useMemo(() => (typeof window === 'undefined' ? null : readColors()), [theme]);
   return { theme, colors };
 }

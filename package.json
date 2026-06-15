@@ -7,6 +7,7 @@
     "setup": "npm --prefix apps/web install",
     "predev": "node -e \"require('fs').existsSync('apps/web/node_modules')||process.exit(1)\" || npm --prefix apps/web install",
     "dev": "npm --prefix apps/web run dev",
+    "dev:mock": "WC26IR_BASE_URL= MOCK_LIVE_GOALS=1 npm --prefix apps/web run dev",
     "build": "npm --prefix apps/web run build",
     "start": "npm --prefix apps/web run start",
     "lint": "npm --prefix apps/web run lint",
