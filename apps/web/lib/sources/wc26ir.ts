@@ -86,7 +86,13 @@ export async function fetchData(): Promise<Wc26irResult> {
     ]);
     return { ok: true, data: { games, teams, stadiums } };
   } catch (err) {
-    return { ok: false, error: err instanceof Error ? err.message : 'wc26ir fetch failed' };
+    const error = err instanceof Error ? err.message : 'wc26ir fetch failed';
+    // Server-only observability: surface the upstream failure (status code / timeout) in the
+    // Vercel function logs so a feed outage is diagnosable (upstream 5xx vs token 401) without
+    // exposing anything to the client. The route still degrades gracefully (caller serves
+    // last-good + stale flag); we never throw.
+    console.warn(`[wc26ir] fetch failed → serving stale/empty: ${error}`);
+    return { ok: false, error };
   }
 }
 
