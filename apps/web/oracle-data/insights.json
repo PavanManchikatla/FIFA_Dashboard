@@ -9,22 +9,22 @@
     "templateId": "title_favorite",
     "params": {
       "team": "Argentina",
-      "pct": 21.7
+      "pct": 22.2
     },
     "generatedAt": "2026-06-14T00:00:00Z"
   },
   {
     "id": "title_odds_move",
     "kind": "title_odds_move",
-    "severity": 2,
+    "severity": 1,
     "teams": [
-      "Brazil"
+      "Colombia"
     ],
     "templateId": "title_odds_move",
     "params": {
-      "team": "Brazil",
-      "deltaPct": -1.31,
-      "direction": "down"
+      "team": "Colombia",
+      "deltaPct": 0.58,
+      "direction": "up"
     },
     "generatedAt": "2026-06-14T00:00:00Z"
   },
@@ -55,7 +55,7 @@
     "templateId": "dark_horse",
     "params": {
       "team": "Ecuador",
-      "pct": 3.8,
+      "pct": 4.2,
       "rank": 23
     },
     "generatedAt": "2026-06-14T00:00:00Z"
