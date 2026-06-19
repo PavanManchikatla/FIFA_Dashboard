@@ -1,19 +1,19 @@
 {
-  "runAt": "2026-06-16T00:00:00Z",
+  "runAt": "2026-06-17T00:00:00Z",
   "modelVersion": "elo+dc+gbm-0.1.0",
-  "blendWeightPoisson": 0.15,
+  "blendWeightPoisson": 0.2,
   "matchProbCount": 72,
   "backtest": {
     "perTournament": [
       {
         "year": 2010,
         "n": 64,
-        "w": 0.55,
+        "w": 0.6,
         "ll_uniform": 1.0986122886681098,
-        "ll_elo": 1.0123299816046034,
-        "ll_blend": 0.9729018410055696,
-        "brier_elo": 0.6032180335002386,
-        "brier_blend": 0.5778528415180947,
+        "ll_elo": 1.0123309735961121,
+        "ll_blend": 0.9708519252695147,
+        "brier_elo": 0.6032182195678489,
+        "brier_blend": 0.5765703282830814,
         "beats_elo": true
       },
       {
@@ -21,21 +21,21 @@
         "n": 64,
         "w": 0.75,
         "ll_uniform": 1.0986122886681098,
-        "ll_elo": 0.9798852196099133,
-        "ll_blend": 0.9436479790914082,
-        "brier_elo": 0.5865082496373332,
-        "brier_blend": 0.5614290705692357,
+        "ll_elo": 0.9798866575834483,
+        "ll_blend": 0.9421736844372204,
+        "brier_elo": 0.5865091926231529,
+        "brier_blend": 0.5608623228942545,
         "beats_elo": true
       },
       {
         "year": 2018,
         "n": 64,
-        "w": 0.75,
+        "w": 0.85,
         "ll_uniform": 1.0986122886681098,
-        "ll_elo": 0.992264907544735,
-        "ll_blend": 0.9523588843084835,
-        "brier_elo": 0.5911501420979164,
-        "brier_blend": 0.5643555394201643,
+        "ll_elo": 0.9922650739543236,
+        "ll_blend": 0.9501092485226448,
+        "brier_elo": 0.591149940154146,
+        "brier_blend": 0.5626013199452626,
         "beats_elo": true
       },
       {
@@ -43,10 +43,10 @@
         "n": 64,
         "w": 0.25,
         "ll_uniform": 1.0986122886681098,
-        "ll_elo": 1.0281142149346958,
-        "ll_blend": 1.0346518856061002,
-        "brier_elo": 0.6009321173260516,
-        "brier_blend": 0.6101646305458202,
+        "ll_elo": 1.0281172460706325,
+        "ll_blend": 1.0328502186182473,
+        "brier_elo": 0.6009326783807104,
+        "brier_blend": 0.6100844982999887,
         "beats_elo": false
       }
     ],
@@ -54,38 +54,38 @@
     "accepted": true,
     "meanLogLoss": {
       "uniform": 1.0986122886681098,
-      "eloOnly": 1.003148580923487,
-      "blended": 0.9758901475028904
+      "eloOnly": 1.0031499878011292,
+      "blended": 0.9739962692119067
     },
     "calibration": [
       {
         "bucket": "0.0-0.2",
-        "n": 36,
-        "predicted": 0.152,
-        "actual": 0.167
+        "n": 37,
+        "predicted": 0.15,
+        "actual": 0.162
       },
       {
         "bucket": "0.2-0.4",
         "n": 92,
-        "predicted": 0.3,
+        "predicted": 0.298,
         "actual": 0.25
       },
       {
         "bucket": "0.4-0.6",
-        "n": 79,
-        "predicted": 0.499,
-        "actual": 0.532
+        "n": 76,
+        "predicted": 0.498,
+        "actual": 0.539
       },
       {
         "bucket": "0.6-0.8",
-        "n": 48,
-        "predicted": 0.674,
-        "actual": 0.708
+        "n": 50,
+        "predicted": 0.676,
+        "actual": 0.7
       },
       {
         "bucket": "0.8-1.0",
         "n": 1,
-        "predicted": 0.883,
+        "predicted": 0.884,
         "actual": 1.0
       }
     ]
