@@ -19,9 +19,9 @@
   },
   {
     "team": "Brazil",
-    "elo": 2160.0,
+    "elo": 2163.9,
     "rank": 4,
-    "delta_7d": 0.0
+    "delta_7d": 3.9
   },
   {
     "team": "England",
@@ -43,15 +43,15 @@
   },
   {
     "team": "Netherlands",
-    "elo": 2068.3,
+    "elo": 2084.3,
     "rank": 8,
-    "delta_7d": 0.0
+    "delta_7d": 16.0
   },
   {
     "team": "Germany",
-    "elo": 2053.0,
+    "elo": 2062.0,
     "rank": 9,
-    "delta_7d": 5.5
+    "delta_7d": 14.5
   },
   {
     "team": "Belgium",
@@ -60,16 +60,16 @@
     "delta_7d": 0.0
   },
   {
-    "team": "Morocco",
-    "elo": 2016.3,
+    "team": "Japan",
+    "elo": 2029.9,
     "rank": 11,
-    "delta_7d": 0.0
+    "delta_7d": 14.8
   },
   {
-    "team": "Japan",
-    "elo": 2015.1,
+    "team": "Morocco",
+    "elo": 2025.5,
     "rank": 12,
-    "delta_7d": 0.0
+    "delta_7d": 9.3
   },
   {
     "team": "Uruguay",
@@ -114,22 +114,22 @@
     "delta_7d": -11.9
   },
   {
-    "team": "Australia",
-    "elo": 1955.0,
-    "rank": 20,
-    "delta_7d": 31.8
-  },
-  {
     "team": "Iran",
     "elo": 1941.7,
-    "rank": 21,
+    "rank": 20,
     "delta_7d": 0.0
   },
   {
     "team": "South Korea",
     "elo": 1941.1,
-    "rank": 22,
+    "rank": 21,
     "delta_7d": -13.9
+  },
+  {
+    "team": "United States",
+    "elo": 1928.8,
+    "rank": 22,
+    "delta_7d": 30.4
   },
   {
     "team": "Ecuador",
@@ -144,28 +144,28 @@
     "delta_7d": 22.3
   },
   {
+    "team": "Australia",
+    "elo": 1924.6,
+    "rank": 25,
+    "delta_7d": -30.4
+  },
+  {
     "team": "Canada",
     "elo": 1920.7,
-    "rank": 25,
+    "rank": 26,
     "delta_7d": 11.3
   },
   {
     "team": "Algeria",
     "elo": 1912.6,
-    "rank": 26,
+    "rank": 27,
     "delta_7d": -11.0
   },
   {
     "team": "Austria",
     "elo": 1911.2,
-    "rank": 27,
-    "delta_7d": 22.0
-  },
-  {
-    "team": "United States",
-    "elo": 1898.4,
     "rank": 28,
-    "delta_7d": 22.3
+    "delta_7d": 22.0
   },
   {
     "team": "Nigeria",
@@ -175,9 +175,9 @@
   },
   {
     "team": "Turkey",
-    "elo": 1880.9,
+    "elo": 1855.2,
     "rank": 30,
-    "delta_7d": -31.8
+    "delta_7d": -25.7
   },
   {
     "team": "Russia",
@@ -186,16 +186,16 @@
     "delta_7d": 0.0
   },
   {
-    "team": "Ivory Coast",
-    "elo": 1849.2,
-    "rank": 32,
-    "delta_7d": 26.7
-  },
-  {
     "team": "Yugoslavia",
     "elo": 1844.1,
-    "rank": 33,
+    "rank": 32,
     "delta_7d": 0.0
+  },
+  {
+    "team": "Ivory Coast",
+    "elo": 1840.2,
+    "rank": 33,
+    "delta_7d": 17.7
   },
   {
     "team": "Panama",
@@ -217,33 +217,33 @@
   },
   {
     "team": "Serbia",
-    "elo": 1832.7,
+    "elo": 1832.6,
     "rank": 37,
     "delta_7d": 0.0
   },
   {
-    "team": "Scotland",
-    "elo": 1818.8,
-    "rank": 38,
-    "delta_7d": 13.1
-  },
-  {
     "team": "Jersey",
-    "elo": 1816.1,
-    "rank": 39,
+    "elo": 1816.2,
+    "rank": 38,
     "delta_7d": 0.0
   },
   {
-    "team": "Sweden",
-    "elo": 1810.9,
-    "rank": 40,
-    "delta_7d": 52.5
+    "team": "Scotland",
+    "elo": 1809.5,
+    "rank": 39,
+    "delta_7d": -9.3
   },
   {
     "team": "Greece",
     "elo": 1806.5,
-    "rank": 41,
+    "rank": 40,
     "delta_7d": 0.0
+  },
+  {
+    "team": "Paraguay",
+    "elo": 1801.5,
+    "rank": 41,
+    "delta_7d": 25.7
   },
   {
     "team": "Czechoslovakia",
@@ -258,38 +258,38 @@
     "delta_7d": -9.4
   },
   {
+    "team": "Sweden",
+    "elo": 1794.8,
+    "rank": 44,
+    "delta_7d": 36.5
+  },
+  {
     "team": "Czech Republic",
     "elo": 1784.8,
-    "rank": 44,
+    "rank": 45,
     "delta_7d": 0.0
   },
   {
     "team": "Peru",
     "elo": 1783.6,
-    "rank": 45,
+    "rank": 46,
     "delta_7d": 0.0
   },
   {
     "team": "Cameroon",
     "elo": 1779.9,
-    "rank": 46,
+    "rank": 47,
     "delta_7d": 0.0
   },
   {
     "team": "Chile",
     "elo": 1778.1,
-    "rank": 47,
+    "rank": 48,
     "delta_7d": 0.0
   },
   {
-    "team": "Paraguay",
-    "elo": 1775.8,
-    "rank": 48,
-    "delta_7d": -22.3
-  },
-  {
     "team": "Guernsey",
-    "elo": 1774.7,
+    "elo": 1774.8,
     "rank": 49,
     "delta_7d": 0.0
   },
@@ -342,16 +342,16 @@
     "delta_7d": 0.0
   },
   {
-    "team": "Tunisia",
-    "elo": 1742.6,
-    "rank": 58,
-    "delta_7d": -52.5
-  },
-  {
     "team": "New Zealand",
     "elo": 1741.0,
-    "rank": 59,
+    "rank": 58,
     "delta_7d": 0.0
+  },
+  {
+    "team": "Tunisia",
+    "elo": 1727.8,
+    "rank": 59,
+    "delta_7d": -67.3
   },
   {
     "team": "South Africa",
@@ -409,7 +409,7 @@
   },
   {
     "team": "Isle of Man",
-    "elo": 1704.8,
+    "elo": 1704.9,
     "rank": 69,
     "delta_7d": 0.0
   },
@@ -457,9 +457,9 @@
   },
   {
     "team": "Haiti",
-    "elo": 1671.5,
+    "elo": 1667.6,
     "rank": 77,
-    "delta_7d": -13.1
+    "delta_7d": -3.9
   },
   {
     "team": "Kosovo",
@@ -475,7 +475,7 @@
   },
   {
     "team": "Isle of Wight",
-    "elo": 1661.3,
+    "elo": 1661.2,
     "rank": 80,
     "delta_7d": 0.0
   },
@@ -523,7 +523,7 @@
   },
   {
     "team": "Ynys Môn",
-    "elo": 1620.6,
+    "elo": 1620.7,
     "rank": 88,
     "delta_7d": 0.0
   },
@@ -631,13 +631,13 @@
   },
   {
     "team": "Rhodes",
-    "elo": 1579.4,
+    "elo": 1579.3,
     "rank": 106,
     "delta_7d": 0.0
   },
   {
     "team": "Menorca",
-    "elo": 1576.6,
+    "elo": 1576.5,
     "rank": 107,
     "delta_7d": 0.0
   },
@@ -745,7 +745,7 @@
   },
   {
     "team": "Quebec",
-    "elo": 1540.6,
+    "elo": 1540.5,
     "rank": 125,
     "delta_7d": 0.0
   },
@@ -943,7 +943,7 @@
   },
   {
     "team": "Shetland",
-    "elo": 1498.2,
+    "elo": 1498.1,
     "rank": 158,
     "delta_7d": 0.0
   },
@@ -961,7 +961,7 @@
   },
   {
     "team": "Åland Islands",
-    "elo": 1496.5,
+    "elo": 1496.2,
     "rank": 161,
     "delta_7d": 0.0
   },
@@ -1111,7 +1111,7 @@
   },
   {
     "team": "South Yemen",
-    "elo": 1477.9,
+    "elo": 1478.0,
     "rank": 186,
     "delta_7d": 0.0
   },
@@ -1135,7 +1135,7 @@
   },
   {
     "team": "Gotland",
-    "elo": 1472.6,
+    "elo": 1473.6,
     "rank": 190,
     "delta_7d": 0.0
   },
@@ -1165,7 +1165,7 @@
   },
   {
     "team": "Greenland",
-    "elo": 1468.9,
+    "elo": 1468.6,
     "rank": 195,
     "delta_7d": 0.0
   },
@@ -1303,7 +1303,7 @@
   },
   {
     "team": "Western Isles",
-    "elo": 1434.0,
+    "elo": 1434.1,
     "rank": 218,
     "delta_7d": 0.0
   },
@@ -1339,7 +1339,7 @@
   },
   {
     "team": "Malawi",
-    "elo": 1424.9,
+    "elo": 1425.0,
     "rank": 224,
     "delta_7d": 0.0
   },
@@ -1417,7 +1417,7 @@
   },
   {
     "team": "Liberia",
-    "elo": 1400.8,
+    "elo": 1400.7,
     "rank": 237,
     "delta_7d": 0.0
   },
@@ -1567,7 +1567,7 @@
   },
   {
     "team": "Sark",
-    "elo": 1336.9,
+    "elo": 1336.7,
     "rank": 262,
     "delta_7d": 0.0
   },
@@ -1597,7 +1597,7 @@
   },
   {
     "team": "Saint Kitts and Nevis",
-    "elo": 1310.2,
+    "elo": 1310.3,
     "rank": 267,
     "delta_7d": 0.0
   },
@@ -1771,7 +1771,7 @@
   },
   {
     "team": "Eritrea",
-    "elo": 1211.3,
+    "elo": 1211.4,
     "rank": 296,
     "delta_7d": 0.0
   },
@@ -1783,13 +1783,13 @@
   },
   {
     "team": "Frøya",
-    "elo": 1196.7,
+    "elo": 1196.8,
     "rank": 298,
     "delta_7d": 0.0
   },
   {
     "team": "Afghanistan",
-    "elo": 1188.7,
+    "elo": 1189.8,
     "rank": 299,
     "delta_7d": 0.0
   },
@@ -1849,13 +1849,13 @@
   },
   {
     "team": "Pakistan",
-    "elo": 1099.2,
+    "elo": 1098.9,
     "rank": 309,
     "delta_7d": 0.0
   },
   {
     "team": "Taiwan",
-    "elo": 1095.6,
+    "elo": 1095.5,
     "rank": 310,
     "delta_7d": 0.0
   },
@@ -1897,7 +1897,7 @@
   },
   {
     "team": "Maldives",
-    "elo": 1040.1,
+    "elo": 1039.3,
     "rank": 317,
     "delta_7d": 0.0
   },
@@ -1921,7 +1921,7 @@
   },
   {
     "team": "Northern Mariana Islands",
-    "elo": 1020.0,
+    "elo": 1019.9,
     "rank": 321,
     "delta_7d": 0.0
   },
@@ -1945,13 +1945,13 @@
   },
   {
     "team": "Seychelles",
-    "elo": 998.8,
+    "elo": 998.9,
     "rank": 325,
     "delta_7d": 0.0
   },
   {
     "team": "Somalia",
-    "elo": 994.1,
+    "elo": 994.2,
     "rank": 326,
     "delta_7d": 0.0
   },
@@ -1987,7 +1987,7 @@
   },
   {
     "team": "Anguilla",
-    "elo": 923.2,
+    "elo": 923.1,
     "rank": 332,
     "delta_7d": 0.0
   },
@@ -1999,7 +1999,7 @@
   },
   {
     "team": "Macau",
-    "elo": 885.1,
+    "elo": 885.0,
     "rank": 334,
     "delta_7d": 0.0
   },
