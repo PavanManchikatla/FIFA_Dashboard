@@ -9,9 +9,9 @@
     "templateId": "title_favorite",
     "params": {
       "team": "Argentina",
-      "pct": 22.4
+      "pct": 16.8
     },
-    "generatedAt": "2026-06-23T00:00:00Z"
+    "generatedAt": "2026-06-24T00:00:00Z"
   },
   {
     "id": "title_odds_move",
@@ -23,10 +23,10 @@
     "templateId": "title_odds_move",
     "params": {
       "team": "Argentina",
-      "deltaPct": -1.09,
+      "deltaPct": -5.62,
       "direction": "down"
     },
-    "generatedAt": "2026-06-23T00:00:00Z"
+    "generatedAt": "2026-06-24T00:00:00Z"
   },
   {
     "id": "group_of_death",
@@ -34,30 +34,30 @@
     "severity": 3,
     "teams": [
       "United States",
+      "Turkey",
       "Australia",
-      "Paraguay",
-      "Turkey"
+      "Paraguay"
     ],
     "templateId": "group_of_death",
     "params": {
       "group": "B",
-      "teams": "United States, Australia, Paraguay, Turkey"
+      "teams": "United States, Turkey, Australia, Paraguay"
     },
-    "generatedAt": "2026-06-23T00:00:00Z"
+    "generatedAt": "2026-06-24T00:00:00Z"
   },
   {
     "id": "dark_horse",
     "kind": "dark_horse",
     "severity": 2,
     "teams": [
-      "Ecuador"
+      "Belgium"
     ],
     "templateId": "dark_horse",
     "params": {
-      "team": "Ecuador",
-      "pct": 2.8,
-      "rank": 24
+      "team": "Belgium",
+      "pct": 4.8,
+      "rank": 11
     },
-    "generatedAt": "2026-06-23T00:00:00Z"
+    "generatedAt": "2026-06-24T00:00:00Z"
   }
 ]
