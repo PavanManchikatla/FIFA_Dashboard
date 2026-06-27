@@ -9,22 +9,22 @@
     "templateId": "title_favorite",
     "params": {
       "team": "Argentina",
-      "pct": 22.0
+      "pct": 21.6
     },
     "generatedAt": "2026-06-25T00:00:00Z"
   },
   {
     "id": "title_odds_move",
     "kind": "title_odds_move",
-    "severity": 2,
+    "severity": 1,
     "teams": [
       "Argentina"
     ],
     "templateId": "title_odds_move",
     "params": {
       "team": "Argentina",
-      "deltaPct": 5.18,
-      "direction": "up"
+      "deltaPct": -0.35,
+      "direction": "down"
     },
     "generatedAt": "2026-06-25T00:00:00Z"
   },
@@ -55,7 +55,7 @@
     "templateId": "dark_horse",
     "params": {
       "team": "Belgium",
-      "pct": 3.6,
+      "pct": 3.7,
       "rank": 11
     },
     "generatedAt": "2026-06-25T00:00:00Z"
