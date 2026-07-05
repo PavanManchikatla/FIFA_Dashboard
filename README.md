@@ -93,6 +93,8 @@ uv run python -m wc26ml.publish    # writes apps/web/oracle-data/*.json (runs th
 
 ## Docs
 
+- [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md) — **the master overview**: the whole project story
+  start to end (vision, every phase, the ML engine, the deploy saga, security, timeline).
 - [PLAN.md](PLAN.md) — architecture, data contracts, phased roadmap (with **[as-built]** notes).
 - [CLAUDE.md](CLAUDE.md) — working rules, current status, key decisions & data gotchas.
 - [docs/DEPLOY.md](docs/DEPLOY.md) — go-live runbook (wc26ir → Upstash → Vercel).
